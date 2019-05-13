@@ -30,4 +30,13 @@ public class MemberServiceImpl implements MemberService {
 		return dao.idCheck(map);
 	}
 
+	@Override
+	public void kakaoConnect(Map map) {
+		dao.kakaoConnect(map);
+	}
+	
+	@Override
+	public String kakaoLogin(Map map) {
+		return dao.kakaoLogin(map);
+	}
 }

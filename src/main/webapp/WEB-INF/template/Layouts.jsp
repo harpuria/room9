@@ -34,6 +34,8 @@
 <script src="<c:url value='/js/owl.carousel.min.js'/>"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bae907e078c4dd929177071c5ed2263c&libraries=services,clusterer,drawing"></script>
 
+<link rel="logo icon" type="image⁄x-icon" href="<c:url value='/resources/img/room9logo_op.png' />">
+
 </head>
 <body>
 	<!-- 탑메뉴 : 네비게이션 바 -->

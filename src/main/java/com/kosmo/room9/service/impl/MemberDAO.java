@@ -30,4 +30,15 @@ public class MemberDAO implements MemberService{
 	public boolean idCheck(Map map) {
 		return (Integer) template.selectOne("IdCheck", map) == 1 ? true : false;
 	}
+	
+	@Override
+	public void kakaoConnect(Map map) {
+		template.update("kakaoConnect", map);
+	}
+
+	@Override
+	public String kakaoLogin(Map map) {
+		return template.selectOne("kakaoLogin", map);
+	}
+
 }

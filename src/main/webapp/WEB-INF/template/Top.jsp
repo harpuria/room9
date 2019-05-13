@@ -12,17 +12,21 @@
             </a>
         </div>
         
-        <div class="link-login">
-            <a href="<c:url value='/login.room9'/>">
-                <i class="fas fa-sign-in-alt fa-2x" style="color: #006600"></i>&nbsp;&nbsp;LOGIN
-            </a>
-        </div>
+        <c:if test="${empty sessionScope.emailid }" var="isLogin">
+	        <div class="link-login">
+	            <a href="<c:url value='/login.room9'/>">
+	                <i class="fas fa-sign-in-alt fa-2x" style="color: #006600"></i>&nbsp;&nbsp;LOGIN
+	            </a>
+	        </div>
+        </c:if>
         
-        <div class="link-logout">
-            <a href="#">
-                <i class="fas fa-sign-out-alt fa-2x" style="color: #6666cc"></i>&nbsp;&nbsp;LOGOUT
-            </a>
-        </div>
+        <c:if test="${not isLogin }" >
+	        <div class="link-logout">
+	            <a href="<c:url value='/logout.room9' />">
+	                <i class="fas fa-sign-out-alt fa-2x" style="color: #6666cc"></i>&nbsp;&nbsp;LOGOUT
+	            </a>
+	        </div>
+        </c:if>
         
         <div class="link-red">
             <a href="#">
@@ -154,6 +158,14 @@ body {padding-left: 14%;}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 <script>
+
+var links = $('.sidebar1-links > div');
+
+links.on('click', function() {
+   links.removeClass('selected');
+   $(this).addClass('selected');
+});
+
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 
 (function() {

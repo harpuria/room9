@@ -28,14 +28,11 @@
 <link href="<c:url value='/css/owl.carousel.min.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/login.css'/>" rel="stylesheet" />
 
-
-
 <!-- 밸리데이션 -->
 <script type="text/javascript" src="<c:url value='resources/validation/jquery.validate.js'/>"></script>
 <script type="text/javascript" src="<c:url value='resources/validation/additional-methods.js'/>"></script>
 <script type="text/javascript" src="<c:url value='resources/validation/messages_ko.min.js'/>"></script>
 <!-- 밸리데이션 -->
-
 
 <script src="assets/js/wow.min.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -129,6 +126,9 @@ label.error {
 </style>
 
 <body>
+
+<h1 onclick='loginWithKakao("connect")'>카카오 연동하기 (test)</h1>
+
 <form action="<c:url value='/loginProcess.room9'/>">
 	<h1 onclick="location.href='<c:url value='/home.room9'/>'" id="room9">
 		<img src="<c:url value='/resources/img/room9logo_op.png'/>" />
@@ -143,15 +143,46 @@ label.error {
 			<input type="password" name="pwd" id="password">
 		</p>
 		<p class="loginimg">
-			<a id="custom-login-btn" href="javascript:loginWithKakao()"> <img
-				src="<c:url value='/resources/img/naverlogin.png'/>" alt="네이버로그인버튼">
-			</a> <a id="custom-login-btn" href="javascript:loginWithKakao()"> <img
-				src="<c:url value='/resources/img/kakaologin.png'/>" alt="카카오로그인버튼">
-			</a> <a id="custom-login-btn" href="javascript:loginWithKakao()"> <img
-				src="<c:url value='/resources/img/googlelogin.png'/>" alt="구글로그인버튼">
-			</a> <a id="custom-login-btn" href="javascript:loginWithKakao()"> <img
-				src="<c:url value='/resources/img/facebooklogin.png'/>"
-				alt="페이스북로그인버튼">
+			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+			<img src="<c:url value='/resources/img/naverlogin.png'/>" alt="네이버로그인버튼">
+			</a> 
+			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+			<img src="<c:url value='/resources/img/kakaologin.png'/>" alt="카카오로그인버튼">
+			</a> 
+			
+
+			<script type='text/javascript'>
+				// 사용할 앱의 JavaScript 키를 설정해 주세요.
+				Kakao.init('bae907e078c4dd929177071c5ed2263c');
+				function loginWithKakao(str) {
+					// 로그인 창을 띄웁니다.
+					// accesstoken 으로 로그인 처리 및 로그인 여부 확인하면 될 듯 함.
+					Kakao.Auth.loginForm({
+						success : function(authObj) {
+							// 로그인 후 토큰을 이용하기 위해 토큰부분만 추출
+							var accessToken = JSON.stringify(authObj).substring(17, JSON.stringify(authObj).indexOf('","'));
+							// 카카오 로그인시에는 리캡차 적용 안되도 로그인이 됨
+							if(str == "connect"){
+								// 여기는 기존 유저가 카카오 연동할 때
+								location.href = "<c:url value='/kakaoConnect.room9?accessToken="	+ accessToken + "'/>";
+							}
+							else{
+								// 여기는 카카오 로그인할 때
+								location.href = "<c:url value='/kakaoLogin.room9?accessToken="	+ accessToken + "'/>"	
+							}
+						},
+						fail : function(err) {
+							alert(JSON.stringify(err));
+						}
+					});
+				};
+			</script>
+			
+			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+			<img src="<c:url value='/resources/img/googlelogin.png'/>" alt="구글로그인버튼">
+			</a> 
+			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+			<img src="<c:url value='/resources/img/facebooklogin.png'/>" alt="페이스북로그인버튼">
 			</a>
 		</p>
 	</div>
@@ -207,7 +238,7 @@ label.error {
 </form>
 
 <!-- 아이디 비번 찾기Modal -->
-<form method="post" action="#" id="registerform">
+<form method="get" action="<c:url value='/sendpw.room9'/>" id="registerform">
    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
       aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" style="padding-top: 5%">
@@ -220,8 +251,8 @@ label.error {
                   </button>
                   <h3 class="title mb-3 mt-3"
                      style="color: white !important; text-align: center">Forget Email / Password</h3>
-               </div>   
-               <div style="padding-bottom: 5%">   
+               </div>
+               <!-- <div style="padding-bottom: 5%">   
                   <h3 style="color: gray">아이디찾기</h3>
                   <p class="signin" style="padding-bottom: 0px !important;">등록한이메일</p>
                   <input type="email" class="form-control" placeholder="이메일주소입력"
@@ -230,13 +261,13 @@ label.error {
                   <p class="signin">이름</p>
                   <input type="text" value="" class="form-control name" name="name"
                      placeholder="이름 입력" id="name" style="margin-bottom: 8px; width: 65%" />
-               </div>
+               </div> -->
                <hr/>
                <div style="padding-bottom: 5%">
                   <h3 style="color: gray">비밀번호찾기</h3>   
                   <p class="signin" style="padding-bottom: 0px !important;">이메일(아이디)</p>
                   <input type="email" class="form-control" placeholder="이메일주소입력"
-                     id="email" name="emailid" style="display: inline; width: 65%" />
+                     id="emailid" name="emailid" style="display: inline; width: 65%" />
                   <button class="btn inputbutton" style="padding: 30px;margin-top: 8%">메일전송</button>
                   <p class="signin">휴대전화 번호</p>
                   <input type="text" class="form-control phoneNumber"

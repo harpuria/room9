@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-
-<link href="<c:url value='/css/open.css' />" rel="stylesheet" />
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <style type="text/css">
 .topBanner {display: block;position: relative;overflow: hidden;background-color: #000000;}
 @media (max-width: 767px) {
@@ -161,7 +159,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 .placeListArea .placeList > li {float: left;width: 50%;height: auto;max-width: 376px;padding: 0 15px 15px 0;box-sizing: border-box;}
 }
 @media (min-width: 1280px) {
-.placeListArea .placeList > li {float: left;width: 400px;height: 373px;margin: 0 20px 20px 0;}
+.placeListArea .placeList > li {float: left;width: 400px;height: 400px;margin: 0 20px 20px 0;}
 }
 .placeListArea .placeList > li a {text-decoration: none;}
 .placeListArea .placeList > li.list_none {display: block;width: 100%;height: auto;max-width: 100%;text-align: center;color: #333333;}
@@ -327,265 +325,324 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 .placeListArea .pagingWrap .pagination li.active {border-color: #ff4081;}
 .placeListArea .pagingWrap .pagination li.active a {color: #ff4081;}
 .placeListArea .pagingWrap .pagination li a {display: block;font-size: 14px;font-weight: normal;color: #333333;text-decoration: none;}
-</style>
-	
-	<div class="container-fluid" id="topimg" >
-		<div class="row">
-			<div class="col-md-12" style="padding:0;">
-				<article class="topBanner">
-					<div class="topSkin" style="background: url('assets/img/bg_intro.jpg');position: absolute;opacity: .6;background-size: cover;background-repeat: no-repeat;background-position: center center;z-index: 10;"></div>
-					<h2 class="bannerTitle">"방구할때는 어딜 봐야 되는거야?"<br/>ROOM 9 !!</h2>
-					<ul class="tagArea" style=" padding:inherit;">
-						<li>#세미나</li>
-						<li>#스터디</li>
-						<li>#송년회</li>
-						<li>#오피스</li>
-					</ul>
-					<form action="#" method="get" class="searchForm">
-						<div class="searchBar">
-							<input type="text" class="search" name="search" value="" placeholder=""/>
-							<input type="submit" class="submit" name="search" value=""/>
-							<span class="placeholderText" style="display: block;">삼성동, 오피스, 강남대로 등</span>
-						</div>
-					</form>
-				</article>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container-fluid" id="">
-		<div class="row">
-			<article class="placeListArea">
-				<ul class="placeList wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg' />" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='/resources/img/book.jpg'/>" />									
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span>
-								<span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">거울못식당</p>
-								<p class="address">서울시 금천구 금하로</p>									
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity">수용인원 : 20명</span>
-								<p class="priceAndTime">
-									<span class="price">100,000원</span>
-									<span class="time">/시간</span>
-								</p>							
-							</div>
-						</a>
-					</li>
-				</ul>
-			</article>
-		</div>
-	</div>
 
+.filter-button {font-size: 15px;border: 1px solid #61ce4e;border-radius: 5px;text-align: center;color: black;border-color: white !important; background-color: white;}
+.filter-button:hover {font-size: 15px;border: 1px solid #61ce4e;border-radius: 5px;text-align: center;color: #ffffff !important;background-color: #42B32F;border-color: white !important;}
+.filter-button .active {background-color: #61ce4e !important;color: white !important;}
+.filter-button:focus, .btn-default:focus {background-color: #61ce4e !important;color: white !important;}
+</style>
+
+<div class="container-fluid" id="topimg" >
+   <div class="row">
+      <div class="col-md-12" style="padding:0;">
+         <article class="topBanner">
+            <div class="topSkin" style="background: url('resources/img/bg_intro.jpg');position: absolute;opacity: .6;background-size: cover;background-repeat: no-repeat;background-position: center center;z-index: 10;"></div>
+            <h2 class="bannerTitle">"방구할때는 어딜 봐야 되는거야?"<br/>ROOM 9 !!</h2>
+            <ul class="tagArea" style=" padding:inherit;">
+               <li>#세미나</li>
+               <li>#스터디</li>
+               <li>#송년회</li>
+               <li>#오피스</li>
+            </ul>
+            <form action="#" method="get" class="searchForm">
+               <div class="searchBar">
+                  <input type="text" class="search" name="search" value="" placeholder="" id="search"/>
+                  <input type="submit" class="submit" name="search" value=""/>
+                  <span class="placeholderText" id="placeholderText" style="display:block;">삼성동, 오피스, 강남대로 등</span>
+               </div>
+            </form>
+         </article>
+      </div>
+   </div>
+</div>
+
+<div class="container-fluid">
+       <div class="row wow zoomIn" data-wow-duration="1s" data-wow-delay=".5s">   
+        <div align="center" style="padding:2% 0;" class="col-md-12 text-center">
+            <button class="btn btn-default filter-button active" data-filter="all">All</button>
+            <button class="btn btn-default filter-button" data-filter="seoul">#서울</button>
+            <button class="btn btn-default filter-button" data-filter="gyeonggi">#경기</button>
+            <button class="btn btn-default filter-button" data-filter="gangwon">#강원</button>
+            <button class="btn btn-default filter-button" data-filter="chungcheong">#충청</button>
+            <button class="btn btn-default filter-button" data-filter="jeonla">#전라</button>
+            <button class="btn btn-default filter-button" data-filter="gyeongsang">#경상</button>
+            <button class="btn btn-default filter-button" data-filter="cafa">#카페</button>
+            <button class="btn btn-default filter-button" data-filter="study">#스터디</button>
+            <button class="btn btn-default filter-button" data-filter="seminar">#세미나</button>
+            <button class="btn btn-default filter-button" data-filter="lecture">#강연</button>
+            <button class="btn btn-default filter-button" data-filter="reunion">#동창회</button>
+            <button class="btn btn-default filter-button" data-filter="doljanchi">#돌잔치</button>
+            <button class="btn btn-default filter-button" data-filter="office">#오피스</button>
+            <button class="btn btn-default filter-button" data-filter="band">#밴드</button>
+            <button class="btn btn-default filter-button" data-filter="party">#파티룸</button>
+        </div>
+    </div>
+   </div>
+
+<div class="container-fluid" id="">
+   <div class="row">
+      <article class="placeListArea">
+         <ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+            <li class="filter seoul reunion">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="<c:url value='resources/img/book.jpg'/>" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter gyeonggi">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter gangwon">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter chungcheong">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter jeonla">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter gyeongsang">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter doljanchi">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter band">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+            <li class="filter party">
+               <a href="#">
+                  <div class="imgArea">
+                     <img src="assets/img/book.jpg" />                           
+                  </div>
+                  <div class="tagArea">
+                     <span class="btn tag">#서울</span>
+                     <span class="btn tag">#회의실</span>
+                     <span class="btn tag">#세미나</span>
+                  </div>
+                  <div class="infoArea">
+                     <p class="title_1">거울못식당</p>
+                     <p class="address">서울시 금천구 금하로</p>                           
+                  </div>
+                  <div class="subInfoArea">
+                     <span class="capacity">수용인원 : 20명</span>
+                     <p class="priceAndTime">
+                        <span class="price">100,000원</span>
+                        <span class="time">/시간</span>
+                     </p>                     
+                  </div>
+               </a>
+            </li>
+         </ul>
+      </article>
+   </div>
+</div>
+   
 <script>
-	$(".hover").mouseleave(function() {
-		$(this).removeClass("hover");
-	});
-	
-	new WOW().init();
-	
-	$('#myCarousel').carousel({
-	    interval: 5000,
-	});
-	 
-	$(function () {
-    	var links = $('.sidebar1-links > div');
+   $(".hover").mouseleave(function() {
+      $(this).removeClass("hover");
+   });
+   
+   new WOW().init();
+   
+   $('#myCarousel').carousel({
+       interval: 5000,
+   });
+    
+   $(function () {
+       var links = $('.sidebar1-links > div');
 
       links.on('click', function () {
-    		links.removeClass('selected');
-    		$(this).addClass('selected');
-    	});
+          links.removeClass('selected');
+          $(this).addClass('selected');
+       });
+    });
+   
+   $(document).ready(function () {
+        $(".filter-button").click(function () {
+            var value = $(this).attr('data-filter');
+            if (value == "all") {
+                $('.filter').show('1000');
+            }
+            else {
+                $(".filter").not('.' + value).hide('3000');
+                $('.filter').filter('.' + value).show('3000');
+            }
+        });
+        if ($(".filter-button").removeClass("active")) {
+            $(this).removeClass("active");
+        } else {
+            $(this).addClass("active");
+        }
+    });
+
+   $('input[name="search"].search').on('focus keyup', function () {
+        var textLength = $(this).val().length;
+        if (textLength < 1) {
+            $('.placeholderText').css('display', 'block');
+        } else {
+            $('.placeholderText').css('display', 'none');
+        }
+    }).trigger('keyup').attr('placeholder', '');
+
+    $('.placeholderText').click(function () {
+        $('input[name="search"].search').trigger('focus');
     });
 </script>

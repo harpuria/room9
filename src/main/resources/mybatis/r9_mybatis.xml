@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="mybatis.r9_mybatis">
+   <!-- 로그인 처리 -->
+   <select id="isMember" parameterType="java.util.Map" resultType="int">
+      SELECT COUNT(*) FROM R9_MEMBER WHERE emailid=#{emailid} AND pwd=#{pwd}
+   </select>
+   
+   <!-- 회원가입 처리 -->
+   <insert id="signOn" parameterType="java.util.Map">
+      INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL, #{emailid}, #{signpwd}, #{name}, #{phonenumber}, null)
+   </insert>
+   
+   <!-- 중복 아이디 체크 -->
+    <select id="IdCheck" parameterType="java.util.Map" resultType="int" >
+       SELECT COUNT(*) FROM R9_MEMBER WHERE emailid=#{emailid}
+    </select>
+</mapper>

@@ -26,9 +26,8 @@
 	                <i class="fas fa-sign-out-alt fa-2x" style="color: #6666cc"></i>&nbsp;&nbsp;LOGOUT
 	            </a>
 	        </div>
-        </c:if>
-        
-        <div class="link-red">
+	        
+	        <div class="link-red">
             <a href="#">
                 <i class="far fa-newspaper fa-2x" style="color: #da4545"></i>&nbsp;&nbsp;MY PAGE
             </a>
@@ -38,6 +37,9 @@
                 <li><a href="#">예약 확인</a></li>
             </ul>
         </div>
+        </c:if>
+        
+        
 
         <div class="link-yellow">
             <a href="#">

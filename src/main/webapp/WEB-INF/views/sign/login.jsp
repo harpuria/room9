@@ -143,7 +143,7 @@ label.error {
 			<input type="password" name="pwd" id="password">
 		</p>
 		<p class="loginimg">
-			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+			<a id="custom-login-btn" href="<c:url value='naverlogin.room9'/>"> 
 			<img src="<c:url value='/resources/img/naverlogin.png'/>" alt="네이버로그인버튼">
 			</a> 
 			<a id="custom-login-btn" href="javascript:loginWithKakao()"> 

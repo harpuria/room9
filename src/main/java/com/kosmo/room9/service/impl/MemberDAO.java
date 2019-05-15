@@ -1,5 +1,6 @@
 package com.kosmo.room9.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -39,6 +40,19 @@ public class MemberDAO implements MemberService{
 	@Override
 	public String kakaoLogin(Map map) {
 		return template.selectOne("kakaoLogin", map);
+	}
+
+	@Override
+	public int naverConnet(Map map) {
+	
+		System.out.println("반환값 : " + template.update("naverConnet", map));
+		return template.update("naverConnet", map);
+	}
+
+	@Override
+	public String naverLogin(Map map) {
+		
+		return template.selectOne("naverLogin", map);
 	}
 
 }

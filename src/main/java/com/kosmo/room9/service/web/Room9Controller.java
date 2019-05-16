@@ -28,7 +28,7 @@ public class Room9Controller {
 		
 		// 한글로 되어있는 카테고리를 영어로 치환 (jsp 에서 사용하기 위해서)
 		for(int i = 0; i < list.size(); i++) {
-			String temp = list.get(i).getCategory();
+			String temp = list.get(i).getR_category();
 			switch(temp) {
 			case "서울":
 				category.add("seoul");
@@ -80,9 +80,18 @@ public class Room9Controller {
     			break;
 			}
 		}
-		
 		model.addAttribute("category", category);
 		
 		return "open.tiles";
+	}
+	
+	@RequestMapping("/reservation.room9")
+	public String reservation(Model model) throws Exception{
+		
+		List<Room9DTO> list = service.selectList(null);
+		
+		model.addAttribute("list", list);
+		
+		return "reservation.tiles";
 	}
 }

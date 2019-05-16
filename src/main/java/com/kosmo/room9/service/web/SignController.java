@@ -46,7 +46,7 @@ public class SignController {
 			// 로그인 성공하면 세션 영역에 아이디값 저장. (추후 스프링 시큐리티로 바꿀 예정)
 			session.setAttribute("emailid", map.get("emailid").toString());
 			
-			return "home.tiles";
+			return "sign/login.tiles";
 		}
 		else {
 			System.out.println("로그인 실패");
@@ -365,7 +365,7 @@ public class SignController {
        else //이미 연동되어있어서 안됨
        {
     	   model.addAttribute("isSuccess", isSuccess);//0
-    	   model.addAttribute("naverMessage", "이미 연동되어있습니다.");
+    	   model.addAttribute("naverMessage", "이미 연동되었거나 연동 할 아이디가 없습니다.");
        }
 	   
 	   String naveremailid = service.naverLogin(map);
@@ -376,7 +376,7 @@ public class SignController {
 	}
 	
 	//연동해제
-	@RequestMapping("naverLogout.room9")
+	@RequestMapping("naverdisConnect.room9")
 	public String naverLogout(HttpSession session, HttpServletRequest request) throws Exception{
 		
 		//연동해제

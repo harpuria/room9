@@ -4,45 +4,45 @@
 <mapper namespace="mybatis.r9_mybatis">
    <!-- 로그인 처리 -->
    <select id="isMember" parameterType="java.util.Map" resultType="int">
-      SELECT COUNT(*) FROM R9_MEMBER WHERE emailid=#{emailid} AND pwd=#{pwd}
+      SELECT COUNT(*) FROM R9_MEMBER WHERE M_EMAIL=#{emailid} AND M_PWD=#{pwd}
    </select>
    
    <!-- 회원가입 처리 -->
    <insert id="signOn" parameterType="java.util.Map">
-      INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL, #{emailid}, #{signpwd}, #{name}, #{phonenumber}, null, null)
+      INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL,#{emailid}, null, null,null,null, #{signpwd}, #{name}, #{phonenumber}, sysdate )
    </insert>
    
    	<!-- 중복 아이디 체크 -->
     <select id="IdCheck" parameterType="java.util.Map" resultType="int" >
-       SELECT COUNT(*) FROM R9_MEMBER WHERE emailid=#{emailid}
+       SELECT COUNT(*) FROM R9_MEMBER WHERE M_EMAIL=#{emailid}
     </select>
     
     <!-- 카카오 아이디 연동 -->
     <update id="kakaoConnect" parameterType="java.util.Map">
-    	UPDATE R9_MEMBER SET kakaoid=#{kakaoid} WHERE emailid=#{emailid} AND kakaoid IS NULL
+    	UPDATE R9_MEMBER SET KAKAOID=#{kakaoid} WHERE M_EMAIL=#{emailid} AND KAKAOID IS NULL
     </update>
     
     <!-- 카카오 로그인 -->
  	<select id="kakaoLogin" parameterType="java.util.Map" resultType="String">
- 		SELECT emailid FROM R9_MEMBER WHERE kakaoid=#{kakaoid}
+ 		SELECT M_EMAIL FROM R9_MEMBER WHERE KAKAOID=#{kakaoid}
  	</select>
  	
  	<!-- 비밀번호 가져오기 -->
  	<select id="passEquals" parameterType="java.util.Map" resultType="String">
- 		SELECT pwd FROM R9_MEMBER WHERE emailid=#{emailid} AND phonenumber=#{phonenumber}
+ 		SELECT M_PWD FROM R9_MEMBER WHERE M_EMAIL=#{emailid} AND M_TEL=#{phonenumber}
  	</select>
  	
  	<!-- 모든 목록 불러오기 -->
  	<select id="selectList" parameterType="java.util.Map" resultType="Room9DTO">
- 		SELECT * FROM R9_ROOM_TEMP ORDER BY NO DESC
+ 		SELECT * FROM R9_ROOM ORDER BY R_NO DESC
  	</select>
  	
  	<update id="naverConnet" parameterType="java.util.Map" >
- 		UPDATE R9_MEMBER set NAVERID=#{naverid} WHERE emailid=#{naveremail} and NAVERID is NULL
+ 		UPDATE R9_MEMBER set NAVERID=#{naverid} WHERE M_EMAIL=#{naveremail} and NAVERID is NULL
  	</update>
  	
  	<select id="naverLogin" parameterType="java.util.Map" resultType="String">
- 		SELECT emailid FROM R9_MEMBER WHERE NAVERID=#{naverid}
+ 		SELECT M_EMAIL FROM R9_MEMBER WHERE NAVERID=#{naverid}
  	</select>
  	
 </mapper>

@@ -247,13 +247,13 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 }
 .placeListArea .placeList .infoArea .address {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 @media (max-width: 767px) {
-.placeListArea .placeList .infoArea .address {font-size: 12px;font-weight: normal;color: #333333;}
+.placeListArea .placeList .infoArea .address {font-size: 12px; color: #333333;}
 }
 @media (min-width: 768px) and (max-width: 1279px) {
-.placeListArea .placeList .infoArea .address {font-size: 13px;font-weight: normal;color: #333333;}
+.placeListArea .placeList .infoArea .address {font-size: 13px; color: #333333;}
 }
 @media (min-width: 1280px) {
-.placeListArea .placeList .infoArea .address {font-size: 14px;font-weight: normal;color: #333333;}
+.placeListArea .placeList .infoArea .address {font-size: 14px; color: #333333;}
 }
 .placeListArea .placeList .subInfoArea {display: block;border: 1px solid #d9d9d9;border-top: 0;box-sizing: border-box;}
 @media (max-width: 767px) {
@@ -385,25 +385,25 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
       <article class="placeListArea">
          <ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
             
-            <c:forEach items="${requestScope.list }" var="item" varStatus="index">
-	            <li class="filter ${requestScope.category[index.index] } reunion">
-	               <a href="#">
+            <c:forEach items="${list }" var="item" varStatus="loop">
+	            <li class="filter ${category[loop.index] } reunion">
+	               <a href="<c:url value='/reservation.room9'/>">
 	                  <div class="imgArea">
 	                     <img src="<c:url value='resources/img/book.jpg'/>" />                           
 	                  </div>
 	                  <div class="tagArea">
-	                     <span class="btn tag">#서울</span>
-	                     <span class="btn tag">#회의실</span>
-	                     <span class="btn tag">#세미나</span>
+	                     <span class="btn tag">#${item.r_tag_1 }</span>
+	                     <span class="btn tag">#${item.r_tag_2 }</span>
+	                     <span class="btn tag">#${item.r_tag_3 }</span>
 	                  </div>
 	                  <div class="infoArea">
-	                     <p class="title_1">${item.rName }</p>
-	                     <p class="address">${item.rAddr }</p>                           
+	                     <p class="title_1" style="font-weight: bold">${item.r_name }</p>
+	                     <p class="address text-muted" style="font-weight: bold; font-size: 12px" ><i class="fas fa-map-marker-alt"></i> ${item.r_address }</p>                           
 	                  </div>
 	                  <div class="subInfoArea">
-	                     <span class="capacity">수용인원 : ${item.peoplecount }명</span>
+	                     <span class="capacity" style="font-weight: bold;">수용인원 : <span style="color: #333333; font-weight: bold">${item.r_people_count_max }</span> 명</span>
 	                     <p class="priceAndTime">
-	                        <span class="price">${item.payPhour }원</span>
+	                        <span class="price">${item.r_money }원</span>
 	                        <span class="time">/시간</span>
 	                     </p>                     
 	                  </div>

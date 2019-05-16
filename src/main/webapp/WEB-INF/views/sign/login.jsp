@@ -39,6 +39,30 @@
 
 <link href="<c:url value='/css/login.css' />" rel="stylesheet" />
 
+<!-- reCAPTCHA CDN -->
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+<!-- reCAPTCHA API 사용하여 부정 로그인 방지 처리-->
+<script type="text/javascript">
+	var recaptchaSuccess = function(response){
+		// 토큰이 들어왔으면 리캡차 성공
+		if(response.length != 0){
+			// jQuery 를 사용해서 value 값 바꾸기
+			$(':hidden[name="recaptcha"]').val('true');
+		}
+		else{
+			$(':hidden[name="recaptcha"]').val('false');
+		}
+	}
+	
+	var onloadCallback = function() {
+	  grecaptcha.render('recaptcha', {
+	    'sitekey' : '6Ld5k5cUAAAAAMZt7OG6BwPsBAboUBguw71da0C7',
+	    'callback': recaptchaSuccess
+	  });
+	};
+</script>
+
 <style>
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
@@ -130,6 +154,11 @@ label.error {
 <h1 onclick='loginWithKakao("connect")'>카카오 연동하기 (test)</h1>
 
 <form action="<c:url value='/loginProcess.room9'/>">
+
+	<c:if test="${requestScope.recaptchaFail eq 'true' }">
+		<input type="hidden" name="recaptcha" value="false"/>
+	</c:if>
+	
 	<h1 onclick="location.href='<c:url value='/home.room9'/>'" id="room9">
 		<img src="<c:url value='/resources/img/room9logo_op.png'/>" />
 	</h1>
@@ -196,6 +225,14 @@ label.error {
 			data-target="#myModal1">Forgot email/password ?</a></span>
 	</p>
 </form>
+
+<c:if test="${requestScope.recaptchaFail eq 'true' }">
+	<div class="container">
+		<div class="row">
+			<div id="recaptcha" class="mx-auto"></div>
+		</div>
+	</div>
+</c:if>
 
 <!-- 회원가입Modal -->
 <form method="post" action="<c:url value='/signOnProcess.room9' />" id="registerform">

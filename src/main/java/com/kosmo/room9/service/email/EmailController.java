@@ -28,14 +28,10 @@ public class EmailController {
 	public String sendEmailAction(@RequestParam Map<String, Object> paramMap, Model model) throws Exception {
 		String e_mail = (String) paramMap.get("emailid");
 		String pw = service.getPw(paramMap);
-		System.out.println(pw);
-		
-		System.out.println(emailSender);
-		System.out.println(email);
-		System.out.println(mailSender);
+
 		if (pw != null) {
 			// 여기에 메일에 들어갈 내용을 입력한다.
-			email.setContent("비밀번호는 " + pw + " 입니다."); // 내용
+			email.setContent("회원님의 비밀번호는 " + pw + " 입니다."); // 내용
 			email.setReceiver(e_mail);
 			email.setSubject(e_mail + "님 비밀번호 찾기 메일입니다."); // 제목
 			emailSender.SendEmail(mailSender, email); // 보내기!

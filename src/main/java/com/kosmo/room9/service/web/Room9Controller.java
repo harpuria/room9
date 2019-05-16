@@ -1,5 +1,7 @@
 package com.kosmo.room9.service.web;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,11 +89,14 @@ public class Room9Controller {
 	
 	@RequestMapping("/reservation.room9")
 	public String reservation(Model model) throws Exception{
-		
 		List<Room9DTO> list = service.selectList(null);
-		
-		model.addAttribute("list", list);
-		
+		model.addAttribute("list", list);	
 		return "reservation.tiles";
+	}
+	
+	@RequestMapping("/notice.room9")
+	public String notice() throws Exception{
+		System.out.println("들어옴?");
+		return "notice.tiles";
 	}
 }

@@ -35,8 +35,7 @@
 	<!-- tiles를 처리하도록 또 다른 뷰 리졸버(UrlBasedViewResolver) 등록 -->
 	<!-- 이 때 기본 뷰 리졸버(InternalResourceViewResolver)를 제공하지 않으므로 해당 리졸버를 따로 등록해줘야한다. -->
 	<!-- 또한 UrlBasedViewResolver 는 기본 리졸버보다 우선적으로 적용되어야 하기 때문에 order 를 기본 리졸버보다 순위를 높여준다 -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<beans:bean	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="order" value="1" />
 		<beans:property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />

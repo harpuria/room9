@@ -13,8 +13,7 @@
 
 	<!-- 마이바티스 지원을 위한 빈 등록 -->
 	<!-- 1] SqlSessionFactory -->
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 데이타소스:데이타베이스 연결정보 -->
 		<property name="dataSource" ref="datasource" />
 		<!-- 환경설정 파일 위치 설정 -->
@@ -30,8 +29,7 @@
 	<!-- 이메일 인증 처리 -->
 	<!-- 메일 보내기 (SEND) -->
 	<!-- 메일은 지메일(Gmail)을 기준으로 진행함 -->
-	<bean id="mailSender"
-		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
 		<property name="defaultEncoding" value="utf-8" />
@@ -50,4 +48,5 @@
 	<!-- Email, EmailSender Bean 등록 -->
 	<bean id="email" class="com.kosmo.room9.service.email.Email"></bean>
 	<bean id="emailSender" class="com.kosmo.room9.service.email.EmailSender"></bean>
+
 </beans>

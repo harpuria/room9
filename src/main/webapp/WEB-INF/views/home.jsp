@@ -5,6 +5,9 @@
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
+<h1><a href="<c:url value='/batchTest.room9' />">batch 테스트</a></h1>
+
+
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
 	<div id="myCarousel" class="carousel slide carousel-fade"
 		data-ride="carousel"

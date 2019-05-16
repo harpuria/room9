@@ -15,4 +15,8 @@ public class HomeController {
 		return "home.tiles";
 	}
 	
+	@RequestMapping("/brythonTest.room9")
+	public String brythonTest () throws Exception{	
+		return "forward:/WEB-INF/views/home2.jsp";
+	}
 }

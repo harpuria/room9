@@ -1,5 +1,7 @@
 package com.kosmo.room9.service.web;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,5 +86,22 @@ public class Room9Controller {
 		model.addAttribute("category", category);
 		
 		return "open.tiles";
+	}
+	
+	// 배치파일 실행하는 메소드 (크롤링)
+	@RequestMapping("/batchTest.room9")
+	public void batchTest() throws Exception {
+		try {
+		    Process p = Runtime.getRuntime().exec("D:\\crawling.bat");
+		    
+		    BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		    String line = null;
+		    
+		    while ((line = br.readLine()) != null) {
+		      System.out.println(line);
+		    }
+		  } catch (Exception e) {
+		    System.err.println(e);
+		  }
 	}
 }

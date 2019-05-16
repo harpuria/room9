@@ -49,6 +49,7 @@
             <ul class="sub-links">
                 <li><a href="<c:url value='/open.room9'/>">ROOM 9 하기</a></li>
                 <li><a href="<c:url value='/reservation.room9'/>">ROOM 9 예약</a></li>
+                <li><a href="<c:url value='/UserInfo.room9'/>">테스트</a></li>
             </ul>
         </div>
 

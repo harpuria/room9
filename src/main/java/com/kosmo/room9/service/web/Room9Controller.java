@@ -10,4 +10,14 @@ public class Room9Controller {
 		System.out.println("들어옴?");
 		return "open.tiles";
 	}
+	@RequestMapping("/reservation.room9")
+	public String reservation() throws Exception{
+		System.out.println("들어옴?");
+		return "reservation.tiles";
+	}
+	@RequestMapping("/notice.room9")
+	public String notice() throws Exception{
+		System.out.println("들어옴?");
+		return "notice.tiles";
+	}
 }

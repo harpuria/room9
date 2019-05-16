@@ -2,11 +2,16 @@ package com.kosmo.room9.service.web;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.security.SecureRandom;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -217,5 +222,199 @@ public class SignController {
         conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
         
         System.out.println("Response code: " + conn.getResponseCode());
+	}
+	
+	
+	//네이버 로그인폼으로 이동
+	@RequestMapping("naverlogin.room9")
+	public String naverlogin(HttpSession session, Model model) throws Exception{
+		
+		 String clientId = "pRZYTKjRwkfSHx7WEcm5";//애플리케이션 클라이언트 아이디값";
+	     String redirectURI = URLEncoder.encode("http://localhost:8080/room9/naverprocess.room9", "UTF-8");
+	     SecureRandom random = new SecureRandom();
+	     String state = new BigInteger(130, random).toString();
+	     String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+	     apiURL += "&client_id=" + clientId;
+	     apiURL += "&redirect_uri=" + redirectURI;
+	     apiURL += "&state=" + state;
+	     session.setAttribute("state", state);
+	     model.addAttribute("apiURL", apiURL);
+	     
+		
+		return "sign/naverlogin.tiles";
+	}
+	
+	//네이버 로그인 프로세스
+	@RequestMapping("naverprocess.room9")
+	public String naverloginprocess(HttpServletRequest request, HttpSession session) throws Exception{
+		
+		String clientId = "pRZYTKjRwkfSHx7WEcm5";//애플리케이션 클라이언트 아이디값";
+	    String clientSecret = "lQvikAtJji";//애플리케이션 클라이언트 시크릿값";
+	    String code = request.getParameter("code");
+	    String state = request.getParameter("state");
+	    String redirectURI = URLEncoder.encode("http://localhost:8080/room9/naverprocess.room9", "UTF-8");
+	    String apiURL;
+	    apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&";
+	    apiURL += "client_id=" + clientId;
+	    apiURL += "&client_secret=" + clientSecret;
+	    apiURL += "&redirect_uri=" + redirectURI;
+	    apiURL += "&code=" + code;
+	    apiURL += "&state=" + state;
+	    
+	    System.out.println("apiURL="+apiURL);
+		try {
+			URL url = new URL(apiURL);
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("GET");
+			int responseCode = con.getResponseCode();
+			BufferedReader br;
+			System.out.println("responseCode=" + responseCode);
+			
+			if (responseCode == 200) { // 정상 호출
+				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			} else { // 에러 발생
+				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+			String inputLine;
+			StringBuffer res = new StringBuffer();
+			
+			while ((inputLine = br.readLine()) != null) {
+				res.append(inputLine);
+			}
+			br.close();
+			if (responseCode == 200) {
+				System.out.println(res.toString());
+				String str = res.toString();
+				int start = str.indexOf("\":\"");
+				int end = str.indexOf("\",\"refresh_token\"");
+
+				session.setAttribute("access_token", str.substring(start+3, end));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return "forward:naverConnect.room9";
+		
+	}
+	
+	//네이버랑 연동해주기
+	@RequestMapping("naverConnect.room9")
+	public String personinfo(HttpServletRequest request, Model model, HttpSession session, Map map) throws Exception{
+		
+		String naverinfo = "";
+		
+		String token = session.getAttribute("access_token").toString();// 네이버 로그인 접근 토큰;
+        String header = "Bearer " + token; // Bearer 다음에 공백 추가
+        try {
+            String apiURL = "https://openapi.naver.com/v1/nid/me";
+            URL url = new URL(apiURL);
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Authorization", header);
+            int responseCode = con.getResponseCode();
+            BufferedReader br;
+            if(responseCode==200) { // 정상 호출
+                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            } else {  // 에러 발생
+                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+            }
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = br.readLine()) != null) {
+                response.append(inputLine);
+            }
+            br.close();
+            System.out.println(response.toString());
+            naverinfo = response.toString();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        int idindex = naverinfo.indexOf("id\":\"");
+        int idendindex = naverinfo.indexOf("\",\"age");
+        
+        int nameindex = naverinfo.indexOf("\"name\":\"");
+        int nameendindex = naverinfo.indexOf("\"}");
+        
+        int emailindex = naverinfo.indexOf("\"email\":\"");
+        int emailendindex = naverinfo.indexOf("\",\"name\"");
+       
+        String navername = naverinfo.substring(nameindex+8, nameendindex);
+        String naverid = naverinfo.substring(idindex+5, idendindex);
+        String naveremail = naverinfo.substring(emailindex+9, emailendindex);
+        
+        session.setAttribute("naverid", naverid);
+        model.addAttribute("navername", navername);
+        model.addAttribute("naveremail", naveremail);
+        map.put("naveremail", naveremail);
+        map.put("naverid", naverid);
+        map.put("navername", navername);
+        
+        System.out.println("네이버 아이디 : " + naverid);
+        System.out.println("네이버 이메일 : " + naveremail);
+        
+       //기존에 있던 회원에 네이버 아이디만 추가(연동성공)
+       int isSuccess = service.naverConnet(map);   
+       if(isSuccess == 1 ) // 연동성공
+       {
+    	   model.addAttribute("isSuccess", isSuccess);//1
+    	   model.addAttribute("naverMessage", "네이버와 연동됨");
+       }
+       else //이미 연동되어있어서 안됨
+       {
+    	   model.addAttribute("isSuccess", isSuccess);//0
+    	   model.addAttribute("naverMessage", "이미 연동되어있습니다.");
+       }
+	   
+	   String naveremailid = service.naverLogin(map);
+	   session.setAttribute("emailid", naveremailid);
+	   
+	   return "home.tiles";
+       
+	}
+	
+	//연동해제
+	@RequestMapping("naverLogout.room9")
+	public String naverLogout(HttpSession session, HttpServletRequest request) throws Exception{
+		
+		//연동해제
+//		String accessToken = session.getAttribute("access_token").toString();// 네이버 로그인 접근 토큰;
+//		System.out.println("토큰 : " + accessToken);
+//		
+//		String clientId = "pRZYTKjRwkfSHx7WEcm5";//애플리케이션 클라이언트 아이디값";
+//	    String clientSecret = "lQvikAtJji";//애플리케이션 클라이언트 시크릿값"
+//	    
+//	    String apiURL;
+//	    apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=delete&";
+//	    apiURL += "client_id=" + clientId;
+//	    apiURL += "&client_secret=" + clientSecret;
+//	    apiURL += "&access_token=" + accessToken;
+//	    apiURL += "&service_provider=NAVER";
+//	    try {
+//            URL url = new URL(apiURL);
+//            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+//            con.setRequestMethod("GET");
+//            int responseCode = con.getResponseCode();
+//            BufferedReader br;
+//            if(responseCode==200) { // 정상 호출
+//                br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//            } else {  // 에러 발생
+//                br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+//            }
+//            String inputLine;
+//            StringBuffer response = new StringBuffer();
+//            while ((inputLine = br.readLine()) != null) {
+//                response.append(inputLine);
+//            }
+//            br.close();
+//            System.out.println(response.toString());
+//            
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+	   
+		return "home.tiles";
 	}
 }

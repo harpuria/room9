@@ -11,9 +11,9 @@
 	 -->
 	 
 	<!-- 별칭 짓기 -->
-<!-- 	<typeAliases>		
-		<typeAlias alias="" type=""/>
-	</typeAliases> -->
+ 	<typeAliases>		
+		<typeAlias alias="Room9DTO" type="com.kosmo.room9.service.Room9DTO"/>
+	</typeAliases>
 	
 	<!-- MapperFile(SQL쿼리 결과와 자바빈 제공) 위치 정보 -->
 	<mappers>

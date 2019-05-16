@@ -1,5 +1,6 @@
 package com.kosmo.room9.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -38,5 +39,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String kakaoLogin(Map map) {
 		return dao.kakaoLogin(map);
+	}
+	
+	@Override
+	public int naverConnet(Map map) {
+
+		return dao.naverConnet(map);
+	}
+
+	@Override
+	public String naverLogin(Map map) {
+		return dao.naverLogin(map);
 	}
 }

@@ -9,7 +9,7 @@
    
    <!-- 회원가입 처리 -->
    <insert id="signOn" parameterType="java.util.Map">
-      INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL, #{emailid}, #{signpwd}, #{name}, #{phonenumber}, null)
+      INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL, #{emailid}, #{signpwd}, #{name}, #{phonenumber}, null, null)
    </insert>
    
    	<!-- 중복 아이디 체크 -->
@@ -31,4 +31,18 @@
  	<select id="passEquals" parameterType="java.util.Map" resultType="String">
  		SELECT pwd FROM R9_MEMBER WHERE emailid=#{emailid} AND phonenumber=#{phonenumber}
  	</select>
+ 	
+ 	<!-- 모든 목록 불러오기 -->
+ 	<select id="selectList" parameterType="java.util.Map" resultType="Room9DTO">
+ 		SELECT * FROM R9_ROOM_TEMP ORDER BY NO DESC
+ 	</select>
+ 	
+ 	<update id="naverConnet" parameterType="java.util.Map" >
+ 		UPDATE R9_MEMBER set NAVERID=#{naverid} WHERE emailid=#{naveremail} and NAVERID is NULL
+ 	</update>
+ 	
+ 	<select id="naverLogin" parameterType="java.util.Map" resultType="String">
+ 		SELECT emailid FROM R9_MEMBER WHERE NAVERID=#{naverid}
+ 	</select>
+ 	
 </mapper>

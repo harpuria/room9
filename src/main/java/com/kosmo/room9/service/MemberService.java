@@ -1,5 +1,6 @@
 package com.kosmo.room9.service;
 
+import java.util.List;
 import java.util.Map;
 
 public interface MemberService {
@@ -13,4 +14,12 @@ public interface MemberService {
 	void kakaoConnect(Map map);
 	// 카카오 로그인 처리
 	String kakaoLogin(Map map);
+	
+	
+	//네이버 연동하기
+	int naverConnet(Map map);
+	
+	String naverLogin(Map map);
+	
+	
 }

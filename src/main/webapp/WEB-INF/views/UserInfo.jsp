@@ -466,7 +466,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 							</div>
 							<div class="infoArea">
 								<p class="title_1">회사이름</p>
-								<p class="address">주소</p>
+								<p class="address">주소 </p>
 							</div>
 							<div class="subInfoArea">
 								<span class="capacity"><!-- 에약날짜 --></span>

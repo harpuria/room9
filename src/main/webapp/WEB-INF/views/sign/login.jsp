@@ -153,7 +153,7 @@ label.error {
 
 <h1 onclick='loginWithKakao("connect")'>카카오 연동하기 (test)</h1>
 
-<form action="<c:url value='/loginProcess.room9'/>">
+<form action="<c:url value='/loginProcess.room9'/>" method="post">
 
 	<c:if test="${requestScope.recaptchaFail eq 'true' }">
 		<input type="hidden" name="recaptcha" value="false"/>

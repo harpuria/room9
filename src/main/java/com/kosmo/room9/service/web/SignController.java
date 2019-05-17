@@ -38,6 +38,7 @@ public class SignController {
 	// 로그인 처리
 	@RequestMapping("/loginProcess.room9")
 	public String loginProcess(@RequestParam Map map, HttpSession session, Model model) throws Exception{
+		
 		// 로그인 처리가 성공하면 메인 화면으로, 실패하면 로그인 페이지로 다시 이동
 		if(service.isMember(map)) {
 			// 리캡챠에 아무런 정보가 없다면? 한번도 틀리지 않고 로그인 성공했다는 뜻

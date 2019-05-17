@@ -54,8 +54,8 @@
         </div>
 
         <div class="link-green">
-            <a href="#">
-                <i class="fas fa-book fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;REVIEW
+            <a href="<c:url value='/coalition.room9'/>">
+                <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
             </a>
         </div>
         

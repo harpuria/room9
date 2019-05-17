@@ -104,4 +104,9 @@ public class Room9Controller {
 		System.out.println("들어옴?");
 		return "UserInfo.tiles";
 	}
+	@RequestMapping("/question.room9")
+	public String question() throws Exception{
+		System.out.println("들어옴?");
+		return "question.tiles";
+	}
 }

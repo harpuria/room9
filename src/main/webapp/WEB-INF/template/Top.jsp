@@ -66,7 +66,7 @@
             
             <ul class="sub-links">
                 <li><a href="<c:url value='/notice.room9'/>">공지사항</a></li>
-                <li><a href="#">문의하기</a></li>
+                <li><a href="<c:url value='/question.room9'/>">문의하기</a></li>
             </ul>
         </div>
     </div>

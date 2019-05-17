@@ -19,5 +19,16 @@
 		alert("${msg}");
 		location.href = "<c:url value='/login.room9'/>";
 		break;
+		
+	case "infoUpdateComplete":
+		alert("${msg}");
+		location.href = "<c:url value='/home.room9'/>";
+		break;
+		
+	case "infoUpdateFail":
+		alert("${msg}");
+		location.href = "<c:url value='/UserInfo.room9?m_email=${sessionScope.emailid }'/>";
+		break;
 	}
+	
 </script>

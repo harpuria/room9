@@ -627,7 +627,6 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 			  });
 			$( "#end, #start" ).change(function() {
 	
-			
 			var time = $("#start").val();
 				var hours = Number(time.match(/^(\d+)/)[1]);
 				var minutes = Number(time.match(/:(\d+)/)[1]);

@@ -349,6 +349,19 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 <link href="css/formcommon.css" rel="stylesheet" />
 <link href="css/jquery.ui.selectmenu.css" rel="stylesheet" />
 
+<!-- 밸리데이션 -->
+<script type="text/javascript" src="<c:url value='resources/validation/jquery.validate.js'/>"></script>
+<script type="text/javascript" src="<c:url value='resources/validation/additional-methods.js'/>"></script>
+<script type="text/javascript" src="<c:url value='resources/validation/messages_ko.min.js'/>"></script>
+<!-- 밸리데이션 -->
+
+<style>
+label.error {
+	display: block;
+	color: red;
+}
+</style>
+
 <div id="app">
         <div class="topSkin web">
             <div class="skin" style="background-image: url('assets/img/bg_intro.jpg')"></div>
@@ -356,9 +369,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
         </div>
         <section class="content">
             <h3 class="mainTitle">정보수정</h3>
-            <form action="https://place.onoffmix.com/host/save" method="POST" class="hostForm" enctype="multipart/form-data"
-                data-parsley-validate="true" data-parsley-excluded="[type=submit], [type=button], [type=reset]"
-                novalidate="">
+            <form action="<c:url value='/UserinfoUpdate.room9'/>" method="POST" class="hostForm">
                 <input type="hidden" name="_token" value="XYjBe3iDAoQtm1EHxa2A2wIVBwNxnNmViezawrpB">
                 <div class="formBox">
                     <div style="">
@@ -367,7 +378,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                            <h4>내아이디</h4>
 	                        </div>
 	                        <div class="editArea">
-	                        	<p class="result">아이디@뿌려.주세요</p>
+	                        	<p class="result">${memberRecord.m_email }</p>
+	                        	<input type="hidden" name="m_email" value="${memberRecord.m_email }"/>
 	                        </div>
 	                    </article>
 	                    <article class="placeHostName">
@@ -376,7 +388,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                        </div>
 	                        <div class="editArea">
 	                            <div class="checkArea">
-	                                <p class="result">정다운</p>
+	                                <p class="result">${memberRecord.m_name }</p>
 	                            </div>
 	                        </div>
 	                    </article>
@@ -392,15 +404,16 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 									<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
 									<img src="<c:url value='/resources/img/kakaologin.png'/>" alt="카카오로그인버튼">
 									</a>
-										<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+										<a id="custom-login-btn" href="#"> 
 									<img src="<c:url value='/resources/img/googlelogin.png'/>" alt="구글로그인버튼">
 									</a> 
-									<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+									<a id="custom-login-btn" href="#"> 
 									<img src="<c:url value='/resources/img/facebooklogin.png'/>" alt="페이스북로그인버튼">
 									</a> 
 								</div>
 	                        </div>
 	                    </article>
+	                    
                     </div>
                     <hr/>
                     <article class="companyName">
@@ -408,7 +421,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             <h4>현재 비밀번호<span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="company_tel" placeholder="비밀번호입력"
+                              <input type="password" name="currentPwd" placeholder="비밀번호입력" id="currentPwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
                         </div>
@@ -418,7 +431,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             <h4>변경할 비밀번호 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="company_tel" placeholder="비밀번호입력"
+                              <input type="password" name="changePwd" placeholder="변경할 비밀번호입력" id="changePwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
                         </div>
@@ -428,17 +441,17 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             <h4>변경할 비밀번호확인 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="company_tel" placeholder="비밀번호입력"
+                              <input type="password" name="re_changePwd" placeholder="변경할 비밀번호입력" id="re_changePwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
                         </div>
                     </article>
                     <article class="companyInfo">
                         <div class="titleArea">
-                            <h4>내번호<span class="requiredIcon">*</span></h4>
+                            <h4>전화번호<span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input name="tel" type="text" placeholder="내번호 뿌려주세요">
+                            <input name="tel" type="text" placeholder="내번호 뿌려주세요" value="${memberRecord.m_tel }">
                         </div>
                     </article>
                </div>
@@ -450,34 +463,77 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
     </div>
 <section class="content">
 	<h3 class="mainTitle">나의 예약내역</h3>
-	<div class="container-fluid" id="">
-		<div class="row">
-			<article class="placeListArea">
-				<ul class="placeList wow fadeInUp" data-wow-duration="1s"
-					data-wow-delay=".5s">
-					<li class="filter ${requestScope.category[index.index] } reunion">
-						<a href="#">
-							<div class="imgArea">
-								<img src="<c:url value='resources/img/book.jpg'/>" />
-							</div>
-							<div class="tagArea">
-								<span class="btn tag">#서울</span> <span class="btn tag">#회의실</span>
-								<span class="btn tag">#세미나</span>
-							</div>
-							<div class="infoArea">
-								<p class="title_1">회사이름</p>
-								<p class="address">주소 </p>
-							</div>
-							<div class="subInfoArea">
-								<span class="capacity"><!-- 에약날짜 --></span>
-								<p class="priceAndTime">
-									<span class="price">총금액 : </span> 
-								</p>
-							</div>
-						</a>
-					</li>
-				</ul>
-			</article>
-		</div>
-	</div>
+	<c:if test="${not empty list }" var="isEmpty">
+		<c:forEach items="${list }" var="items" varStatus="loop">
+			<div class="container-fluid" id="">
+				<div class="row">
+					<article class="placeListArea">
+						<ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+							<li><a href="#">
+								<div class="imgArea">
+									<img src="<c:url value='resources/img/book.jpg'/>" />
+								</div>
+								<div class="tagArea">
+									<span class="btn tag">#서울</span> <span class="btn tag">#회의실</span>
+									<span class="btn tag">#세미나</span>
+								</div>
+								<div class="infoArea">
+									<p class="title_1">${items.r_name }</p>
+									<p class="address">${items.r_address }</p>
+								</div>
+								<div class="subInfoArea">
+									<span class="capacity">
+										<!-- 에약날짜 -->
+									</span>
+									<p class="priceAndTime">
+										<span class="price">총금액 : ${items.r_money }원</span>
+									</p>
+								</div>
+							</a></li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</c:forEach>
+	</c:if>
 </section>
+
+
+<script>
+$('.hostForm').validate({
+	//validation이 끝난 이후의 submit 직전 추가 작업할 부분
+	rules : {
+		currentPwd : {
+			required : true
+		},
+		changePwd : {
+			required : true,
+			maxlength : 9,
+			minlength : 4
+		},
+		re_changePwd: {
+			required : true,
+			maxlength : 9,
+			minlength : 4,
+			equalTo : changePwd
+		}
+	},
+	messages : {
+		currentPwd : {
+			required : "현재 비밀번호를 입력해주세요"
+		},
+		changePwd : {
+			required : "바꾸고싶은 비밀번호를 입력해 주세요",
+			maxlength : "비밀번호는 9자 이내로 입력해 주세요",
+			minlength : "비밀번호는 최소 4자 이상 입력해 주세요"
+		},
+		re_changePwd : {
+			required : "비밀번호 확인을 위해서 비밀번호를 다시 입력해 주세요",
+			maxlength : "비밀번호는 9자 이내로 입력해 주세요",
+			minlength : "비밀번호는 최소 4자 이상 입력해 주세요",
+			equalTo : "비밀번호가 일치 하지 않습니다."
+		}
+		
+	}
+});
+</script>	

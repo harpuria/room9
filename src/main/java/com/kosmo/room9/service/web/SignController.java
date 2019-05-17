@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -38,28 +39,34 @@ public class SignController {
 	// 로그인 처리
 	@RequestMapping("/loginProcess.room9")
 	public String loginProcess(@RequestParam Map map, HttpSession session, Model model) throws Exception{
+		
+		System.out.println("로그인할때 값 : " + map);
 		// 로그인 처리가 성공하면 메인 화면으로, 실패하면 로그인 페이지로 다시 이동
 		if(service.isMember(map)) {
 			// 리캡챠에 아무런 정보가 없다면? 한번도 틀리지 않고 로그인 성공했다는 뜻
 			if(map.get("recaptcha") == null) {
 				// 로그인 성공하면 세션 영역에 아이디값 저장. (추후 스프링 시큐리티로 바꿀 예정)
 				session.setAttribute("emailid", map.get("emailid").toString());
+				System.out.println("1");
 				return "home.tiles";
 			}
 			else {
 				// 리캡챠에 무슨 정보가 있다는 소리는? 한번 틀린 뒤에 로그인 성공하거나 실패했다는 뜻
 				if(map.get("recaptcha").toString().equals("true")) {
-					session.setAttribute("emailid", map.get("emailid").toString());	
+					session.setAttribute("emailid", map.get("emailid").toString());
+					System.out.println("2");
 					return "home.tiles";
 				}
 				else {
 					model.addAttribute("recaptchaFail", "true");
+					System.out.println("3");
 					return "forward:/WEB-INF/views/sign/login.jsp";
 				}
 			}
 		}
 		else {
 			model.addAttribute("recaptchaFail", "true");
+			System.out.println("4");
 			return "forward:/WEB-INF/views/sign/login.jsp";
 		}
 	}
@@ -67,6 +74,9 @@ public class SignController {
 	// 회원가입 처리
 	@RequestMapping("/signOnProcess.room9")
 	public String signOnProcess(@RequestParam Map map) throws Exception{
+		
+		//들어오는 아이디 값을 무조건 소문자로 변경
+		//map.put("emailid", map.get("emailid").toString().toLowerCase());
 		
 		// 회원가입이 완료되면 로그인 페이지로 이동
 		service.signOn(map);

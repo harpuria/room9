@@ -9,6 +9,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.room9.service.MemberService;
+import com.kosmo.room9.service.ReservationDataDTO;
+import com.kosmo.room9.service.Room9MemberDTO;
 
 @Repository("memberDAO")
 public class MemberDAO implements MemberService{
@@ -53,6 +55,30 @@ public class MemberDAO implements MemberService{
 	public String naverLogin(Map map) {
 		
 		return template.selectOne("naverLogin", map);
+	}
+
+	@Override
+	public Room9MemberDTO userInfoSelect(Map map) {
+		
+		return template.selectOne("userinfoSelectOne", map);
+	}
+
+	@Override
+	public int userInfoUpdate(Map map) {
+	
+		return template.update("userInfoUpdate", map);
+	}
+
+	@Override
+	public String reservationPull(Map map) {
+		
+		return template.selectOne("resPull", map);
+	}
+
+	@Override
+	public List<ReservationDataDTO> ResInfoSelectList(Map map) {
+		
+		return template.selectList("ResSelectList", map);
 	}
 
 }

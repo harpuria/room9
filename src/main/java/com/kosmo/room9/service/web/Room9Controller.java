@@ -96,12 +96,9 @@ public class Room9Controller {
 	
 	@RequestMapping("/notice.room9")
 	public String notice() throws Exception{
-		System.out.println("들어옴?");
+		
 		return "notice.tiles";
 	}
-	@RequestMapping("/UserInfo.room9")
-	public String UserInfo() throws Exception{
-		System.out.println("들어옴?");
-		return "UserInfo.tiles";
-	}
+	
+
 }

@@ -53,8 +53,8 @@
         </div>
 
         <div class="link-green">
-            <a href="#">
-                <i class="fas fa-book fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;REVIEW
+            <a href="<c:url value='/coalition.room9'/>">
+                <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
             </a>
         </div>
         
@@ -65,7 +65,7 @@
             
             <ul class="sub-links">
                 <li><a href="<c:url value='/notice.room9'/>">공지사항</a></li>
-                <li><a href="#">문의하기</a></li>
+                <li><a href="<c:url value='/question.room9'/>">문의하기</a></li>
             </ul>
         </div>
     </div>

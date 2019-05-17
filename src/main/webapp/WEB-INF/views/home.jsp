@@ -5,9 +5,6 @@
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
-<h1><a href="<c:url value='/batchTest.room9' />">batch 테스트</a></h1>
-
-
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
 	<div id="myCarousel" class="carousel slide carousel-fade"
 		data-ride="carousel"
@@ -281,16 +278,20 @@
 
 	// JSON 에 있는 주소 읽어오기
 	// test.json 에는 모임장소의 주소들이 들어가야함. 이거 처리는 또 어케하지... ㅅㅂ..
-	$.getJSON("<c:url value='resources/JSON/test.json'/>", function(data) {
+	$.getJSON("<c:url value='resources/JSON/room9.json'/>", function(data) {
 		$.each(data, function(i, elt) {
 			console.log("test : " + elt.addr);
+			console.log("test : " + elt.name);
 
 			//주소로 좌표를 검색합니다
 			geocoder.addressSearch(elt.addr, function(result, status) {
+				console.log("쓰바 들어오냐?? " + status + ":" + result);
+				
+				
 				// 정상적으로 검색이 완료됐으면 
 				if (status === daum.maps.services.Status.OK) {
 
-					console.log(result[0].y, result[0].x);
+					console.log("다시 한번 : " + result[0].y, result[0].x);
 
 					// 해당 위치의 마커를 만들고...
 					var marker = new daum.maps.Marker({
@@ -306,7 +307,7 @@
 					var content = '<div class="wrap">' + 
 					            '    <div class="info">' + 
 					            '        <div class="title">' + 
-					            '            모임장소이름' + 
+					            '            ' + elt.name + ' ' + 
 					            '        </div>' + 
 					            '        <div class="body">' + 
 					            '            <div class="img">' +

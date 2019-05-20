@@ -48,8 +48,7 @@
 }
 .editArea input[type="text"]::placeholder,
 .editArea input[type="email"]::placeholder,
-.editArea input[type="number"]::placeholder,
-.editArea input[type="password"]::placeholder {
+.editArea input[type="number"]::placeholder {
   color: #999999;
 }
 .editArea textarea {

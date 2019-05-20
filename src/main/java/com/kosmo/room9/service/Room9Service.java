@@ -6,4 +6,7 @@ import java.util.Map;
 public interface Room9Service {
 	// 모든 모임 목록 불러오기
 	List<Room9DTO> selectList(Map map);
+	
+	// 모임 상세보기
+	Room9DTO selectOne(Map map);
 }

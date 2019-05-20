@@ -51,27 +51,31 @@
                 <li><a href="<c:url value='/reservation.room9'/>">ROOM 9 예약</a></li>
             </ul>
         </div>
-
-        <div class="link-green">
-            <a href="<c:url value='/coalition.room9'/>">
-                <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
+        
+        <div class="link-purple">
+            <a href="<c:url value='/host.room9'/>">
+                <i class="fas fa-male fa-2x" style="color: #AC58FA; padding: 0 5px;"></i>&nbsp;&nbsp;HOST
             </a>
         </div>
         
         <div class="link-gray">
             <a href="#">
-                <i class="fas fa-bullhorn fa-2x" style="color: #828282"></i>&nbsp;&nbsp;QNA
+                <i class="fas fa-bullhorn fa-2x" style="color: #828282"></i>&nbsp;&nbsp;CONTACT
             </a>
             
             <ul class="sub-links">
                 <li><a href="<c:url value='/notice.room9'/>">공지사항</a></li>
                 <li><a href="<c:url value='/question.room9'/>">문의하기</a></li>
+                <li><a href="<c:url value='/freeBbs.room9'/>">자유게시판</a></li>
             </ul>
         </div>
+        
+        <div class="link-green">
+            <a href="<c:url value='/coalition.room9'/>">
+                <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
+            </a>
+        </div>
     </div>
-	<a href="javascript:void addPlusFriend()">
-		<img src="https://developers.kakao.com/assets/img/about/logos/plusfriend/friendadd_small_yellow_rect.png"/>
-	</a>
 </aside>
 	
 <style>
@@ -130,6 +134,9 @@ body {padding-left: 14%;}
 .sidebar1-links div.link-green > a i.far {color: #86be2e !important;}
 .sidebar1-links div.link-gray > a {border-color: #828282;}
 .sidebar1-links div.link-gray > a i.fas {color: #828282 !important;}
+.sidebar1-links div.link-purple > a {border-color: #AC58FA;}
+.sidebar1-links div.link-purple > a i.fas {color: #AC58FA !important;}
+
 /* Making the sidebar responsive */
 @media (max-width: 900px) {
 	.main-content {max-width: none;padding: 70px 20px;margin: 0 0 40px;}

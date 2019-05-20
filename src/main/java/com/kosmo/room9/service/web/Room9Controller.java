@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.room9.service.Room9DTO;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
@@ -88,21 +90,14 @@ public class Room9Controller {
 	}
 	
 	@RequestMapping("/reservation.room9")
-	public String reservation(Model model) throws Exception{
-		List<Room9DTO> list = service.selectList(null);
-		model.addAttribute("list", list);	
+	public String reservation(@RequestParam Map map, Model model) throws Exception{
+		Room9DTO record = service.selectOne(map);
+		model.addAttribute("record", record);	
 		return "reservation.tiles";
 	}
 	
-	@RequestMapping("/notice.room9")
-	public String notice() throws Exception{
-		
-		return "notice.tiles";
-	}
-
-	@RequestMapping("/question.room9")
-	public String question() throws Exception{
-		System.out.println("들어옴?");
-		return "question.tiles";
+	@RequestMapping("/host.room9")
+	public String host(@RequestParam Map map, Model model) throws Exception{
+		return "host.tiles";
 	}
 }

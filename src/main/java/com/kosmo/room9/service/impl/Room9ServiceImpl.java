@@ -20,5 +20,11 @@ public class Room9ServiceImpl implements Room9Service{
 	public List<Room9DTO> selectList(Map map) {
 		return dao.selectList(map);
 	}
+
+	@Override
+	public Room9DTO selectOne(Map map) {
+	
+		return dao.selectOne(map);
+	}
 	
 }

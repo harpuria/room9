@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.kosmo.room9.service.MemberService;
+import com.kosmo.room9.service.ReservationDataDTO;
+import com.kosmo.room9.service.Room9MemberDTO;
 
 @Service("memberServiceImpl")
 public class MemberServiceImpl implements MemberService {
@@ -50,5 +52,33 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String naverLogin(Map map) {
 		return dao.naverLogin(map);
+	}
+
+	//마이페이지에서 멤버의 정보 뽑아오기
+	@Override
+	public Room9MemberDTO userInfoSelect(Map map) {
+		
+		return dao.userInfoSelect(map);
+	}
+
+	//마이페이지에서 비밀번호 변경하기
+	@Override
+	public int userInfoUpdate(Map map) {
+	
+		return dao.userInfoUpdate(map);
+	}
+
+	//예약정보를 뽑아오기 위해서 예약번호 가져오기
+	@Override
+	public String reservationPull(Map map) {
+	
+		return dao.reservationPull(map);
+	}
+	
+	//해당회원의 예약정보 가져오기
+	@Override
+	public List<ReservationDataDTO> ResInfoSelectList(Map map) {
+		
+		return dao.ResInfoSelectList(map);
 	}
 }

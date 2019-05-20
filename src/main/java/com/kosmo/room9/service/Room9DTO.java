@@ -2,7 +2,6 @@ package com.kosmo.room9.service;
 
 import java.util.Date;
 
-// 해당 DTO 는 임시로 만들어 둔 것임 (테스트용도)
 public class Room9DTO {
 	private String r_no;
 	private String r_name;

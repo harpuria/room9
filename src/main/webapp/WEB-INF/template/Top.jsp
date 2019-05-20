@@ -33,7 +33,7 @@
             </a>
 
             <ul class="sub-links">
-                <li><a href="#">정보 수정</a></li>
+                <li><a href="<c:url value='/UserInfo.room9?m_email=${sessionScope.emailid }'/>">정보 수정</a></li>
                 <li><a href="#">예약 확인</a></li>
             </ul>
         </div>
@@ -49,7 +49,6 @@
             <ul class="sub-links">
                 <li><a href="<c:url value='/open.room9'/>">ROOM 9 하기</a></li>
                 <li><a href="<c:url value='/reservation.room9'/>">ROOM 9 예약</a></li>
-                <li><a href="<c:url value='/UserInfo.room9'/>">테스트</a></li>
             </ul>
         </div>
 

@@ -48,8 +48,9 @@ public class HomeController {
 		
 		// JSON 파일로 저장하기
 		try {
-			// 경로는 수정하긴 해야할듯... 위치 찾는게 일인듯
-			FileWriter file = new FileWriter("D:\\YHH\\WorkSpace\\Room9\\src\\main\\webapp\\resources\\JSON\\room9.json");
+			String filepath = req.getSession().getServletContext().getRealPath("resources/JSON") + "/room9.json";
+			System.out.println(filepath);
+			FileWriter file = new FileWriter(filepath);
 			file.write(room9Array.toJSONString());
 			file.flush();
 			file.close();

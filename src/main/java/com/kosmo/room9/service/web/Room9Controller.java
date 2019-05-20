@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.room9.service.Room9DTO;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
@@ -87,18 +89,44 @@ public class Room9Controller {
 		return "open.tiles";
 	}
 	
-	@RequestMapping("/reservation.room9")
-	public String reservation(Model model) throws Exception{
-		List<Room9DTO> list = service.selectList(null);
-		model.addAttribute("list", list);	
-		return "reservation.tiles";
+
+	@RequestMapping("/host.room9")
+	public String host(@RequestParam Map map, Model model) throws Exception{
+		return "host.tiles";
+
+	}
+	@RequestMapping("/admin_main.room9")
+	public String admin_main(@RequestParam Map map, Model model) throws Exception{
+		return "admin_main.adminTiles";
 	}
 	
-
-
-	@RequestMapping("/question.room9")
-	public String question() throws Exception{
-		System.out.println("들어옴?");
-		return "question.tiles";
+	@RequestMapping("/admin_host.room9")
+	public String admin_host(@RequestParam Map map, Model model) throws Exception{
+		return "admin_host.adminTiles";
+	}
+	
+	@RequestMapping("/admin_calender.room9")
+	public String admin_calender(@RequestParam Map map, Model model) throws Exception{
+		return "admin_calender.adminTiles";
+	}
+	
+	@RequestMapping("/admin_member.room9")
+	public String admin_member(@RequestParam Map map, Model model) throws Exception{
+		return "admin_member.adminTiles";
+	}
+	
+	@RequestMapping("/admin_notice.room9")
+	public String admin_notice(@RequestParam Map map, Model model) throws Exception{
+		return "admin_notice.adminTiles";
+	}
+	
+	@RequestMapping("/admin_room9_join.room9")
+	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{
+		return "admin_room9_join.adminTiles";
+	}
+	
+	@RequestMapping("/home.room9")
+	public String home(@RequestParam Map map, Model model) throws Exception{
+		return "home.tiles";
 	}
 }

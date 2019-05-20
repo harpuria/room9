@@ -37,6 +37,11 @@
  		SELECT * FROM R9_ROOM ORDER BY R_NO DESC
  	</select>
  	
+ 	<!-- 모임 상세페이지 목록 불러오기 -->
+ 	<select id="selectOne" parameterType="java.util.Map" resultType="Room9DTO">
+ 		SELECT * FROM R9_ROOM WHERE r_no=#{r_no}
+ 	</select>
+ 	
  	<update id="naverConnet" parameterType="java.util.Map" >
  		UPDATE R9_MEMBER set NAVER=#{naverid} WHERE M_EMAIL=#{naveremail} and NAVER is NULL
  	</update>

@@ -351,8 +351,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 
 <div id="app">
         <div class="topSkin web">
-            <div class="skin" style="background-image: url('assets/img/bg_intro.jpg')"></div>
-            <h2 class="skinTitle">문의</h2>
+            <div class="skin" style="background-image: url('resources/img/topbanner.png')"></div>
+            <h2 class="skinTitle">문의하기</h2>
         </div>
         <section class="content">
             <h3 class="mainTitle">문의하기</h3>

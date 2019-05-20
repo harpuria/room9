@@ -341,9 +341,6 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
    font-weight:bold;
    }
 
-
-
-
 </style>
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
 	<div id="myCarousel" class="carousel slide carousel-fade"

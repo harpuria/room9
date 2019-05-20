@@ -87,7 +87,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 .topBanner .searchBar input[type="text"] {padding-left: 15px;width: 100%;height: 60px;font-size: 18px;}
 }
 .topBanner .searchBar input[type="text"]::placeholder {color: #999999 !important;}
-.topBanner .searchBar input[type="submit"] {position: absolute;top: 0;right: 0;display: block;padding: 0;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;background: #ffffff;outline: none;border: 0;border-radius: 0;-webkit-border-radius: 0;-webkit-opacity: 1;border-radius: 3px;color: #828282 !important;background: url(assets/img/searchIcon.svg) no-repeat center center;background-color: #ffffff;cursor: pointer;}
+.topBanner .searchBar input[type="submit"] {position: absolute;top: 0;right: 0;display: block;padding: 0;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;background: #ffffff;outline: none;border: 0;border-radius: 0;-webkit-border-radius: 0;-webkit-opacity: 1;border-radius: 3px;color: #828282 !important;background: url('resources/img/searchIcon.svg') no-repeat center center;background-color: #ffffff;cursor: pointer;}
 @media (max-width: 767px) {
 .topBanner .searchBar input[type="submit"] {width: 36px;height: 32px;}
 }
@@ -384,10 +384,9 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
    <div class="row">
       <article class="placeListArea">
          <ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-            
             <c:forEach items="${list }" var="item" varStatus="loop">
 	            <li class="filter ${category[loop.index] } reunion">
-	               <a href="<c:url value='/reservation.room9'/>">
+	               <a href="<c:url value='/reservation.room9?r_no=${item.r_no }'/>">
 	                  <div class="imgArea">
 	                     <img src="<c:url value='resources/img/book.jpg'/>" />                           
 	                  </div>

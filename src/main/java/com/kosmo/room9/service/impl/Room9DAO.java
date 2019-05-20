@@ -23,5 +23,12 @@ public class Room9DAO implements Room9Service {
 	public List<Room9DTO> selectList(Map map) {
 		return template.selectList("selectList", map);
 	}
+
+
+	@Override
+	public Room9DTO selectOne(Map map) {
+		
+		return template.selectOne("selectOne", map);
+	}
 	
 }

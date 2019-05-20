@@ -153,7 +153,7 @@ label.error {
 
 <h1 onclick='loginWithKakao("connect")'>카카오 연동하기 (test)</h1>
 
-<form action="<c:url value='/loginProcess.room9'/>">
+<form action="<c:url value='/loginProcess.room9'/>" method="POST">
 
 	<c:if test="${requestScope.recaptchaFail eq 'true' }">
 		<input type="hidden" name="recaptcha" value="false"/>
@@ -407,7 +407,7 @@ $('#registerform').validate({
 			minlength : "이름은 최소 2자 이상 입력해 주세요",
 			maxlength : "이름은 15자 이내로 입력해 주세요"
 		},
-		phonenumber : {
+		phonenumber : { 
 			required : "휴대전화 번호를 입력해 주세요",
 			digits : "숫자만 입력해주세요"
 		}

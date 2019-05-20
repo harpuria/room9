@@ -22,7 +22,7 @@ public class CrawlingController {
 	CrawlingDataServiceImpl service;
 	
 	// 배치파일 실행하는 메소드 (크롤링)
-	@RequestMapping("/batchTest.room9")
+	@RequestMapping("/coalition.room9")
 	public String batchTest(Model model) throws Exception {
 		try {
 		    Process p = Runtime.getRuntime().exec("D:\\crawling.bat");
@@ -41,6 +41,6 @@ public class CrawlingController {
 		List<CrawlingDataDTO> list = service.selectList();
 		model.addAttribute("list", list);
 		
-		return "alliance.tiles";
+		return "coalition.tiles";
 	}
 }

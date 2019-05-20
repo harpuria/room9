@@ -75,6 +75,12 @@
                 <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
             </a>
         </div>
+        
+        <div class="link-ff">
+            <a href="<c:url value='/admin_main.room9'/>">
+                <i class="fas fa-chart-pie fa-2x" style="color: #FF00FF"></i>&nbsp;&nbsp;ADMIN
+            </a>
+        </div>
     </div>
 </aside>
 	
@@ -136,6 +142,8 @@ body {padding-left: 14%;}
 .sidebar1-links div.link-gray > a i.fas {color: #828282 !important;}
 .sidebar1-links div.link-purple > a {border-color: #AC58FA;}
 .sidebar1-links div.link-purple > a i.fas {color: #AC58FA !important;}
+.sidebar1-links div.link-ff > a {border-color: #FF00FF;}
+.sidebar1-links div.link-ff > a i.fas {color: #FF00FF !important;}
 
 /* Making the sidebar responsive */
 @media (max-width: 900px) {

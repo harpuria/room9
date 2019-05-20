@@ -80,4 +80,10 @@
  		UPDATE R9_MEMBER SET m_pwd=#{changePwd} WHERE m_pwd=#{currentPwd} AND ${changePwd}=#{re_changePwd} AND M_EMAIL=#{m_email}
  	</update>
  	
+ 	<!-- 공지사항리스트 -->
+ 	<select id="noticeList" parameterType="java.util.Map" resultType="NoticeDTO">
+ 		SELECT * FROM R9_NOTICE ORDER BY R_POSTDATE DESC
+ 	</select>
+ 	
+ 	
 </mapper>

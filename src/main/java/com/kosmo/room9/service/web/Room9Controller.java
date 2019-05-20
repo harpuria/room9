@@ -89,15 +89,44 @@ public class Room9Controller {
 		return "open.tiles";
 	}
 	
-	@RequestMapping("/reservation.room9")
-	public String reservation(@RequestParam Map map, Model model) throws Exception{
-		Room9DTO record = service.selectOne(map);
-		model.addAttribute("record", record);	
-		return "reservation.tiles";
-	}
-	
+
 	@RequestMapping("/host.room9")
 	public String host(@RequestParam Map map, Model model) throws Exception{
 		return "host.tiles";
+
+	}
+	@RequestMapping("/admin_main.room9")
+	public String admin_main(@RequestParam Map map, Model model) throws Exception{
+		return "admin_main.adminTiles";
+	}
+	
+	@RequestMapping("/admin_host.room9")
+	public String admin_host(@RequestParam Map map, Model model) throws Exception{
+		return "admin_host.adminTiles";
+	}
+	
+	@RequestMapping("/admin_calender.room9")
+	public String admin_calender(@RequestParam Map map, Model model) throws Exception{
+		return "admin_calender.adminTiles";
+	}
+	
+	@RequestMapping("/admin_member.room9")
+	public String admin_member(@RequestParam Map map, Model model) throws Exception{
+		return "admin_member.adminTiles";
+	}
+	
+	@RequestMapping("/admin_notice.room9")
+	public String admin_notice(@RequestParam Map map, Model model) throws Exception{
+		return "admin_notice.adminTiles";
+	}
+	
+	@RequestMapping("/admin_room9_join.room9")
+	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{
+		return "admin_room9_join.adminTiles";
+	}
+	
+	@RequestMapping("/home.room9")
+	public String home(@RequestParam Map map, Model model) throws Exception{
+		return "home.tiles";
 	}
 }

@@ -133,24 +133,15 @@
 			</tr>
 			
 		</thead>
-		<tbody style="color:black">
-			<tr>
-				<th scope="row">공지사항</th>
-				<td>Mark</td>
-				<td>Otto</td>
-			</tr>
-			<tr>
-				<th scope="row">공지사항</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-			</tr>
-			<tr>
-				<th scope="row">공지사항</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-			</tr>
-
-		</tbody>
+		<c:forEach items="${list }" var="items">
+			<tbody style="color:black">
+				<tr>
+					<th scope="row">${items.r_category }</th>
+					<td>${items.r_title }</td>
+					<td>${items.r_postdate }</td>
+				</tr>
+			</tbody>
+		</c:forEach>
 	</table>
 
 </div>

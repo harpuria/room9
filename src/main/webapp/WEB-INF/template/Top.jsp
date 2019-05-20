@@ -70,7 +70,19 @@
             </ul>
         </div>
     </div>
-	<a href="javascript:void addPlusFriend()">
+	<a href="javascript:void addPlusFriend()" style="display: block;
+	text-decoration: none;
+	font-family: Cookie, cursive;
+	width: 122px;
+	height: 122px;
+	margin: 0 auto;
+	text-align: center;
+	color: #ffffff;
+	font-size: 44px;
+	font-weight: normal;
+	line-height: 2.6;
+	border-radius: 50%;
+">
 		<img src="https://developers.kakao.com/assets/img/about/logos/plusfriend/friendadd_small_yellow_rect.png"/>
 	</a>
 </aside>

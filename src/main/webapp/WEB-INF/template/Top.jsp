@@ -60,12 +60,13 @@
         
         <div class="link-gray">
             <a href="#">
-                <i class="fas fa-bullhorn fa-2x" style="color: #828282"></i>&nbsp;&nbsp;QNA
+                <i class="fas fa-bullhorn fa-2x" style="color: #828282"></i>&nbsp;&nbsp;CONTACT
             </a>
             
             <ul class="sub-links">
                 <li><a href="<c:url value='/notice.room9'/>">공지사항</a></li>
                 <li><a href="<c:url value='/question.room9'/>">문의하기</a></li>
+                <li><a href="<c:url value='/freeBbs.room9'/>">자유게시판</a></li>
             </ul>
         </div>
     </div>

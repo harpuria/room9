@@ -93,16 +93,4 @@ public class Room9Controller {
 		model.addAttribute("list", list);	
 		return "reservation.tiles";
 	}
-	
-	@RequestMapping("/notice.room9")
-	public String notice() throws Exception{
-		
-		return "notice.tiles";
-	}
-
-	@RequestMapping("/question.room9")
-	public String question() throws Exception{
-		System.out.println("들어옴?");
-		return "question.tiles";
-	}
 }

@@ -418,7 +418,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     <span class="text-muted">예약상세정보</span>
                 </h4>
                <div>
-               <c:forEach items="${list }" var="items">
+               
                 <ul style="list-style: none;">
                 <li>
                     <span class="formTitle">공간유형</span>
@@ -431,8 +431,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                <li>
 	                    <span class="formTitle">상세주소</span>
 	                    <div class="rightArea">
-	                        <p>
-	                         	 ${items.r_address }
+	                        <p class="address">
+	                         	 ${record.r_address }
 	                        </p>
 	                    </div>
 	                </li>
@@ -440,7 +440,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">수용인원</span>
 	                    <div class="rightArea">
 	                        <p>
-	                          	  최소 ${items.r_people_count_min }명 ~ 최대 ${items.r_people_count_max }명 까지
+	                          	  최소 ${record.r_people_count_min }명 ~ 최대 ${record.r_people_count_max }명 까지
 	                        </p>
 	                    </div>
 	                </li>
@@ -448,7 +448,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">대관시간</span>
 	                    <div class="rightArea">
 	                        <p>
-	                           ${items.r_time } 
+	                           ${record.r_time } 
 	                        </p>
 	                    </div>
 	                </li>
@@ -456,7 +456,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">대관요일</span>
 	                    <div class="rightArea">
 	                        <p>
-	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${items.r_holiday } 
+	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_holiday } 
 	                        </p>
 	                    </div>
 	                </li>
@@ -478,7 +478,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             <h5 class="my-0">이용금액</h5>
                             <small class="text-muted">(시간단위)</small>
                         </div>
-                         <h3 class="my-0"><span style="color:#61ce4e">${items.r_money }원</span>~/시간</h3>
+                         <h3 class="my-0"><span style="color:#61ce4e">${record.r_money }원</span>~/시간</h3>
 
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -504,54 +504,34 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     	<p class="text-muted" style="padding-top: 10px">예약 인원 : </p>
 						<div class="col-md-8">
 							<select style="width: 55%;height:95%;text-align: center">
-							<c:forEach begin="1" end="${items.r_people_count_max }" var="count">
+							<c:forEach begin="1" end="${record.r_people_count_max }" var="count">
 							    	<option>${count} 명</option>
 							</c:forEach>
 							</select>
 						</div>
 					</li>
                 </ul>
-                 </c:forEach>
                 <hr class="mb-4">
                 <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
+                <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/${record.r_image_1}'/>" style="width:100%">
                     <h4 class="subTitle">RooM9 정보</h4>
                     <div class="col-md-12 mb-3 ">
                         <p class="tips">
-                            ■ 2F 컨벤션홀 < 대관 할인 EVNET!! ><br />
-                       		     온오프믹스 회원분들을 대상으로 할인된 금액으로 이용하실 수 있는 이벤트를 진행합니다.<br />
-                            - 선정 인원: 선착순 10명 (계약금 10% 납입시 예약 확정)<br />
-                            - 혜택 안내: 4시간 동안 컨벤션홀을 약 30% 할인된 가격인 220만원에 이용<br />
-                            - 신청 방법<br />
-                            1) 날짜 지정 후 2층 컨벤션홀을 선택하여 예약정보를 입력한다.<br />
-                            2) 상세 예약 정보 입력 후 호스트로부터 안내를 받는다.<br />
-                         	※ 4시간을 초과하여 대관시 추가 비용이 발생하며, 금액 등 자세한 사항은 대관 신청시 문의해 주시기 바랍니다.<br />
-                            <br />
-                        <p class="tips">
-                            - 평일 이용시간은 11:00 - 21:00 (브레이크 타임 15:00~17:30) 입니다. <br />
-                            - 주말 이용시간은 11:00 - 22:00 입니다. <br />
-                            - 최소 대관 가능 시간은 2시간 입니다. <br />
-                            - 서울마리나 클럽&amp;요트의 요트에는 절대로 외부 식음료를 반입할 수 없습니다. <br />
-                            - 고객께서는 서울마리나 클럽&amp;요트 측의 동의없이 내부에 어떠한 물건이라도 진열할 수 없습니다. <br />
-                            - 고객께서는 행사에 참여하시는 고객의 손님 그리고 고객자신으로 인하여 서울마리나 클럽&amp;요트의 재산 기물에 발생된 모든 손실 및 파손에 대한 보상 책임을 지며 서울마리나 클럽&amp;요트는 이에 대한 보수 및 대체 비용을 최종 청구금액에 포함시킬 수 있습니다. <br />
+                           ${record.r_large_content }
                         </p>
                         <hr />
                     </div>
                     <h3 class="h_intro">편의 시설</h3>
                     <div class="mb-3 border">
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
+						
 					</div>
                     <h4 class="subTitle">위치정보</h4>
-                    
+                    	${record.r_address }
                     <div class="mb-3 border">
-                        map
+                        <div id="map" style="width:100%; height:300px;"></div>
                     </div>
                     <div class="mb-3">
                         <h4 class="subTitle">환불기준</h4>
@@ -665,6 +645,44 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 				}
 				
 			});
-			$(":input").cSelect(); 
-			
-				</script>
+</script>
+
+<script>
+   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+   mapOption = {
+      center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+      level : 3
+   // 지도의 확대 레벨
+   };
+
+   //지도를 생성합니다    
+   var map = new daum.maps.Map(mapContainer, mapOption);
+
+   //주소-좌표 변환 객체를 생성합니다
+   var geocoder = new daum.maps.services.Geocoder();
+
+   var address;
+   
+    address=  "${record.r_address }";
+    
+    console.log(address);
+    
+    //주소로 좌표를 검색합니다
+    geocoder.addressSearch(address,  function(result, status) {
+       // 정상적으로 검색이 완료됐으면 
+       if (status === daum.maps.services.Status.OK) {
+    
+          var coords = new daum.maps.LatLng(result[0].y,result[0].x);
+          console.log(address, result[0].y, result[0].x);
+    
+          // 결과값으로 받은 위치를 마커로 표시합니다
+          var marker = new daum.maps.Marker({
+             map : map,
+             position : coords
+          });
+    
+     	// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+          map.setCenter(coords);
+       }
+    });
+</script>

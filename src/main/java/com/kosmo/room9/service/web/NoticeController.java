@@ -15,7 +15,7 @@ import com.kosmo.room9.service.impl.NoticeServiceImpl;
 @Controller
 public class NoticeController {
 	
-	// Room9ServiceImpl 주입
+	// Room9ServiceImpl 주입!
 	@Resource(name="noticeServiceImpl")
 	NoticeServiceImpl service;
 	

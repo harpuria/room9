@@ -356,17 +356,14 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
         </div>
         <section class="content">
             <h3 class="mainTitle">문의하기</h3>
-            <form action="https://place.onoffmix.com/host/save" method="POST" class="hostForm" enctype="multipart/form-data"
-                data-parsley-validate="true" data-parsley-excluded="[type=submit], [type=button], [type=reset]"
-                novalidate="">
-                <input type="hidden" name="_token" value="XYjBe3iDAoQtm1EHxa2A2wIVBwNxnNmViezawrpB">
+            <form action="<c:url value='/sendQuestion.room9'/>" method="GET" class="hostForm">
                 <div class="formBox">
                         <article class="companyInfo">
 	                        <div class="titleArea">
 	                            <h4>이메일<span class="requiredIcon">*</span></h4>
 	                        </div>
 	                        <div class="editArea">
-	                        	<input name="" type="text" placeholder="답장받을 이메일주소 입력">
+	                        	<input name="email" type="text" placeholder="답장받을 이메일주소 입력">
 	                        </div>
 	                    </article>
 	                    <article class="companyInfo">
@@ -374,7 +371,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                            <h4>이름<span class="requiredIcon">*</span></h4>
 	                        </div>
 	                        <div class="editArea">
-	                        	<input name="" type="text" placeholder="이름입력">
+	                        	<input name="name" type="text" placeholder="이름입력">
 	                        </div>
 	                    </article>
 		                <article class="companyInfo">
@@ -382,7 +379,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                            <h4>전화번호<span class="requiredIcon">*</span></h4>
 	                        </div>
 	                        <div class="editArea">
-	                            <input name="" type="text" placeholder="연락가능한 번호입력">
+	                            <input name="tel" type="text" placeholder="연락가능한 번호입력">
 	                        </div>
 	                    </article>
                     	<hr>
@@ -391,7 +388,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                            <h4>제목<span class="requiredIcon">*</span></h4>
 	                        </div>
 	                        <div class="editArea">
-	                            <input name="" type="text" placeholder="제목입력">
+	                            <input name="title" type="text" placeholder="제목입력">
 	                        </div>
 	                    </article>
 		                <article class="companyInfo">
@@ -399,7 +396,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                            <h4>내용<span class="requiredIcon">*</span></h4>
 	                        </div>
 	                        <div class="editArea">
-                            <textarea name="refund" placeholder="내용을 입력해 주세요" data-parsley-required="true"
+                            <textarea name="content" placeholder="내용을 입력해 주세요" data-parsley-required="true"
                                 data-parsley-error-message="내용을입력해라" style="width: 713px;height: 180px"></textarea>
                         	</div>
 	                    </article>

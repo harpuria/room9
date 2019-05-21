@@ -90,20 +90,12 @@ public class Room9Controller {
 	}
 	
 
-	@RequestMapping("/host.room9")
-	public String host(@RequestParam Map map, Model model) throws Exception{
-		return "host.tiles";
-
-	}
+	
 	@RequestMapping("/admin_main.room9")
 	public String admin_main(@RequestParam Map map, Model model) throws Exception{
 		return "admin_main.adminTiles";
 	}
 	
-	@RequestMapping("/admin_host.room9")
-	public String admin_host(@RequestParam Map map, Model model) throws Exception{
-		return "admin_host.adminTiles";
-	}
 	
 	@RequestMapping("/admin_calender.room9")
 	public String admin_calender(@RequestParam Map map, Model model) throws Exception{

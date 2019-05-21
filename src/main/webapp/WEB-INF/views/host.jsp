@@ -18,17 +18,17 @@
         <section class="content">
             <h3 class="mainTitle">호스트 정보 입력</h3>
     
-            <form action="" method="POST" class="hostForm" enctype="multipart/form-data"
-                data-parsley-validate="true" data-parsley-excluded="[type=submit], [type=button], [type=reset]"
-                novalidate="">
-                <input type="hidden" name="_token" value="">
+            <form action="<c:url value='/hostRegister.room9'/>" method="POST" class="hostForm">
+                
+                <input type="hidden" name="m_email" value="${sessionScope.emailid }">
+                
                 <div class="formBox">
                     <article class="placeHostName">
                         <div class="titleArea">
                             <h4>호스트 명 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="name" placeholder="이름을 정확히 입력해 주세요" data-parsley-required="true"
+                            <input type="text" name="h_name" placeholder="이름을 정확히 입력해 주세요" data-parsley-required="true"
                                 data-parsley-maxlength="50" data-parsley-required-message="이름을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
                         </div>
@@ -45,16 +45,10 @@
                             </div>
     
                             <div class="checkArea">
-                                <input type="text" name="mobile" class="submitInput phoneCheck"
+                                <input type="text" name="h_tel" class="submitInput phoneCheck"
                                     placeholder="호스트 연락처 (- 없이 입력)" data-parsley-required="true" data-parsley-type="number"
                                     data-parsley-errors-container=".phoneErrorWrap"
                                     data-parsley-error-message="휴대전화 번호를 입력해 주세요 (- 없이 입력)">
-                                <a href="#" class="hostBtn placeBtn phoneAuth">인증번호 발송</a>
-    
-                                <input type="text" name="certPhone" class="checkInput certPhone"
-                                    placeholder="발송된 번호를 입력해 주세요">
-                                <a href="#" class="hostBtn authCertBtn phoneCheckBtn phone">인증하기</a>
-    
                                 <div class="phoneErrorWrap"></div>
                                 <div class="phoneCheckErrorWrap"></div>
                             </div>
@@ -63,10 +57,10 @@
     
                     <article class="companyName">
                         <div class="titleArea">
-                            <h4>회사 명 <span class="requiredIcon">*</span></h4>
+                            <h4>회사명 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_name" placeholder="사업자등록증에 기재된 회사명"
+                            <input type="text" name="h_company" placeholder="사업자등록증에 기재된 회사명"
                                 data-parsley-required="true" data-parsley-maxlength="100"
                                 data-parsley-required-message="회사명을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 100자 이내로 문구를 입력해 주세요">
@@ -77,7 +71,7 @@
                             <h4>본사주소 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_addr" placeholder="사업자등록증에 기재된 본사주소"
+                            <input type="text" name="h_address" placeholder="사업자등록증에 기재된 본사주소"
                                 data-parsley-required="true" data-parsley-error-message="본사주소를 입력해 주세요">
                         </div>
                     </article>
@@ -86,7 +80,7 @@
                             <h4>회사 전화번호 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_tel" placeholder="회사 대표번호 (- 없이 입력)"
+                            <input type="text" name="h_company_tel" placeholder="회사 대표번호 (- 없이 입력)"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="회사 대표번호를 입력해 주세요 (- 없이 입력)">
                         </div>
@@ -96,16 +90,16 @@
                             <h4>FAX</h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_fax" placeholder="수신 가능한 FAX 번호 (- 없이 입력)"
+                            <input type="text" name="h_fax" placeholder="수신 가능한 FAX 번호 (- 없이 입력)"
                                 data-parsley-required="false" data-parsley-error-message="FAX번호를 입력해 주세요 (- 없이 입력)">
                         </div>
                     </article>
                     <article class="companyInfo">
                         <div class="titleArea">
-                            <h4>대표자 명 <span class="requiredIcon">*</span></h4>
+                            <h4>대표자명 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_ceo" placeholder="사업자등록증에 기재된 대표자 명"
+                            <input type="text" name="h_owner" placeholder="사업자등록증에 기재된 대표자 명"
                                 data-parsley-required="true" data-parsley-maxlength="30"
                                 data-parsley-required-message="대표자 명을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 30자 이내로 문구를 입력해 주세요">
@@ -116,7 +110,7 @@
                             <h4>사업자 등록번호 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_number" placeholder="사업자등록증에 기재된 등록번호"
+                            <input type="text" name="h_registration" placeholder="사업자등록증에 기재된 등록번호"
                                 data-parsley-required="true" data-parsley-error-message="사업자 등록번호를 입력해 주세요">
                         </div>
                     </article>
@@ -125,7 +119,7 @@
                             <h4>업태</h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_type" placeholder="사업자등록증에 기재된 업태"
+                            <input type="text" name="h_business" placeholder="사업자등록증에 기재된 업태"
                                 data-parsley-required="false" data-parsley-maxlength="50"
                                 data-parsley-required-message="업태를 입력해 주세요"
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
@@ -136,7 +130,7 @@
                             <h4>종목</h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_item" placeholder="사업자등록증에 기재된 종목"
+                            <input type="text" name="h_stoke" placeholder="사업자등록증에 기재된 종목"
                                 data-parsley-required="false" data-parsley-maxlength="50"
                                 data-parsley-required-message="종목을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
@@ -147,11 +141,10 @@
                             <h4>사업자등록증 첨부</h4>
                         </div>
                         <div class="editArea">
-                            <input type="hidden" class="uploadInput" name="company_business">
                             <input type="text" class="fileName" placeholder="정산에 필요한 사업자등록증 스캔본 첨부 / jpg, gif 파일"
                                 readonly="" data-parsley-required="false" data-parsley-errors-container=".payInfoErrorWrap"
                                 data-parsley-error-message="사업자등록증을 첨부해 주세요">
-                            <input type="file" id="companyUpload" class="fileUpload">
+                            <input type="file" id="companyUpload" class="fileUpload" name="h_registration_file">
                             <label for="companyUpload" class="hostBtn">첨부하기</label>
                             <div class="payInfoErrorWrap"></div>
                         </div>
@@ -161,11 +154,10 @@
                             <h4>통장사본 첨부</h4>
                         </div>
                         <div class="editArea">
-                            <input type="hidden" class="uploadInput" name="company_bankbook">
                             <input type="text" class="fileName" placeholder="정산금액을 입금받을 통장사본 스캔본 첨부 / jpg, gif 파일"
                                 readonly="" data-parsley-required="false" data-parsley-errors-container=".bankBookErrorWrp"
                                 data-parsley-error-message="통장사본을 첨부해 주세요">
-                            <input type="file" id="payInfoApply" class="fileUpload">
+                            <input type="file" id="payInfoApply" class="fileUpload" name="h_account_file">
                             <label for="payInfoApply" class="hostBtn">첨부하기</label>
                             <div class="bankBookErrorWrp"></div>
                         </div>
@@ -175,7 +167,7 @@
                             <h4>담당자 명 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_payment_name" placeholder="대관 담당자의 이름/직책을 입력해 주세요."
+                            <input type="text" name="h_manager" placeholder="대관 담당자의 이름/직책을 입력해 주세요."
                                 data-parsley-required="true" data-parsley-maxlength="50"
                                 data-parsley-required-message="담당자 명을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
@@ -186,7 +178,7 @@
                             <h4>담당자 e-mail <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="email" name="company_payment_email" class="submitInput"
+                            <input type="email" name="h_manager_mail" class="submitInput"
                                 placeholder="대관문의 메일이 발송되오니 메일 주소를 정확하게 입력해 주세요." data-parsley-required="true"
                                 data-parsley-type="email" data-parsley-errors-container=".companyEmailErrorWrap"
                                 data-parsley-error-message="담당자 e-mail을 입력해 주세요">
@@ -198,7 +190,7 @@
                             <h4>담당자 연락처 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <input type="text" name="company_payment_mobile" class="submitInput"
+                            <input type="text" name="h_manager_tel" class="submitInput"
                                 placeholder="대관 담당자의 연락처를 정확하게 입력해 주세요." data-parsley-required="true"
                                 data-parsley-type="number" data-parsley-errors-container=".companyPhoneErrorWrap"
                                 data-parsley-error-message="담당자 휴대전화를 입력해 주세요 (- 없이 입력)">

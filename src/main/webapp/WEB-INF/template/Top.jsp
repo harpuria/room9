@@ -52,11 +52,13 @@
             </ul>
         </div>
         
-        <div class="link-purple">
-            <a href="<c:url value='/host.room9'/>">
-                <i class="fas fa-male fa-2x" style="color: #AC58FA; padding: 0 5px;"></i>&nbsp;&nbsp;HOST
-            </a>
-        </div>
+        <c:if test="${not isLogin and sessionScope.isHost eq 'false' }" >
+	        <div class="link-purple">
+	            <a href="<c:url value='/host.room9'/>">
+	                <i class="fas fa-male fa-2x" style="color: #AC58FA; padding: 0 5px;"></i>&nbsp;&nbsp;HOST
+	            </a>
+	        </div>
+        </c:if>
         
         <div class="link-gray">
             <a href="#">
@@ -76,11 +78,13 @@
             </a>
         </div>
         
-        <div class="link-ff">
-            <a href="<c:url value='/admin_main.room9'/>">
-                <i class="fas fa-chart-pie fa-2x" style="color: #FF00FF"></i>&nbsp;&nbsp;ADMIN
-            </a>
-        </div>
+        <c:if test="${sessionScope.isHost eq 'true' }" >
+	        <div class="link-ff">
+	            <a href="<c:url value='/admin_main.room9'/>">
+	                <i class="fas fa-chart-pie fa-2x" style="color: #FF00FF"></i>&nbsp;&nbsp;ADMIN
+	            </a>
+	        </div>
+        </c:if>
     </div>
 </aside>
 	

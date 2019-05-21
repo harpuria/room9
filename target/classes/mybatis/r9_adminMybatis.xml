@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="mybatis.r9_adminMybatis">
+	<!-- 호스트 가입 -->
+	<insert id="insertHost" parameterType="java.util.Map">
+		INSERT INTO R9_HOST VALUES(SEQ_R9_HOST.NEXTVAL, (SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{m_email}),
+									#{h_name}, #{m_email}, #{h_tel}, #{h_company}, #{h_address}, #{h_company_tel}, #{h_fax}, #{h_owner}, #{h_registration}, #{h_business},
+									#{h_stoke}, #{h_registration_file}, #{h_account_file}, #{h_manager}, #{h_manager_mail}, #{h_manager_tel}, SYSDATE)
+	</insert>
+	
+	<!-- 호스트 확인 -->
+	<select id="isHost" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM R9_HOST WHERE M_NO = (SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{emailid})
+	</select>
+	
+	<!-- 호스트 전체 뿌려주기 -->
+	<select id="selectHostList" parameterType="java.util.Map" resultType="HostDTO">
+		SELECT * FROM R9_HOST ORDER BY H_NO DESC
+	</select>
+</mapper>

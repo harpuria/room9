@@ -123,29 +123,24 @@
 <div style="height: 150px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
-<div class="col-md-12 ">
-	<table class="table table-hover" style="text-align: center;margin-bottom:none">
-		<thead class="" style="border-collapse:none">
-			<tr style="background-color: gray;color:white">
-				<th class="col-md-2" scope="col">제목</th>
-				<th class="col-md-8" scope="col">내용</th>
-				<th class="col-md-2" scope="col">날짜</th>
-			</tr>
-		</thead>
-		<c:forEach items="${list }" var="items">
-			<tbody style="color:black">
-				<tr>
-					<th scope="row">${items.r_title }</th>
-					<td><a href="<c:url value='/notice_View.room9?no=${items.no}'/>">${items.r_content }</a></td>
-					<td>${items.r_postdate }</td>
-				</tr>
-			</tbody>
-		</c:forEach>
-	</table>
+		<div class="col-md-12 ">
+			<div class="col-md-offset-2 col-md-8">
+				<table class="table table-bordered table-striped">
+					<tr>
+						<th class="text-center">제목</th>
+						<td>${record.r_title}</td>
+					</tr>
+					<tr>
+						<th class="text-center" colspan="2">내용</th>
+					</tr>
+					<tr>
+						<td colspan="2">${record.r_content}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-
-
-</div></div>
 
 <script>
 new WOW().init();

@@ -115,10 +115,7 @@ public class Room9Controller {
 		return "admin_member.adminTiles";
 	}
 	
-	@RequestMapping("/admin_notice.room9")
-	public String admin_notice(@RequestParam Map map, Model model) throws Exception{
-		return "admin_notice.adminTiles";
-	}
+
 	
 	@RequestMapping("/admin_room9_join.room9")
 	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{

@@ -117,17 +117,40 @@
 
 a.no_content {color: black;}
 a.no_content:hover {color: black;}
+
+#myTable_info{
+	display: none;
+}
+
+#myTable_paginate a{
+
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 10px;
+	color:#479e3a 
+}
+#myTable_paginate a:hover{
+
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 10px;
+	color:black
+}
+
+
 </style>
 
-<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+ 
+<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
 
 <div class="topSkin web">
     <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
     <h2 class="skinTitle">ROOM9 공지사항</h2>
 </div>
  <!-- 공지테이블 -->
-<div style="height: 150px"></div>
+<div style="height: 50px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
 <div class="col-md-12 ">

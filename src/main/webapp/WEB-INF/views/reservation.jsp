@@ -426,7 +426,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 <!-- 내용시작 -->
 	<div class="container">
         <div class="py-5 text-center">
-            <h2>예약 페이지</h2>
+            <h2>상세보기</h2>
+            <br/>
             <p class="lead">이곳에서 예약과 상세정보를 확인 가능합니다</p>
         </div>
         <div class="row">
@@ -436,7 +437,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                 </h4>
                <div>
                
-                <ul style="list-style: none;">
+                <ul style="list-style: none;padding: 0;">
                 <li>
                     <span class="formTitle">공간유형</span>
 	                    <div class="rightArea">
@@ -624,7 +625,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 					</li>
                 </ul>
                 <hr class="mb-4">
-                <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e">예약하기</button>
+                <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
@@ -654,24 +655,24 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 				    <span class="sr-only">Next</span>
 				  </a>
 				</div>
-                    <h4 class="subTitle">RooM9 정보</h4>
+                    <h4 class="mb-3">RooM9 정보</h4>
                     <div class="col-md-12 mb-3 ">
                         <p class="tips">
                            ${record.r_large_content }
                         </p>
                         <hr />
                     </div>
-                    <h3 class="h_intro">편의 시설</h3>
+                    <h3 class="mb-3">편의 시설</h3>
                     <div class="mb-3 border">
 						
 					</div>
-                    <h4 class="subTitle">위치정보</h4>
+                    <h4 class="mb-3">위치정보</h4>
                     	${record.r_address }
                     <div class="mb-3 border">
                         <div id="map" style="width:100%; height:300px;"></div>
                     </div>
                     <div class="mb-3">
-                        <h4 class="subTitle">환불기준</h4>
+                        <h4 class="mb-3">환불기준</h4>
                         <div>
                             <p class="tips">
                                 1. 계약금은 총예상 행사비의 10% 이상으로서 행사예약시 지불되어야 하며, 이 규정에서 달리 정한 경우를 제외하고는 환불되지 않습니다. 서울마리나 클럽&요트는 계약금이 지불되기 전까지 고객에 대한 구두 또는 서면 통지로써 예약을 임의로 해지할 수 있습니다.<br />
@@ -683,11 +684,11 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                                 4. 최저 행사인원수에 변동이 생기는 경우 고객께서는 늦어도 행사가 시작되기 72시간전에 서울마리나 클럽&요트로 그 변동사항을 알려주셔야 하며, 알려주지 못함으로 인하여 발행하는 문제는 고객께서 책임을 지게 됩니다.<br />
                                 <br />
                                 5. 이용자가 임의로 행사를 취소(일정의 변경 포함)하는 경우 공정거래법을 기준하여 다음과 같이 적용됩니다<br />
-                                - 행사 59일 이전 통보시 : 행사 취소는 가능 하지만, 계약금은 환불되지 않습니다.<br />
-                                - 행사 28일 이내 통보시 : 예상매출 손실액 20%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
-                                - 행사 21일 이내 통보시 : 예상매출손실액 50%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
-                                - 행사   7일 이내 통보시 : 예상매출 손실액 70%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
-                                - 행사   3일 이내 통보시 : 예상매출 손실액 전액을 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.	<br />
+                                &nbsp;&nbsp;- 행사 59일 이전 통보시 : 행사 취소는 가능 하지만, 계약금은 환불되지 않습니다.<br />
+                                &nbsp;&nbsp;- 행사 28일 이내 통보시 : 예상매출 손실액 20%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
+                                &nbsp;&nbsp;- 행사 21일 이내 통보시 : 예상매출손실액 50%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
+                                &nbsp;&nbsp;- 행사   7일 이내 통보시 : 예상매출 손실액 70%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
+                                &nbsp;&nbsp;- 행사   3일 이내 통보시 : 예상매출 손실액 전액을 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.	<br />
                                 <br />
                                 6. 불가항력(기상상황 포함) 또는 기타 서울마리나 클럽&요트에서 조정할 수 없는 원인으로 인하여 행사 장소를 사용할 수 없게 된 경우엔 서울마리나 클럽&요트에서 고객에게 다른 장소를 대체해 드릴 수 있는 권리를 갖습니다. 이에 고객께서 대채된 장소를 원하지 않으시는 경우 고객께서는 예약을 취소하실 수 있으며 이때 이미 지불된 계약금은 전액 환불됩니다.
                         </div>
@@ -697,7 +698,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
         </div>
         
       
-      <div id="disqus_thread" style="padding:0 14%; width: 100%"></div>
+      <div id="disqus_thread" style="padding:5% 14%; width: 100%"></div>
+      
         <!-- 예약신청Modal -->
 		<form method="get" action="<c:url value='/sendpw.room9'/>" id="registerform">
 		   <div class="modal fade" id="myModal" tabindex="-1" role="dialog"

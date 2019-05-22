@@ -8,10 +8,10 @@
 <link href=<c:url value="assets/css/formcommon.css"/> rel="stylesheet" />    
 
 <section class="content" style="padding: 78px 30px 30px 280px;">
-    <h1>공지사항 작성</h1>
+   
 		<form class="form-horizontal" method="post"
 			action="<c:url value='/notice_WriteOK.room9'/>">
-	        <div class="formBox" style="border-bottom:none">
+	        <div class="formBox" style="border-bottom:none;padding-top: 5%">
 	        	<article class="placePhoneNumber">
 	                <div class="titleArea">
 	                    <h4>카테고리</h4>
@@ -42,9 +42,10 @@
 	                    <div class="introErrorWrap"></div>
 	                </div>
 	            </article>
-				<article class="btnArea">
-					<input type="submit" class="btn add" value="등록하기">
-				</article>
+				<div class="col-md-12 text-center"style="padding-top: 3%">
+					<button type="submit" class="btn btn-primary">글쓰기</button>
+					<button type="button" onclick="location.href='<c:url value='/admin_notice.room9'/>'" class="btn btn-primary">목록</button>
+				</div>
 			</div>
 		</form>
     </section>

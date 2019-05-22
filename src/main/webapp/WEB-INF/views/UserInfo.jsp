@@ -401,7 +401,7 @@ label.error {
                            			<a id="custom-login-btn" href="<c:url value='naverlogin.room9'/>"> 
 									<img src="<c:url value='/resources/img/naverlogin.png'/>" alt="네이버로그인버튼">
 									</a> 
-									<a id="custom-login-btn" href="javascript:loginWithKakao()"> 
+									<a id="custom-login-btn" href='javascript:loginWithKakao("connect")'> 
 									<img src="<c:url value='/resources/img/kakaologin.png'/>" alt="카카오로그인버튼">
 									</a>
 										<a id="custom-login-btn" href="#"> 
@@ -413,6 +413,33 @@ label.error {
 								</div>
 	                        </div>
 	                    </article>
+	                    
+			         <script type='text/javascript'>
+						// 사용할 앱의 JavaScript 키를 설정해 주세요.
+						Kakao.init('bae907e078c4dd929177071c5ed2263c');
+						function loginWithKakao(str) {
+							// 로그인 창을 띄웁니다.
+							// accesstoken 으로 로그인 처리 및 로그인 여부 확인하면 될 듯 함.
+							Kakao.Auth.loginForm({
+								success : function(authObj) {
+									// 로그인 후 토큰을 이용하기 위해 토큰부분만 추출
+									var accessToken = JSON.stringify(authObj).substring(17, JSON.stringify(authObj).indexOf('","'));
+									// 카카오 로그인시에는 리캡차 적용 안되도 로그인이 됨
+									if(str == "connect"){
+										// 여기는 기존 유저가 카카오 연동할 때
+										location.href = "<c:url value='/kakaoConnect.room9?accessToken="	+ accessToken + "'/>";
+									}
+									else{
+										// 여기는 카카오 로그인할 때
+										location.href = "<c:url value='/kakaoLogin.room9?accessToken="	+ accessToken + "'/>"	
+									}
+								},
+								fail : function(err) {
+									alert(JSON.stringify(err));
+								}
+							});
+						};
+					</script>
 	                    
                     </div>
                     <hr/>

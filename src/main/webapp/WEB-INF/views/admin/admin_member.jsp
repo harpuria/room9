@@ -22,8 +22,8 @@
 						<c:forEach items="${list }" var="items">
 							<tbody>
 								<tr>
-									<td class="text-center">${items.m_email }</td>
 									<td class="text-center">${items.m_name }</td>
+									<td class="text-center">${items.m_email }</td>
 									<td class="text-center">${items.m_tel }</td>
 									<td class="text-center">${items.m_date }</td>
 								</tr>

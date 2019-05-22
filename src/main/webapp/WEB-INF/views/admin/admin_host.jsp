@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">
@@ -20,13 +21,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="text-center">김지우</td>
-									<td class="text-center">kim@naver.com</td>
-									<td class="text-center">ROOM9</td>
-									<td class="text-center">010-1234-5678</td>
-									<td class="text-center">2019-05-16</td>
-								</tr>
+								<c:forEach items="${list }" var="item">
+								
+									<tr>
+										<td class="text-center">${item.h_name }</td>
+										<td class="text-center">${item.h_email }</td>
+										<td class="text-center">${item.h_name }</td>
+										<td class="text-center">${item.h_tel }</td>
+										<td class="text-center">${item.h_date }</td>
+									</tr>
+									
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>

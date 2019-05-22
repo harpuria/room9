@@ -574,121 +574,107 @@
                     <h4>대관가능 시간</h4>
                 </div>
                 <div class="editArea">
-                    <select class="selectMenu" name="use_start_time" data-parsley-required="true"
-                        data-parsley-errors-container=".durationErrorWrap"
-                        data-parsley-error-message="대관가능 시간을 입력해 주세요" id="ui-id-1" style="display: none;">
-                        <option value="00:00">0시 00분</option>
-                        <option value="00:30">0시 30분</option>
-                        <option value="01:00">1시 00분</option>
-                        <option value="01:30">1시 30분</option>
-                        <option value="02:00">2시 00분</option>
-                        <option value="02:30">2시 30분</option>
-                        <option value="03:00">3시 00분</option>
-                        <option value="03:30">3시 30분</option>
-                        <option value="04:00">4시 00분</option>
-                        <option value="04:30">4시 30분</option>
-                        <option value="05:00">5시 00분</option>
-                        <option value="05:30">5시 30분</option>
-                        <option value="06:00">6시 00분</option>
-                        <option value="06:30">6시 30분</option>
-                        <option value="07:00">7시 00분</option>
-                        <option value="07:30">7시 30분</option>
-                        <option value="08:00">8시 00분</option>
-                        <option value="08:30">8시 30분</option>
-                        <option value="09:00">9시 00분</option>
-                        <option value="09:30">9시 30분</option>
-                        <option value="10:00" selected="selected">10시 00분</option>
-                        <option value="10:30">10시 30분</option>
-                        <option value="11:00">11시 00분</option>
-                        <option value="11:30">11시 30분</option>
-                        <option value="12:00">12시 00분</option>
-                        <option value="12:30">12시 30분</option>
-                        <option value="13:00">13시 00분</option>
-                        <option value="13:30">13시 30분</option>
-                        <option value="14:00">14시 00분</option>
-                        <option value="14:30">14시 30분</option>
-                        <option value="15:00">15시 00분</option>
-                        <option value="15:30">15시 30분</option>
-                        <option value="16:00">16시 00분</option>
-                        <option value="16:30">16시 30분</option>
-                        <option value="17:00">17시 00분</option>
-                        <option value="17:30">17시 30분</option>
-                        <option value="18:00">18시 00분</option>
-                        <option value="18:30">18시 30분</option>
-                        <option value="19:00">19시 00분</option>
-                        <option value="19:30">19시 30분</option>
-                        <option value="20:00">20시 00분</option>
-                        <option value="20:30">20시 30분</option>
-                        <option value="21:00">21시 00분</option>
-                        <option value="21:30">21시 30분</option>
-                        <option value="22:00">22시 00분</option>
-                        <option value="22:30">22시 30분</option>
-                        <option value="23:00">23시 00분</option>
-                        <option value="23:30">23시 30분</option>
-
-                    </select><span tabindex="0" id="ui-id-1-button" role="combobox" aria-expanded="false"
-                        aria-autocomplete="list" aria-owns="ui-id-1-menu" aria-haspopup="true"
-                        class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget"><span
-                            class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span><span
-                            class="ui-selectmenu-text">10시 00분</span></span>
-                    <span class="txt">~</span>
-                    <select class="selectMenu" name="use_end_time" data-parsley-required="true"
-                        data-parsley-errors-container=".durationErrorWrap"
-                        data-parsley-error-message="대관가능 시간을 입력해 주세요" id="ui-id-2" style="display: none;">
-                        <option value="00:00">0시 00분</option>
-                        <option value="00:30">0시 30분</option>
-                        <option value="01:00">1시 00분</option>
-                        <option value="01:30">1시 30분</option>
-                        <option value="02:00">2시 00분</option>
-                        <option value="02:30">2시 30분</option>
-                        <option value="03:00">3시 00분</option>
-                        <option value="03:30">3시 30분</option>
-                        <option value="04:00">4시 00분</option>
-                        <option value="04:30">4시 30분</option>
-                        <option value="05:00">5시 00분</option>
-                        <option value="05:30">5시 30분</option>
-                        <option value="06:00">6시 00분</option>
-                        <option value="06:30">6시 30분</option>
-                        <option value="07:00">7시 00분</option>
-                        <option value="07:30">7시 30분</option>
-                        <option value="08:00">8시 00분</option>
-                        <option value="08:30">8시 30분</option>
-                        <option value="09:00">9시 00분</option>
-                        <option value="09:30">9시 30분</option>
-                        <option value="10:00" selected="selected">10시 00분</option>
-                        <option value="10:30">10시 30분</option>
-                        <option value="11:00">11시 00분</option>
-                        <option value="11:30">11시 30분</option>
-                        <option value="12:00">12시 00분</option>
-                        <option value="12:30">12시 30분</option>
-                        <option value="13:00">13시 00분</option>
-                        <option value="13:30">13시 30분</option>
-                        <option value="14:00">14시 00분</option>
-                        <option value="14:30">14시 30분</option>
-                        <option value="15:00">15시 00분</option>
-                        <option value="15:30">15시 30분</option>
-                        <option value="16:00">16시 00분</option>
-                        <option value="16:30">16시 30분</option>
-                        <option value="17:00">17시 00분</option>
-                        <option value="17:30">17시 30분</option>
-                        <option value="18:00">18시 00분</option>
-                        <option value="18:30">18시 30분</option>
-                        <option value="19:00">19시 00분</option>
-                        <option value="19:30">19시 30분</option>
-                        <option value="20:00">20시 00분</option>
-                        <option value="20:30">20시 30분</option>
-                        <option value="21:00">21시 00분</option>
-                        <option value="21:30">21시 30분</option>
-                        <option value="22:00">22시 00분</option>
-                        <option value="22:30">22시 30분</option>
-                        <option value="23:00">23시 00분</option>
-                        <option value="23:30">23시 30분</option>
-
-                    </select><span tabindex="0" id="ui-id-2-button" role="combobox" aria-expanded="false"
-                        aria-autocomplete="list" aria-owns="ui-id-2-menu" aria-haspopup="true"
-                        class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget"><span
-                            class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span><span
-                            class="ui-selectmenu-text">10시 00분</span></span>
+                    <select class="form-control" id="exampleFormControlSelect1" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;">
+                         <option value="00:00">0시 00분</option>
+                              <option value="00:30">0시 30분</option>
+                              <option value="01:00">1시 00분</option>
+                              <option value="01:30">1시 30분</option>
+                              <option value="02:00">2시 00분</option>
+                              <option value="02:30">2시 30분</option>
+                              <option value="03:00">3시 00분</option>
+                              <option value="03:30">3시 30분</option>
+                              <option value="04:00">4시 00분</option>
+                              <option value="04:30">4시 30분</option>
+                              <option value="05:00">5시 00분</option>
+                              <option value="05:30">5시 30분</option>
+                              <option value="06:00">6시 00분</option>
+                              <option value="06:30">6시 30분</option>
+                              <option value="07:00">7시 00분</option>
+                              <option value="07:30">7시 30분</option>
+                              <option value="08:00">8시 00분</option>
+                              <option value="08:30">8시 30분</option>
+                              <option value="09:00">9시 00분</option>
+                              <option value="09:30">9시 30분</option>
+                              <option value="10:00" selected="selected">10시 00분</option>
+                              <option value="10:30">10시 30분</option>
+                              <option value="11:00">11시 00분</option>
+                              <option value="11:30">11시 30분</option>
+                              <option value="12:00">12시 00분</option>
+                              <option value="12:30">12시 30분</option>
+                              <option value="13:00">13시 00분</option>
+                              <option value="13:30">13시 30분</option>
+                              <option value="14:00">14시 00분</option>
+                              <option value="14:30">14시 30분</option>
+                              <option value="15:00">15시 00분</option>
+                              <option value="15:30">15시 30분</option>
+                              <option value="16:00">16시 00분</option>
+                              <option value="16:30">16시 30분</option>
+                              <option value="17:00">17시 00분</option>
+                              <option value="17:30">17시 30분</option>
+                              <option value="18:00">18시 00분</option>
+                              <option value="18:30">18시 30분</option>
+                              <option value="19:00">19시 00분</option>
+                              <option value="19:30">19시 30분</option>
+                              <option value="20:00">20시 00분</option>
+                              <option value="20:30">20시 30분</option>
+                              <option value="21:00">21시 00분</option>
+                              <option value="21:30">21시 30분</option>
+                              <option value="22:00">22시 00분</option>
+                              <option value="22:30">22시 30분</option>
+                              <option value="23:00">23시 00분</option>
+                              <option value="23:30">23시 30분</option>
+                       </select>
+                            ~
+                            <select class="form-control" id="exampleFormControlSelect1" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;">
+                         <option value="00:00">0시 00분</option>
+                              <option value="00:30">0시 30분</option>
+                              <option value="01:00">1시 00분</option>
+                              <option value="01:30">1시 30분</option>
+                              <option value="02:00">2시 00분</option>
+                              <option value="02:30">2시 30분</option>
+                              <option value="03:00">3시 00분</option>
+                              <option value="03:30">3시 30분</option>
+                              <option value="04:00">4시 00분</option>
+                              <option value="04:30">4시 30분</option>
+                              <option value="05:00">5시 00분</option>
+                              <option value="05:30">5시 30분</option>
+                              <option value="06:00">6시 00분</option>
+                              <option value="06:30">6시 30분</option>
+                              <option value="07:00">7시 00분</option>
+                              <option value="07:30">7시 30분</option>
+                              <option value="08:00">8시 00분</option>
+                              <option value="08:30">8시 30분</option>
+                              <option value="09:00">9시 00분</option>
+                              <option value="09:30">9시 30분</option>
+                              <option value="10:00" selected="selected">10시 00분</option>
+                              <option value="10:30">10시 30분</option>
+                              <option value="11:00">11시 00분</option>
+                              <option value="11:30">11시 30분</option>
+                              <option value="12:00">12시 00분</option>
+                              <option value="12:30">12시 30분</option>
+                              <option value="13:00">13시 00분</option>
+                              <option value="13:30">13시 30분</option>
+                              <option value="14:00">14시 00분</option>
+                              <option value="14:30">14시 30분</option>
+                              <option value="15:00">15시 00분</option>
+                              <option value="15:30">15시 30분</option>
+                              <option value="16:00">16시 00분</option>
+                              <option value="16:30">16시 30분</option>
+                              <option value="17:00">17시 00분</option>
+                              <option value="17:30">17시 30분</option>
+                              <option value="18:00">18시 00분</option>
+                              <option value="18:30">18시 30분</option>
+                              <option value="19:00">19시 00분</option>
+                              <option value="19:30">19시 30분</option>
+                              <option value="20:00">20시 00분</option>
+                              <option value="20:30">20시 30분</option>
+                              <option value="21:00">21시 00분</option>
+                              <option value="21:30">21시 30분</option>
+                              <option value="22:00">22시 00분</option>
+                              <option value="22:30">22시 30분</option>
+                              <option value="23:00">23시 00분</option>
+                              <option value="23:30">23시 30분</option>
+                       </select>
                     <div class="durationErrorWrap"></div>
                 </div>
             </article>

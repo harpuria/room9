@@ -1,41 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="<c:url value='/assets/css/styles.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/add.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/common.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/formcommon.css' />" rel="stylesheet" /> 
 
-<div class="container">
-	<div class="card ">
-		<div class="card-header">
-			<div class="page-header">
-				<h1>
-					공지사항<small>상세보기 페이지</small>
-				</h1>
-			</div>
-		</div>
-		<div class="card-body">
-			<div class="table-responsive">
-				<div class="row">
-					<div class="col-md-offset-2 col-md-8">
-						<table class="table table-bordered table-striped">
-							<tr>
-								<th class="text-center">제목</th>
-								<td>${record.r_title}</td>
-							</tr>
-							<tr>
-								<th class="text-center" colspan="2">내용</th>
-							</tr>
-							<tr>
-								<td colspan="2">${record.r_content}</td>
-							</tr>
-						</table>
-					</div>
-					<div class="col-md-12">
-						<a href="<c:url value='/admin_UpdateNotice.room9?no=${record.no}'/>" class="btn btn-info">수정</a>
-						<a href="javascript:isDelete()" class="btn btn-info">삭제</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<style>
+p.result {padding-top: 1.5%;}
+</style>
+
+<div id="app">
+   <section class="content" style="padding: 78px 30px 30px 280px;">
+       <h3 class="mainTitle">상세보기</h3>
+       <form action="#" method="POST" class="hostForm" enctype="multipart/form-data"
+           data-parsley-validate="true" novalidate="">
+           <input type="hidden" name="_token" value="">
+           <div class="formBox" style="">
+               <article class="placeHostName">
+                   <div class="titleArea">
+                       <h4>제목</h4>
+                   </div>
+                   <div class="editArea">
+                      <p class="result">${record.r_title}</p>
+                   </div>
+               </article>
+               <article class="placePayInfo">
+                   <div class="titleArea">
+                       <h4>내용</h4>
+                   </div>
+                   <div class="editArea">
+                       <p class="result" style="padding-bottom: 1.5%">${record.r_content}</p>
+                   </div>
+               </article>
+           </div>
+           <div class="col-md-12 text-center" style="padding-top:10%">
+		       <button type="button" onclick="location.href='<c:url value='/admin_notice.room9'/>'" class="btn btn-primary">목록</button>
+		       <button type="button" onclick="location.href='<c:url value='/admin_UpdateNotice.room9?no=${record.no}'/>'" class="btn btn-primary">수정</button>
+		       <button type="button" onclick="location.href='javascript:isDelete()'" class="btn btn-primary">삭제</button>
+	       </div>
+       </form>
+   </section>
 </div>
 <script>
 	var isDelete = function() {

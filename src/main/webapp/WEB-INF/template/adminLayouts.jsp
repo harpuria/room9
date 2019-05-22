@@ -16,6 +16,7 @@
 <link href=<c:url value="/assets/css/nucleo-icons.css"/> rel="stylesheet" />
 <link href=<c:url value="/assets/css/black-dashboard.css?v=1.0.0"/> rel="stylesheet" />
 <link href=<c:url value="/assets/demo/demo.css"/> rel="stylesheet" />
+<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
 </head>
 <body>
@@ -38,6 +39,7 @@
 <script src=<c:url value="/assets/js/plugins/bootstrap-notify.js"/>></script>
 <script src=<c:url value="/assets/js/black-dashboard.min.js?v=1.0.0"/>></script>
 <script src=<c:url value="/assets/demo/demo.js"/>></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
   $(document).ready(function () {
     $().ready(function () {
@@ -126,6 +128,12 @@
   $(document).ready(function () {
     demo.initDashboardPageCharts();
   });
+</script>
+
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
 </script>
 </body>
 </html>

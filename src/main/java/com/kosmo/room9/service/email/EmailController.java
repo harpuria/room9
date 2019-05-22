@@ -24,6 +24,7 @@ public class EmailController {
 	@Resource(name="emailService")
 	EmailServiceImpl service;
 	
+	// 비밀번호 보내기
 	@RequestMapping("/sendpw.room9")
 	public String sendEmailAction(@RequestParam Map<String, Object> paramMap, Model model) throws Exception {
 		String e_mail = (String) paramMap.get("emailid");
@@ -47,5 +48,25 @@ public class EmailController {
 			
 			return "/common/message.tiles";
 		}
+	}
+	
+	// 문의 내용 보내기
+	@RequestMapping("/sendQuestion.room9")
+	public String sendQuestion (@RequestParam Map map, Model model) throws Exception{
+		String e_mail = map.get("email").toString();
+		String name = map.get("name").toString();
+		String tel = map.get("tel").toString();
+		String title = map.get("title").toString();
+		String content = map.get("content").toString();
+		
+		email.setContent(name + "님의 문의 사항\r\n\r\n" + title + "\r\n" + content); // 내용
+		email.setReceiver("harpuria87@gmail.com");
+		email.setSubject(name + "님의 문의사항입니다"); // 제목
+		emailSender.SendEmail(mailSender, email); // 보내기!
+		
+		model.addAttribute("msgType", "mailSendingComplete_q");
+		model.addAttribute("msg", "문의사항 전송이 완료되었습니다.");
+		
+		return "/common/message.tiles";
 	}
 }

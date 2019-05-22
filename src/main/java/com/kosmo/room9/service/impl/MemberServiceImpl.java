@@ -82,9 +82,4 @@ public class MemberServiceImpl implements MemberService {
 		return dao.ResInfoSelectList(map);
 	}
 
-	@Override
-	public int memberHostNo(Map map) {
-		
-		return dao.memberHostNo(map);
-	}
 }

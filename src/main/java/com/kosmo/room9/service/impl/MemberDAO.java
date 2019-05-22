@@ -81,10 +81,5 @@ public class MemberDAO implements MemberService{
 		return template.selectList("ResSelectList", map);
 	}
 
-	@Override
-	public int memberHostNo(Map map) {
-		
-		return template.selectOne("adminhostNo", map);
-	}
 
 }

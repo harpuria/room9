@@ -5,6 +5,8 @@
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
+
+
 <style>
 	th{
 	text-align: center;
@@ -112,8 +114,13 @@
   font-weight: bold;
   color: #ffffff;
 }
+
+a.no_content {color: black;}
+a.no_content:hover {color: black;}
 </style>
 
+<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <div class="topSkin web">
     <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
@@ -124,26 +131,25 @@
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
 <div class="col-md-12 ">
-	<table class="table table-hover" style="text-align: center;margin-bottom:none">
+	<table class="table table-hover" id="myTable" style="text-align: center;margin-bottom:none">
 		<thead class="" style="border-collapse:none">
 			<tr style="background-color: gray;color:white">
 				<th class="col-md-2" scope="col">카테고리</th>
 				<th class="col-md-8" scope="col">제목</th>
 				<th class="col-md-2" scope="col">날짜</th>
 			</tr>
-			
 		</thead>
-		<c:forEach items="${list }" var="items">
-			<tbody style="color:black">
+		
+		<tbody style="color:black">
+			<c:forEach items="${list }" var="items">
 				<tr>
-					<th scope="row">${items.r_category }</th>
-					<td>${items.r_title }</td>
+					<th scope="row">[공지사항]</th>
+					<td><a class="no_content" href="<c:url value='/notice_View.room9?no=${items.no}'/>">${items.r_title }</a></td>
 					<td>${items.r_postdate }</td>
 				</tr>
-			</tbody>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
 	</table>
-
 </div>
 
 
@@ -151,4 +157,6 @@
 
 <script>
 new WOW().init();
+$('#myTable').DataTable();
+
 </script>

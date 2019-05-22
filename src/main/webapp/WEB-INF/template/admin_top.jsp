@@ -39,11 +39,6 @@
 	          <p>공지사항</p></a>
 	        </li>
 	        
-	        <li><a href=<c:url value="/admin_comment.room9"/>> 
-	          <i class="tim-icons icon-align-center"></i>
-	          <p>댓글관리</p></a>
-	        </li>
-	        
 	        <li><a href="<c:url value="/home.room9"/>"> 
 	          <i class="tim-icons icon-attach-87"></i>
 	          <p>ROOM9</p></a>

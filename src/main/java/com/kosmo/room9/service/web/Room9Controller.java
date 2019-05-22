@@ -92,12 +92,6 @@ public class Room9Controller {
 		return "open.tiles";
 	}
 	
-
-	@RequestMapping("/host.room9")
-	public String host(@RequestParam Map map, Model model) throws Exception{
-		return "host.tiles";
-	}
-	
 	//이미지 업로드
 	@RequestMapping("/imageUpload.room9")
 	public String upload(MultipartHttpServletRequest mhsr) throws Exception{
@@ -127,8 +121,6 @@ public class Room9Controller {
 		return "/FileUpDown13/UploadComplete.jsp";
 	}///////////////
 
-	
-	
 	@RequestMapping("/home.room9")
 	public String home(@RequestParam Map map, Model model) throws Exception{
 		return "home.tiles";

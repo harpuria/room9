@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kosmo.room9.service.Room9DTO;
+import com.kosmo.room9.service.impl.HostServiceImpl;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
 @Controller

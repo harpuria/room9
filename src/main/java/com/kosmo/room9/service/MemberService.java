@@ -34,7 +34,7 @@ public interface MemberService {
 	//회원정보 수정
 	int userInfoUpdate(Map map);
 	
-
+	
 	
 	
 	

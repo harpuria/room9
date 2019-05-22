@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kosmo.room9.service.impl.HostServiceImpl;
 import com.kosmo.room9.service.impl.MemberServiceImpl;
 
 @Controller
@@ -29,6 +30,10 @@ public class SignController {
 	// MemberServiceImpl 주입
 	@Resource(name="memberServiceImpl")
 	MemberServiceImpl service;
+
+	// HostServiceImpl 주입
+ 	@Resource(name="hostServiceImpl")
+	HostServiceImpl hostService;
 	
 	// 로그인(회원가입) 페이지 이동
 	@RequestMapping("/login.room9")
@@ -39,6 +44,16 @@ public class SignController {
 	// 로그인 처리
 	@RequestMapping("/loginProcess.room9")
 	public String loginProcess(@RequestParam Map map, HttpSession session, Model model) throws Exception{
+		
+		// 로그인 한 유저가 호스트인지 아닌지 확인 (로그인 자체에 영향은 없음)
+		if(hostService.isHost(map)) {
+			session.setAttribute("isHost", "true");
+			session.setAttribute("h_no", hostService.selecthost_no(map));
+			System.out.println("호스트번호 : " + hostService.selecthost_no(map));
+		}
+		else{
+			session.setAttribute("isHost", "false");
+		}
 		
 		System.out.println("로그인할때 값 : " + map);
 		

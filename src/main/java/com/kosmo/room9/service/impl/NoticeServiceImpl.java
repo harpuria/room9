@@ -21,6 +21,31 @@ public class NoticeServiceImpl implements NoticeService{
 		
 		return dao.noticeList(map);
 	}
+
+	@Override
+	public int delete(Map map) {
+		
+		return dao.delete(map);
+	}
+
+	@Override
+	public int insert(Map map) {
+		
+		return dao.insert(map);
+	}
+
+	@Override
+	public int update(Map map) {
+		
+		return dao.update(map);
+	}
+
+	@Override
+	public NoticeDTO selectOne(Map map) {
+		
+		return dao.selectOne(map);
+	}
+
 	
 
 }

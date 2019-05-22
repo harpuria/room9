@@ -15,6 +15,11 @@
 		location.href = "<c:url value='/login.room9'/>";
 		break;
 		
+	case "mailSendingComplete_q":
+		alert("${msg}");
+		location.href = "<c:url value='/question.room9'/>";
+		break;
+		
 	case "mailSendingFail":
 		alert("${msg}");
 		location.href = "<c:url value='/login.room9'/>";

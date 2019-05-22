@@ -32,39 +32,22 @@ public class Room9AdminController {
 		map.put("emailid", session.getAttribute("emailid"));
 		System.out.println("네이버로그인 했다 : " + session.getAttribute("emailid"));
 		
-		int h_no = service.Room9AdminHostNo(map);
-		model.addAttribute("h_no", h_no);
-		System.out.println("h_no : " + h_no);
+
 		
 		return "admin_main.adminTiles";
 	}
 	
-	@RequestMapping("/admin_host.room9")
-	public String admin_host(@RequestParam Map map, Model model) throws Exception{
-		return "admin_host.adminTiles";
-	}
-	
 	@RequestMapping("/admin_calender.room9")
-	public String admin_calender(@RequestParam Map map, Model model) throws Exception{
+	public String admin_calender() throws Exception{
 		return "admin_calender.adminTiles";
 	}
-	
-	@RequestMapping("/admin_member.room9")
-	public String admin_member(@RequestParam Map map, Model model) throws Exception{
-		return "admin_member.adminTiles";
-	}
-	
-	@RequestMapping("/admin_notice.room9")
-	public String admin_notice(@RequestParam Map map, Model model) throws Exception{
-		return "admin_notice.adminTiles";
-	}
-	
+
 	//room9 등록 페이지로 이동
 	@RequestMapping("/admin_room9_join.room9")
-	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{
+	public String admin_room9_join(@RequestParam Map map, Model model, HttpSession session) throws Exception{
 		
-		int h_no = service.Room9AdminHostNo(map);
-		model.addAttribute("h_no", h_no);
+		//호스트번호
+		map.put("h_no", session.getAttribute("h_no"));
 		
 		return "admin_room9_join.adminTiles";
 	}

@@ -48,12 +48,17 @@ public class SignController {
 		// 로그인 한 유저가 호스트인지 아닌지 확인 (로그인 자체에 영향은 없음)
 		if(hostService.isHost(map)) {
 			session.setAttribute("isHost", "true");
+			session.setAttribute("h_no", hostService.selecthost_no(map));
+			System.out.println("호스트번호 : " + hostService.selecthost_no(map));
 		}
 		else{
 			session.setAttribute("isHost", "false");
 		}
 		
 		System.out.println("로그인할때 값 : " + map);
+		
+		
+		
 		// 로그인 처리가 성공하면 메인 화면으로, 실패하면 로그인 페이지로 다시 이동
 		if(service.isMember(map)) {
 			// 리캡챠에 아무런 정보가 없다면? 한번도 틀리지 않고 로그인 성공했다는 뜻
@@ -403,6 +408,8 @@ public class SignController {
 	   
 	   String naveremailid = service.naverLogin(map);
 	   session.setAttribute("emailid", naveremailid);
+	   
+	   
 	   
 	   return "home.tiles";
        

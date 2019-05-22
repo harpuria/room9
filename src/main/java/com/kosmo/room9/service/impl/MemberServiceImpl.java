@@ -81,4 +81,5 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.ResInfoSelectList(map);
 	}
+
 }

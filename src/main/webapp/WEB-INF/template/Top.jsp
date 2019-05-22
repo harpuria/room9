@@ -42,14 +42,9 @@
         
 
         <div class="link-yellow">
-            <a href="#">
+            <a href="<c:url value='/open.room9'/>">
                 <i class="far fa-building fa-2x" style="color: #d0d237"></i>&nbsp;&nbsp;ROOM 9
             </a>
-
-            <ul class="sub-links">
-                <li><a href="<c:url value='/open.room9'/>">ROOM 9 하기</a></li>
-                <li><a href="<c:url value='/reservation.room9'/>">ROOM 9 예약</a></li>
-            </ul>
         </div>
         
         <c:if test="${not isLogin and sessionScope.isHost eq 'false' }" >
@@ -78,10 +73,9 @@
                 <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
             </a>
         </div>
-        
         <c:if test="${sessionScope.isHost eq 'true' }" >
 	        <div class="link-ff">
-	            <a href="<c:url value='/admin_main.room9'/>">
+	            <a href="<c:url value='/admin_main.room9?h_no=${h_no }'/>">
 	                <i class="fas fa-chart-pie fa-2x" style="color: #FF00FF"></i>&nbsp;&nbsp;ADMIN
 	            </a>
 	        </div>

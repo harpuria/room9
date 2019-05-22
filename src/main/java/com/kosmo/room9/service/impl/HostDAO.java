@@ -31,4 +31,10 @@ public class HostDAO implements HostService{
 	public List<HostDTO> selectHostList(Map map) {
 		return template.selectList("selectHostList", map);
 	}
+
+	@Override
+	public int selecthost_no(Map map) {
+		
+		return template.selectOne("selecthost_no", map);
+	}
 }

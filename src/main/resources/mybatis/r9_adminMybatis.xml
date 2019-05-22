@@ -2,12 +2,13 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
 <mapper namespace="mybatis.r9_adminMybatis">
+
 	<!-- 호스트 가입 -->
 	<insert id="insertHost" parameterType="java.util.Map">
 		INSERT INTO R9_HOST VALUES(SEQ_R9_HOST.NEXTVAL, (SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{m_email}),
-									#{h_name}, #{m_email}, #{h_tel}, #{h_company}, #{h_address}, #{h_company_tel}, #{h_fax}, #{h_owner}, #{h_registration}, 
-									#{h_business}, #{h_stoke}, #{h_registration_file}, #{h_account_file}, #{h_manager}, #{h_manager_mail}, #{h_manager_tel}, 
-									SYSDATE)
+		#{h_name}, #{m_email}, #{h_tel}, #{h_company}, #{h_address}, #{h_company_tel}, #{h_fax}, #{h_owner}, #{h_registration}, 
+		#{h_business}, #{h_stoke}, #{h_registration_file}, #{h_account_file}, #{h_manager}, #{h_manager_mail}, #{h_manager_tel}, 
+		SYSDATE)
 	</insert>
 	
 	<!-- 호스트 확인 -->
@@ -25,4 +26,12 @@
 		SELECT * FROM R9_MEMBER ORDER BY M_NO DESC
 	</select>
 	
+	<select id="selecthost_no" parameterType="java.util.Map" resultType="int">
+		SELECT H_NO FROM R9_MEMBER M JOIN R9_HOST H ON M.M_NO = H.M_NO WHERE H_NO=(SELECT H_NO FROM R9_HOST WHERE H_EMAIL=#{emailid})
+	</select>
+	
+	<insert id="mittingInsert" parameterType="java.util.Map">
+		INSERT INTO R9_ROOM VALUES(SEQ_R9_ROOM.NEXTVAL,#{h_no},#{title},${areaType},#{peoplecount},#{price},#{contact},#{content},#{tag_1},#{tag_2},#{tag_3},null,#{refund},${days},null,null,null,null,null,#{emailid},#{phoneNumber},'신한','계좌번호',SYSDATE)
+	</insert>
 </mapper>
+

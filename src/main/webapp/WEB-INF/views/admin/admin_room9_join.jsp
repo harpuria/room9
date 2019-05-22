@@ -9,8 +9,7 @@
 
 <section class="content" style="padding: 78px 30px 30px 280px;">
     <h3 class="mainTitle">ROOM9 정보 입력<span class="tips">* 모든 항목 필수</span></h3>
-    <form action="#" class="placeAddForm" method="POST"
-        enctype="multipart/form-data" data-parsley-validate="true" novalidate="">
+    <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="#">
         <div class="formBox commonForm">
             <article class="placeName">
@@ -433,22 +432,69 @@
                 </div>
                 <div class="editArea">
                     <ul class="imgArea">
-                        <script id="tmpl-img" class="tmplImgList" type="x-jquery-tmpl">
-                                <li>
-                                    <input type="hidden" name="img[]" class="saveImg" value="" >
-                                    <input type="hidden" name="thumbnail[]" class="thumbnailImg" value="">
-                                    <img src="" >
-                                    <div class="imgSkin"><span class="thumbnailCheck">대표이미지</span></div>
-                                    <a class="deleteImgBtn">x</a>
-                                </li>
-                            </script>
+                        <li class="img" style="display: inline-flex" >
+							<input type="checkbox" class="imgFile_0" value="" style="display: none"/>
+							<input type="checkbox" class="imgFile_1" value="" style="display: none"/>
+							<input type="checkbox" class="imgFile_2" value="" style="display: none"/>
+							<input type="checkbox" class="imgFile_3" value="" style="display: none"/>
+							<input type="checkbox" class="imgFile_4" value="" style="display: none"/>
+                        </li>
                     </ul>
                     <input type="text" class="imgListCount" style="display: none" value="0" readonly=""
                         data-parsley-required="true" data-parsley-min="1" data-parsley-class-handler=".imgArea"
                         data-parsley-errors-container=".imgUploadErrorWrap"
                         data-parsley-error-message="사진을 등록해 주세요">
-                    <input type="file" id="imgUpload" class="fileUpload" >
-                    <label for="imgUpload" class="uploadBtn">등록하기</label>
+                  		
+	                    <input type="file" id="imgUpload" class="fileUpload" name="imgname" onchange="uploadImg(this)" multiple>
+	                    <label for="imgUpload" class="uploadBtn">등록하기</label>
+	                    <script>
+							var uploadImg = function(value){
+								
+								var form = $("form")[0];
+								var formData = new FormData(form);
+								var fileInput = document.getElementById("imgUpload"); // 파일 태그 호출
+								var files = fileInput.files; //업로드한 파일의 정보를 넣는다.
+								
+								for(var i = 0; i<files.length; i++)
+								{
+									formData.append("file-",files[i]); // 업로드한 파일을 하나하나 읽어서 FormData에 넣는다.	
+								}
+								
+								$.ajax({
+									url:"<c:url value='/fileUpload.room9'/>",
+									type:"POST",
+									data: formData,
+									processData: false,
+							        contentType: false,
+									error:function(data){
+										console.log("에러");
+									},
+									success:function(data){
+										
+										console.log("성공");
+										var reader = new FileReader();
+
+										$('.img').append("<img src='<c:url value='upload/"+files[count].name+"'/>'/ style='display:inline-block'>");
+										$('.imgFile_'+count+'').val(files[count].name);
+											
+// 											reader.onload = function(e)
+// 											{
+// 												$('.imgload'+i+'').attr('src',e.target.result);
+// 											}
+// 											reader.readAsDataURL(value.files[i]);
+
+										
+// 										reader.onload = function(e){
+// 											$('#ImageLoad').attr('src',e.target.result);
+// 										}
+// 										reader.readAsDataURL(value.files[0]);
+								
+									}
+								});	
+				
+							}
+						
+						</script>
                     <div class="imgUploadErrorWrap"></div>
 
                     <p class="tips">
@@ -466,7 +512,7 @@
                     <ul class="tagList">
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="회의실" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="회의실" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -476,7 +522,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="파티룸" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="파티룸" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -486,7 +532,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="스터디룸" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="스터디룸" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -496,7 +542,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="다목적홀" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="다목적홀" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -506,7 +552,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="공연장" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="공연장" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -516,7 +562,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="연수원" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="연수원" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -526,7 +572,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="작업실" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="작업실" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -536,7 +582,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="연습실" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="연습실" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -546,7 +592,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="레저시설" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="레저시설" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -556,7 +602,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="type[]" value="카페" data-parsley-required="true"
+                                <input type="checkbox" name="AreaType" value="카페" data-parsley-required="true"
                                     data-parsley-class-handler=".tagList"
                                     data-parsley-errors-container=".typeErrorWrap"
                                     data-parsley-error-message="플레이스 성격에 맞는 유형을 선택해 주세요"
@@ -686,7 +732,7 @@
                     <ul class="dayList">
                         <li>
                             <label>
-                                <input type="checkbox" value="월" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="월" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -695,7 +741,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="화" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="화" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -704,7 +750,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="수" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="수" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -713,7 +759,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="목" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="목" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -722,7 +768,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="금" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="금" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -731,7 +777,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="토" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="토" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -740,7 +786,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" value="일" name="days[]" data-parsley-required="true"
+                                <input type="checkbox" value="일" name="days" data-parsley-required="true"
                                     data-parsley-class-handler=".dayList"
                                     data-parsley-errors-container=".daysErrorWrap"
                                     data-parsley-error-message="대관가능 요일을 선택해 주세요" data-parsley-multiple="days">
@@ -760,7 +806,7 @@
                     <ul class="facilityList">
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="1"
+                                <input type="checkbox" class="facilityCheck" name="opt value="1"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -771,7 +817,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="2"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="2"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -782,7 +828,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="3"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="3"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -793,7 +839,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="4"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="4"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -804,7 +850,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="5"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="5"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -826,7 +872,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="7"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="7"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -837,7 +883,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="8"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="8"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -848,7 +894,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="9"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="9"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -859,7 +905,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="10"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="10"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -870,7 +916,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="11"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="11"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -881,7 +927,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="12"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="12"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -903,7 +949,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="14"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="14"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -914,7 +960,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="15"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="15"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -925,7 +971,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="16"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="16"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -936,7 +982,7 @@
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt[]" value="17"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="17"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">
@@ -957,14 +1003,14 @@
                 </div>
                 <div class="editArea">
                     <div class="priceInput priceBasic">
-                        <input type="text" class="priceInputLength" value="0" style="display: none"
+                        <input type="text" class="priceInputLength" value="0" style="display: none" 
                             data-parsley-required="true" data-parsley-min="1"
                             data-parsley-class-handler=".priceBasic" data-parsley-errors-container=".priceErrorWrap"
                             data-parsley-error-message="시간별 대관 가격과 수용가능 인원을 추가해 주세요">
-                        <input type="text" class="price" placeholder="대관 가격">
+                        <input type="text" class="price" placeholder="대관 가격" name="price">
                         <span class="txt">원</span>
-                        <input type="text" class="placeSpace" placeholder="공간명 입력 / 예) 라운지 홀, 회의실 A, 1층 파티룸">
-                        <input type="text" class="people" placeholder="인원수">
+                        <input type="text" class="placeSpace" placeholder="공간명 입력 / 예) 라운지 홀, 회의실 A, 1층 파티룸" name="placeSpace">
+                        <input type="text" class="people" placeholder="인원수" name="peoplecount">
                         <span class="txt">인</span>
                     </div>
                     <div class="priceErrorWrap"></div>
@@ -998,13 +1044,13 @@
                 </div>
                 <div class="editArea">
                     <span class="txt">#</span>
-                    <input type="text" name="tag[]" data-parsley-required="true" data-parsley-group="tag"
+                    <input type="text" name="tag_1" data-parsley-required="true" data-parsley-group="tag"
                         data-parsley-class-handler=".placeTag" data-parsley-errors-container=".tagErrorWrap"
                         data-parsley-error-message="태그를 입력해 주세요">
                     <span class="txt">#</span>
-                    <input type="text" name="tag[]">
+                    <input type="text" name="tag_2">
                     <span class="txt">#</span>
-                    <input type="text" name="tag[]">
+                    <input type="text" name="tag_3">
                     <div class="tagErrorWrap"></div>
                     <p class="tips">* 최대 3개 등록 (예 #서울, #세미나, #송년회)</p>
                     <p class="tips">* 첫 태그는 지역을 적어주세요 (예 서울/경기/충청/경상/강원/전라)</p>
@@ -1026,7 +1072,7 @@
                     <h4>문의처</h4>
                 </div>
                 <div class="editArea">
-                    <input type="text" name="contact" placeholder="사용자와 소통 가능한 연락처를 입력해 주세요"
+                    <input type="text" name="phoneNumber" placeholder="사용자와 소통 가능한 연락처를 입력해 주세요"
                         data-parsley-required="true" data-parsley-error-message="문의 연락처를 입력해 주세요">
                 </div>
             </article>
@@ -1046,3 +1092,5 @@
         </article>
     </form>
 </section>
+
+

@@ -31,4 +31,10 @@ public class HostServiceImpl implements HostService {
 	public List<HostDTO> selectHostList(Map map) {
 		return dao.selectHostList(map);
 	}
+
+	@Override
+	public int selecthost_no(Map map) {
+		
+		return dao.selecthost_no(map);
+	}
 }

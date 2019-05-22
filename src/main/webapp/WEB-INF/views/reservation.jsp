@@ -7,7 +7,24 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.m	in.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script>
 
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://room9-project.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
 <style type="text/css">
 
 .start,.end{ width: 100px;background-color: gray;text-align: center;"}
@@ -418,7 +435,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     <span class="text-muted">예약상세정보</span>
                 </h4>
                <div>
-               <c:forEach items="${list }" var="items">
+               
                 <ul style="list-style: none;">
                 <li>
                     <span class="formTitle">공간유형</span>
@@ -431,8 +448,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                <li>
 	                    <span class="formTitle">상세주소</span>
 	                    <div class="rightArea">
-	                        <p>
-	                         	 ${items.r_address }
+	                        <p class="address">
+	                         	 ${record.r_address }
 	                        </p>
 	                    </div>
 	                </li>
@@ -440,7 +457,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">수용인원</span>
 	                    <div class="rightArea">
 	                        <p>
-	                          	  최소 ${items.r_people_count_min }명 ~ 최대 ${items.r_people_count_max }명 까지
+	                          	  최소 ${record.r_people_count_min }명 ~ 최대 ${record.r_people_count_max }명 까지
 	                        </p>
 	                    </div>
 	                </li>
@@ -448,7 +465,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">대관시간</span>
 	                    <div class="rightArea">
 	                        <p>
-	                           ${items.r_time } 
+	                           ${record.r_time } 
 	                        </p>
 	                    </div>
 	                </li>
@@ -456,7 +473,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">대관요일</span>
 	                    <div class="rightArea">
 	                        <p>
-	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${items.r_holiday } 
+	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_holiday } 
 	                        </p>
 	                    </div>
 	                </li>
@@ -478,7 +495,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             <h5 class="my-0">이용금액</h5>
                             <small class="text-muted">(시간단위)</small>
                         </div>
-                         <h3 class="my-0"><span style="color:#61ce4e">${items.r_money }원</span>~/시간</h3>
+                         <h3 class="my-0"><span style="color:#61ce4e">${record.r_money }원</span>~/시간</h3>
 
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -487,71 +504,171 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             
                         </div>
 					</li>
-                    
-                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding-bottom: 0%">
-	                    <p class="text-muted" style="padding-top: 10px">예약 시간 : </p>
-                            <div class="form-group bootstrap-timepicker">
-                             <input id="start" name="start" ng-model="start" type="text" required="required" class="form-control start"style="color:white" placeholder="선택"/>
-                         </div>
-                       
-                   	    <span style="padding-top:10px;font-weight: bold">~</span>
-                      
-                         <div class="form-group bootstrap-timepicker">
-                             <input id="end" name="end" ng-model="end" type="text" required="required" class="form-control end" style="color:white" placeholder="선택" />
-                         </div>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
+	                 <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+	                 <p class="text-muted">예약 시간 : </p>
+	                 </div>
+                    	<div class="col-md-9 text-center " style="padding: 10px 0;">
+	                       <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         <option value="00:00">0시 00분</option>
+	                              <option value="00:30">0시 30분</option>
+	                              <option value="01:00">1시 00분</option>
+	                              <option value="01:30">1시 30분</option>
+	                              <option value="02:00">2시 00분</option>
+	                              <option value="02:30">2시 30분</option>
+	                              <option value="03:00">3시 00분</option>
+	                              <option value="03:30">3시 30분</option>
+	                              <option value="04:00">4시 00분</option>
+	                              <option value="04:30">4시 30분</option>
+	                              <option value="05:00">5시 00분</option>
+	                              <option value="05:30">5시 30분</option>
+	                              <option value="06:00">6시 00분</option>
+	                              <option value="06:30">6시 30분</option>
+	                              <option value="07:00">7시 00분</option>
+	                              <option value="07:30">7시 30분</option>
+	                              <option value="08:00">8시 00분</option>
+	                              <option value="08:30">8시 30분</option>
+	                              <option value="09:00">9시 00분</option>
+	                              <option value="09:30">9시 30분</option>
+	                              <option value="10:00" selected="selected">10시 00분</option>
+	                              <option value="10:30">10시 30분</option>
+	                              <option value="11:00">11시 00분</option>
+	                              <option value="11:30">11시 30분</option>
+	                              <option value="12:00">12시 00분</option>
+	                              <option value="12:30">12시 30분</option>
+	                              <option value="13:00">13시 00분</option>
+	                              <option value="13:30">13시 30분</option>
+	                              <option value="14:00">14시 00분</option>
+	                              <option value="14:30">14시 30분</option>
+	                              <option value="15:00">15시 00분</option>
+	                              <option value="15:30">15시 30분</option>
+	                              <option value="16:00">16시 00분</option>
+	                              <option value="16:30">16시 30분</option>
+	                              <option value="17:00">17시 00분</option>
+	                              <option value="17:30">17시 30분</option>
+	                              <option value="18:00">18시 00분</option>
+	                              <option value="18:30">18시 30분</option>
+	                              <option value="19:00">19시 00분</option>
+	                              <option value="19:30">19시 30분</option>
+	                              <option value="20:00">20시 00분</option>
+	                              <option value="20:30">20시 30분</option>
+	                              <option value="21:00">21시 00분</option>
+	                              <option value="21:30">21시 30분</option>
+	                              <option value="22:00">22시 00분</option>
+	                              <option value="22:30">22시 30분</option>
+	                              <option value="23:00">23시 00분</option>
+	                              <option value="23:30">23시 30분</option>
+	                       </select>
+	                            ~
+	                            <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         <option value="00:00">0시 00분</option>
+	                              <option value="00:30">0시 30분</option>
+	                              <option value="01:00">1시 00분</option>
+	                              <option value="01:30">1시 30분</option>
+	                              <option value="02:00">2시 00분</option>
+	                              <option value="02:30">2시 30분</option>
+	                              <option value="03:00">3시 00분</option>
+	                              <option value="03:30">3시 30분</option>
+	                              <option value="04:00">4시 00분</option>
+	                              <option value="04:30">4시 30분</option>
+	                              <option value="05:00">5시 00분</option>
+	                              <option value="05:30">5시 30분</option>
+	                              <option value="06:00">6시 00분</option>
+	                              <option value="06:30">6시 30분</option>
+	                              <option value="07:00">7시 00분</option>
+	                              <option value="07:30">7시 30분</option>
+	                              <option value="08:00">8시 00분</option>
+	                              <option value="08:30">8시 30분</option>
+	                              <option value="09:00">9시 00분</option>
+	                              <option value="09:30">9시 30분</option>
+	                              <option value="10:00" selected="selected">10시 00분</option>
+	                              <option value="10:30">10시 30분</option>
+	                              <option value="11:00">11시 00분</option>
+	                              <option value="11:30">11시 30분</option>
+	                              <option value="12:00">12시 00분</option>
+	                              <option value="12:30">12시 30분</option>
+	                              <option value="13:00">13시 00분</option>
+	                              <option value="13:30">13시 30분</option>
+	                              <option value="14:00">14시 00분</option>
+	                              <option value="14:30">14시 30분</option>
+	                              <option value="15:00">15시 00분</option>
+	                              <option value="15:30">15시 30분</option>
+	                              <option value="16:00">16시 00분</option>
+	                              <option value="16:30">16시 30분</option>
+	                              <option value="17:00">17시 00분</option>
+	                              <option value="17:30">17시 30분</option>
+	                              <option value="18:00">18시 00분</option>
+	                              <option value="18:30">18시 30분</option>
+	                              <option value="19:00">19시 00분</option>
+	                              <option value="19:30">19시 30분</option>
+	                              <option value="20:00">20시 00분</option>
+	                              <option value="20:30">20시 30분</option>
+	                              <option value="21:00">21시 00분</option>
+	                              <option value="21:30">21시 30분</option>
+	                              <option value="22:00">22시 00분</option>
+	                              <option value="22:30">22시 30분</option>
+	                              <option value="23:00">23시 00분</option>
+	                              <option value="23:30">23시 30분</option>
+	                       </select>
+	                   	</div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    	<p class="text-muted" style="padding-top: 10px">예약 인원 : </p>
-						<div class="col-md-8">
-							<select style="width: 55%;height:95%;text-align: center">
-							<c:forEach begin="1" end="${items.r_people_count_max }" var="count">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0;">
+                    	<p class="text-muted" style="padding-top: 15px;padding-left: 8px;padding-bottom: 10px;">예약 인원 : </p>
+						<div class="col-md-8 text-center" style="margin-right: 25px;">
+							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px">
+							<c:forEach begin="1" end="${record.r_people_count_max }" var="count">
 							    	<option>${count} 명</option>
 							</c:forEach>
 							</select>
 						</div>
 					</li>
                 </ul>
-                 </c:forEach>
                 <hr class="mb-4">
                 <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/1.jpg'/>" style="width:100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/2.jpg'/>" style="width:100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/3.jpg'/>" style="width:100%">
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
                     <h4 class="subTitle">RooM9 정보</h4>
                     <div class="col-md-12 mb-3 ">
                         <p class="tips">
-                            ■ 2F 컨벤션홀 < 대관 할인 EVNET!! ><br />
-                       		     온오프믹스 회원분들을 대상으로 할인된 금액으로 이용하실 수 있는 이벤트를 진행합니다.<br />
-                            - 선정 인원: 선착순 10명 (계약금 10% 납입시 예약 확정)<br />
-                            - 혜택 안내: 4시간 동안 컨벤션홀을 약 30% 할인된 가격인 220만원에 이용<br />
-                            - 신청 방법<br />
-                            1) 날짜 지정 후 2층 컨벤션홀을 선택하여 예약정보를 입력한다.<br />
-                            2) 상세 예약 정보 입력 후 호스트로부터 안내를 받는다.<br />
-                         	※ 4시간을 초과하여 대관시 추가 비용이 발생하며, 금액 등 자세한 사항은 대관 신청시 문의해 주시기 바랍니다.<br />
-                            <br />
-                        <p class="tips">
-                            - 평일 이용시간은 11:00 - 21:00 (브레이크 타임 15:00~17:30) 입니다. <br />
-                            - 주말 이용시간은 11:00 - 22:00 입니다. <br />
-                            - 최소 대관 가능 시간은 2시간 입니다. <br />
-                            - 서울마리나 클럽&amp;요트의 요트에는 절대로 외부 식음료를 반입할 수 없습니다. <br />
-                            - 고객께서는 서울마리나 클럽&amp;요트 측의 동의없이 내부에 어떠한 물건이라도 진열할 수 없습니다. <br />
-                            - 고객께서는 행사에 참여하시는 고객의 손님 그리고 고객자신으로 인하여 서울마리나 클럽&amp;요트의 재산 기물에 발생된 모든 손실 및 파손에 대한 보상 책임을 지며 서울마리나 클럽&amp;요트는 이에 대한 보수 및 대체 비용을 최종 청구금액에 포함시킬 수 있습니다. <br />
+                           ${record.r_large_content }
                         </p>
                         <hr />
                     </div>
                     <h3 class="h_intro">편의 시설</h3>
                     <div class="mb-3 border">
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
-						<p>WIFI</p>
+						
 					</div>
                     <h4 class="subTitle">위치정보</h4>
-                    
+                    	${record.r_address }
                     <div class="mb-3 border">
-                        map
+                        <div id="map" style="width:100%; height:300px;"></div>
                     </div>
                     <div class="mb-3">
                         <h4 class="subTitle">환불기준</h4>
@@ -578,6 +695,9 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                 </div>
             </div>
         </div>
+        
+      
+      <div id="disqus_thread" style="padding:0 14%; width: 100%"></div>
         <!-- 예약신청Modal -->
 		<form method="get" action="<c:url value='/sendpw.room9'/>" id="registerform">
 		   <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -614,57 +734,43 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 		   </div>
 		</form>
 
-		<script>
 
-			$('.start, .end').timepicker({
-			      showInputs: false,
-				  minuteStep: 1,
-				  interval: 60
-				  
-			  });
-			$( "#end, #start" ).change(function() {
-	
-			var time = $("#start").val();
-				var hours = Number(time.match(/^(\d+)/)[1]);
-				var minutes = Number(time.match(/:(\d+)/)[1]);
-				var AMPM = time.match(/\s(.*)$/)[1];
-				if (AMPM == "PM" && hours < 12)
-					hours = hours + 12;
-				if (AMPM == "AM" && hours == 12)
-					hours = hours - 12;
-				var sHours = hours.toString();
-				var sMinutes = minutes.toString();
-				if (hours < 10)
-					sHours = "0" + sHours;
-				if (minutes < 10)
-					sMinutes = "0" + sMinutes;
-				var time2 = $("#end").val();
-				if (time2 == "") {
-					var time2 = "00:00 AM";
-				}
-				var hours2 = Number(time2.match(/^(\d+)/)[1]);
-				var minutes2 = Number(time2.match(/:(\d+)/)[1]);
-				var AMPM2 = time2.match(/\s(.*)$/)[1];
-				if (AMPM2 == "PM" && hours2 < 12)
-					hours2 = hours2 + 12;
-				if (AMPM2 == "AM" && hours2 == 12)
-					hours2 = hours2 - 12;
-				var sHours2 = hours2.toString();
-				var sMinutes2 = minutes2.toString();
-				if (hours2 < 10)
-					sHours2 = "0" + sHours2;
-				if (minutes2 < 10)
-					sMinutes2 = "0" + sMinutes2;
-				//alert(sHours + ":" + sMinutes);
-				var comparehour = sHours2 - sHours;
-				var comparemin = sMinutes2 - sMinutes;
-				if (comparehour < 0) {
-					$("#end").val(time);
-				} else if ((comparehour == 0) && (comparemin < 0)) {
-					$("#end").val(time);
-				}
-				
-			});
-			$(":input").cSelect(); 
-			
-				</script>
+<script>
+   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+   mapOption = {
+      center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+      level : 3
+   // 지도의 확대 레벨
+   };
+
+   //지도를 생성합니다    
+   var map = new daum.maps.Map(mapContainer, mapOption);
+
+   //주소-좌표 변환 객체를 생성합니다
+   var geocoder = new daum.maps.services.Geocoder();
+
+   var address;
+   
+    address=  "${record.r_address }";
+    
+    console.log(address);
+    
+    //주소로 좌표를 검색합니다
+    geocoder.addressSearch(address,  function(result, status) {
+       // 정상적으로 검색이 완료됐으면 
+       if (status === daum.maps.services.Status.OK) {
+    
+          var coords = new daum.maps.LatLng(result[0].y,result[0].x);
+          console.log(address, result[0].y, result[0].x);
+    
+          // 결과값으로 받은 위치를 마커로 표시합니다
+          var marker = new daum.maps.Marker({
+             map : map,
+             position : coords
+          });
+    
+     	// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+          map.setCenter(coords);
+       }
+    });
+</script>

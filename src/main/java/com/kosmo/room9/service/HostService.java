@@ -11,4 +11,8 @@ public interface HostService {
 	boolean isHost(Map map);
 	// 호스트 목록 뿌려주기
 	List<HostDTO> selectHostList(Map map);
+	
+	
+	//호스트번호뿌려주기
+	int selecthost_no(Map map);
 }

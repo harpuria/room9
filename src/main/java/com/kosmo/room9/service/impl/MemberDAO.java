@@ -81,4 +81,5 @@ public class MemberDAO implements MemberService{
 		return template.selectList("ResSelectList", map);
 	}
 
+
 }

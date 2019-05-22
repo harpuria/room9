@@ -24,7 +24,7 @@
 	          <p>호스트관리</p></a>
 	        </li>
 	        
-	        <li><a href=<c:url value="/admin_room9_join.room9"/>>
+	        <li><a href=<c:url value="/admin_room9_join.room9?h_no=${h_no }"/>>
 	          <i class="tim-icons icon-app"></i>
 	          <p>ROOM9 등록</p></a>
 	        </li>

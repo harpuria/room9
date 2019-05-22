@@ -26,4 +26,5 @@
 		<mapper resource="mybatis/r9_mybatis.xml" />
 		<mapper resource="mybatis/r9_adminMybatis.xml" />
 	</mappers>
+	
 </configuration>

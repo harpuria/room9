@@ -5,6 +5,29 @@
 <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+<style>
+
+
+
+#myTable_info{
+	display: none;
+}
+
+#myTable_paginate a{
+
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+#myTable_paginate a:hover{
+
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 10px;
+	color:white
+}
+</style>
+
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">

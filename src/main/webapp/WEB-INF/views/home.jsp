@@ -92,7 +92,7 @@
 								</div>
 								<h2># 독서</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -106,7 +106,7 @@
 								</div>
 								<h2># 세미나</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -120,7 +120,7 @@
 								</div>
 								<h2># 오피스</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -134,7 +134,7 @@
 								</div>
 								<h2># 동창회</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -148,7 +148,7 @@
 								</div>
 								<h2># 소모임</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -162,7 +162,7 @@
 								</div>
 								<h2># 강연장</h2>
 							</figcaption>
-							<a href="#"></a>
+							<a href="<c:url value='/open.room9'/>"></a>
 						</figure>
 					</div>
 				</div>
@@ -175,7 +175,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center"
 			style="height: 70px; background-color: white">
-			<input type="button" onclick="location.href='open.jsp'" value="더 보기"
+			<input type="button" onclick="location.href='<c:url value='/open.room9'/>'" value="더 보기"
 				class="btn btn-success" style="background-color: #61ce4e;" />
 		</div>
 	</div>

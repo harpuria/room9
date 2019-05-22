@@ -38,20 +38,10 @@
                             <h4>휴대전화 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                            <div class="modifyArea">
-                                <span class="checkBtn">인증</span>
-                                <span class="equaltoCheck"></span>
-                                <a href="#" class="hostBtn modifyBtn">수정하기</a>
-                            </div>
-    
-                            <div class="checkArea">
-                                <input type="text" name="h_tel" class="submitInput phoneCheck"
-                                    placeholder="호스트 연락처 (- 없이 입력)" data-parsley-required="true" data-parsley-type="number"
-                                    data-parsley-errors-container=".phoneErrorWrap"
-                                    data-parsley-error-message="휴대전화 번호를 입력해 주세요 (- 없이 입력)">
-                                <div class="phoneErrorWrap"></div>
-                                <div class="phoneCheckErrorWrap"></div>
-                            </div>
+                           <input type="text" name="h_tel" style="width: 713px; height: 38px;"
+                               placeholder="호스트 연락처 (- 없이 입력)" data-parsley-required="true" data-parsley-type="number"
+                               data-parsley-errors-container=".phoneErrorWrap"
+                               data-parsley-error-message="휴대전화 번호를 입력해 주세요 (- 없이 입력)">
                         </div>
                     </article>
     
@@ -125,7 +115,7 @@
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
                         </div>
                     </article>
-                    <article class="companyInfo">
+                    <article class="companyInfo" style="border-bottom: 1px solid #d8d8d8; padding-bottom: 20px;">
                         <div class="titleArea">
                             <h4>종목</h4>
                         </div>
@@ -134,32 +124,6 @@
                                 data-parsley-required="false" data-parsley-maxlength="50"
                                 data-parsley-required-message="종목을 입력해 주세요"
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
-                        </div>
-                    </article>
-                    <article class="placePayInfo">
-                        <div class="titleArea">
-                            <h4>사업자등록증 첨부</h4>
-                        </div>
-                        <div class="editArea">
-                            <input type="text" class="fileName" placeholder="정산에 필요한 사업자등록증 스캔본 첨부 / jpg, gif 파일"
-                                readonly="" data-parsley-required="false" data-parsley-errors-container=".payInfoErrorWrap"
-                                data-parsley-error-message="사업자등록증을 첨부해 주세요">
-                            <input type="file" id="companyUpload" class="fileUpload" name="h_registration_file">
-                            <label for="companyUpload" class="hostBtn">첨부하기</label>
-                            <div class="payInfoErrorWrap"></div>
-                        </div>
-                    </article>
-                    <article class="placeBankBookInfo">
-                        <div class="titleArea">
-                            <h4>통장사본 첨부</h4>
-                        </div>
-                        <div class="editArea">
-                            <input type="text" class="fileName" placeholder="정산금액을 입금받을 통장사본 스캔본 첨부 / jpg, gif 파일"
-                                readonly="" data-parsley-required="false" data-parsley-errors-container=".bankBookErrorWrp"
-                                data-parsley-error-message="통장사본을 첨부해 주세요">
-                            <input type="file" id="payInfoApply" class="fileUpload" name="h_account_file">
-                            <label for="payInfoApply" class="hostBtn">첨부하기</label>
-                            <div class="bankBookErrorWrp"></div>
                         </div>
                     </article>
                     <article class="placeAdminName companyInfo">

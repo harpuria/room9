@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link href='/assets/packages/core/main.css' rel='stylesheet' />
-<link href='/assets/packages/daygrid/main.css' rel='stylesheet' />
-<link href='/assets/packages/timegrid/main.css' rel='stylesheet' />
-<script src='/assets/packages/core/main.js'></script>
-<script src='/assets/packages/interaction/main.js'></script>
-<script src='/assets/packages/daygrid/main.js'></script>
-<script src='/assets/packages/timegrid/main.js'></script>    
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href=<c:url value="'/assets/packages/core/main.css'" /> rel='stylesheet' />
+<link href=<c:url value="'/assets/packages/daygrid/main.css'" /> rel='stylesheet' />
+<link href=<c:url value="'/assets/packages/timegrid/main.css'" /> rel='stylesheet' />
+<script src=<c:url value="'/assets/packages/core/main.js'" />></script>
+<script src=<c:url value="'/assets/packages/interaction/main.js'" />></script>
+<script src=<c:url value="'/assets/packages/daygrid/main.js'" />></script>
+<script src=<c:url value="'/assets/packages/timegrid/main.js'" />></script>    
     
 <style>
 #calendar {

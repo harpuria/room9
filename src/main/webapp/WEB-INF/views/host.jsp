@@ -136,32 +136,6 @@
                                 data-parsley-maxlength-message="최대 50자 이내로 문구를 입력해 주세요">
                         </div>
                     </article>
-                    <article class="placePayInfo">
-                        <div class="titleArea">
-                            <h4>사업자등록증 첨부</h4>
-                        </div>
-                        <div class="editArea">
-                            <input type="text" class="fileName" placeholder="정산에 필요한 사업자등록증 스캔본 첨부 / jpg, gif 파일"
-                                readonly="" data-parsley-required="false" data-parsley-errors-container=".payInfoErrorWrap"
-                                data-parsley-error-message="사업자등록증을 첨부해 주세요">
-                            <input type="file" id="companyUpload" class="fileUpload" name="h_registration_file">
-                            <label for="companyUpload" class="hostBtn">첨부하기</label>
-                            <div class="payInfoErrorWrap"></div>
-                        </div>
-                    </article>
-                    <article class="placeBankBookInfo">
-                        <div class="titleArea">
-                            <h4>통장사본 첨부</h4>
-                        </div>
-                        <div class="editArea">
-                            <input type="text" class="fileName" placeholder="정산금액을 입금받을 통장사본 스캔본 첨부 / jpg, gif 파일"
-                                readonly="" data-parsley-required="false" data-parsley-errors-container=".bankBookErrorWrp"
-                                data-parsley-error-message="통장사본을 첨부해 주세요">
-                            <input type="file" id="payInfoApply" class="fileUpload" name="h_account_file">
-                            <label for="payInfoApply" class="hostBtn">첨부하기</label>
-                            <div class="bankBookErrorWrp"></div>
-                        </div>
-                    </article>
                     <article class="placeAdminName companyInfo">
                         <div class="titleArea">
                             <h4>담당자 명 <span class="requiredIcon">*</span></h4>

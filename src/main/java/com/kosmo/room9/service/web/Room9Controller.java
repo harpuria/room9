@@ -31,63 +31,20 @@ public class Room9Controller {
 		List<Room9DTO> list = service.selectList(null);
 		model.addAttribute("list", list);
 		
-		List<String> category = new ArrayList<String>();
+		List<String> tag1 = new ArrayList<String>();
+		List<String> tag2 = new ArrayList<String>();
+		List<String> tag3 = new ArrayList<String>();
 		
 		// 한글로 되어있는 카테고리를 영어로 치환 (jsp 에서 사용하기 위해서)
 		for(int i = 0; i < list.size(); i++) {
-			String temp = list.get(i).getR_category();
-			switch(temp) {
-			case "서울":
-				category.add("seoul");
-    			break;
-    		case "경기":
-    			category.add("gyeonggi");
-    			break;
-    		case "강원":
-    			category.add("gangwon");
-    			break;
-    		case "충청":
-    			category.add("chungcheong");
-    			break;
-    		case "전라":
-    			category.add("jeonla");
-    			break;
-    		case "경상":
-    			category.add("gyeongsang");
-    			break;
-    		case "카페":
-    			category.add("cafa");
-    			break;
-    		case "스터디":
-    			category.add("study");
-    			break;
-    		case "세미나":
-    			category.add("seminar");
-    			break;
-    		case "강연":
-    			category.add("lecture");
-    			break;
-    		case "동창회":
-    			category.add("reunion");
-    			break;
-    		case "돌잔치":
-    			category.add("doljanchi");
-    			break;
-    		case "오피스":
-    			category.add("office");
-    			break;
-    		case "밴드":
-    			category.add("band");
-    			break;
-    		case "파티룸":
-    			category.add("party");
-    			break;
-    		default:
-    			category.add("null");
-    			break;
-			}
+			tag1.add(list.get(i).getR_tag_1());
+			tag2.add(list.get(i).getR_tag_2());
+			tag3.add(list.get(i).getR_tag_3());
 		}
-		model.addAttribute("category", category);
+		
+		model.addAttribute("tag1", tag1);
+		model.addAttribute("tag2", tag2);
+		model.addAttribute("tag3", tag3);
 		
 		return "open.tiles";
 	}

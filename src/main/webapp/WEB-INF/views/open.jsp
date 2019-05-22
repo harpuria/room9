@@ -385,7 +385,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
       <article class="placeListArea">
          <ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
             <c:forEach items="${list }" var="item" varStatus="loop">
-	            <li class="filter ${category[loop.index] } reunion">
+	            <li class="filter ${tag1[loop.index] } ${tag2[loop.index] } ${tag3[loop.index] } ">
 	               <a href="<c:url value='/reservation.room9?r_no=${item.r_no }'/>">
 	                  <div class="imgArea">
 	                     <img src="<c:url value='resources/img/book.jpg'/>" />                           

@@ -28,14 +28,9 @@
 	        </div>
 	        
 	        <div class="link-red">
-            <a href="#">
+            <a href="<c:url value='/UserInfo.room9?m_email=${sessionScope.emailid }'/>">
                 <i class="far fa-newspaper fa-2x" style="color: #da4545"></i>&nbsp;&nbsp;MY PAGE
             </a>
-
-            <ul class="sub-links">
-                <li><a href="<c:url value='/UserInfo.room9?m_email=${sessionScope.emailid }'/>">정보 수정</a></li>
-                <li><a href="#">예약 확인</a></li>
-            </ul>
         </div>
         </c:if>
         

@@ -119,7 +119,8 @@ a.no_content {color: black;}
 a.no_content:hover {color: black;}
 </style>
 
-
+<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <div class="topSkin web">
     <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
@@ -138,15 +139,16 @@ a.no_content:hover {color: black;}
 				<th class="col-md-2" scope="col">날짜</th>
 			</tr>
 		</thead>
-		<c:forEach items="${list }" var="items">
-			<tbody style="color:black">
+		
+		<tbody style="color:black">
+			<c:forEach items="${list }" var="items">
 				<tr>
 					<th scope="row">[공지사항]</th>
 					<td><a class="no_content" href="<c:url value='/notice_View.room9?no=${items.no}'/>">${items.r_title }</a></td>
 					<td>${items.r_postdate }</td>
 				</tr>
-			</tbody>
-		</c:forEach>
+			</c:forEach>
+		</tbody>
 	</table>
 </div>
 
@@ -155,6 +157,6 @@ a.no_content:hover {color: black;}
 
 <script>
 new WOW().init();
-
+$('#myTable').DataTable();
 
 </script>

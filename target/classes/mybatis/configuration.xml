@@ -13,6 +13,7 @@
 	<!-- 별칭 짓기 -->
  	<typeAliases>		
 		<typeAlias alias="Room9DTO" type="com.kosmo.room9.service.Room9DTO"/>
+		<typeAlias alias="MemberInfoDTO" type="com.kosmo.room9.service.MemberInfoDTO"/>
 		<typeAlias alias="NoticeDTO" type="com.kosmo.room9.service.NoticeDTO"/>
 		<typeAlias alias="Room9MemberDTO" type="com.kosmo.room9.service.Room9MemberDTO"/>
 		<typeAlias alias="ReservationDataDTO" type="com.kosmo.room9.service.ReservationDataDTO"/>

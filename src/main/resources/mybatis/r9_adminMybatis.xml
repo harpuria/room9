@@ -19,4 +19,10 @@
 	<select id="selectHostList" parameterType="java.util.Map" resultType="HostDTO">
 		SELECT * FROM R9_HOST ORDER BY H_NO DESC
 	</select>
+	
+	<!-- 회원목록 -->
+	<select id="selectMemberInfoList" parameterType="java.util.Map" resultType="MemberInfoDTO">
+		SELECT * FROM R9_MEMBER ORDER BY M_NO DESC
+	</select>
+	
 </mapper>

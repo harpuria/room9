@@ -2,12 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="<c:url value='/css/open.css' />" rel="stylesheet" />
-<link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
+<link href="<c:url value='/assets/css/styles.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/host.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/common.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/formcommon.css' />" rel="stylesheet" />
+<link href="<c:url value='/assets/css/jquery.ui.selectmenu.css' />" rel="stylesheet" />
 
 
 <style>
+p.result {padding-top: 1.5%;}
 	th{
 	text-align: center;
 	border-right: 1px solid #e9ecef;
@@ -114,49 +118,45 @@
   font-weight: bold;
   color: #ffffff;
 }
-
-a.no_content {color: black;}
-a.no_content:hover {color: black;}
 </style>
 
-<link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-<div class="topSkin web">
-    <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
-    <h2 class="skinTitle">ROOM9 공지사항</h2>
+
+<div id="app">
+       <div class="topSkin web">
+           <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
+        <h2 class="skinTitle">공지사항</h2>
+    </div>
+    <section class="content">
+        <h3 class="mainTitle">상세보기</h3>
+        <form action="<c:url value='/notice.room9'/>" method="POST" class="hostForm" enctype="multipart/form-data"
+            data-parsley-validate="true" novalidate="">
+            <input type="hidden" name="_token" value="">
+            <div class="formBox">
+                <article class="placeHostName">
+                    <div class="titleArea">
+                        <h4>제목</h4>
+                    </div>
+                    <div class="editArea">
+                       <p class="result">${record.r_title }</p>
+                    </div>
+                </article>
+                <article class="placePayInfo">
+                    <div class="titleArea">
+                        <h4>내용</h4>
+                    </div>
+                    <div class="editArea">
+                        <p class="result">${record.r_content }</p>
+                    </div>
+     	           </article>
+            </div>
+            <article class="btnArea">
+                <input type="submit" class="submitBtn" value="목록">
+            </article>
+        </form>
+    </section>
 </div>
- <!-- 공지테이블 -->
-<div style="height: 150px"></div>
-<div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-<div class="row">
-<div class="col-md-12 ">
-	<table class="table table-hover" id="myTable" style="text-align: center;margin-bottom:none">
-		<thead class="" style="border-collapse:none">
-			<tr style="background-color: gray;color:white">
-				<th class="col-md-2" scope="col">카테고리</th>
-				<th class="col-md-8" scope="col">제목</th>
-				<th class="col-md-2" scope="col">날짜</th>
-			</tr>
-		</thead>
-		
-		<tbody style="color:black">
-			<c:forEach items="${list }" var="items">
-				<tr>
-					<th scope="row">[공지사항]</th>
-					<td><a class="no_content" href="<c:url value='/notice_View.room9?no=${items.no}'/>">${items.r_title }</a></td>
-					<td>${items.r_postdate }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-</div>
-
-
-</div></div>
 
 <script>
 new WOW().init();
-$('#myTable').DataTable();
-
 </script>

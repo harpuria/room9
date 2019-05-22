@@ -80,9 +80,25 @@
  		UPDATE R9_MEMBER SET m_pwd=#{changePwd} WHERE m_pwd=#{currentPwd} AND ${changePwd}=#{re_changePwd} AND M_EMAIL=#{m_email}
  	</update>
  	
- 	<!-- 공지사항리스트 -->
+	 	<!-- 공지사항리스트 -->
  	<select id="noticeList" parameterType="java.util.Map" resultType="NoticeDTO">
  		SELECT * FROM R9_NOTICE ORDER BY R_POSTDATE DESC
+ 	</select>
+ 	<!-- 공지사항 글작성 -->
+	<insert id="noticeInsert" parameterType="java.util.Map">
+		INSERT INTO R9_NOTICE(no,r_title,r_content,r_postdate) VALUES(SEQ_r9_notice.NEXTVAL,#{r_title},#{r_content},DEFAULT)
+	</insert>
+ 	<!-- 공지사항 수정 -->
+ 	<update id="noticeUpdate" parameterType="java.util.Map">
+ 		UPDATE R9_NOTICE SET r_title=#{r_title} , r_content=#{r_content} WHERE no=#{no}
+ 	</update>
+ 	<!-- 공지사항 삭제 -->
+ 	<delete id="noticeDelete" parameterType="java.util.Map">
+ 		DELETE R9_NOTICE WHERE no=#{no}
+ 	</delete>
+ 	<!-- 공지사항 상세보기 -->
+ 	<select id="noticeselectOne" parameterType="java.util.Map" resultType="NoticeDTO">
+ 		SELECT * FROM R9_NOTICE WHERE no=#{no}
  	</select>
  	
  	

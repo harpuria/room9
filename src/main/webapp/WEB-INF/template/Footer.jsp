@@ -24,6 +24,8 @@
 footer {z-index: 0;}
 </style>
 
+
+
 <script>
 	$('[data-toggle="tooltip"]').tooltip();
 
@@ -39,3 +41,4 @@ footer {z-index: 0;}
 		} // End if
 	});
 </script>
+

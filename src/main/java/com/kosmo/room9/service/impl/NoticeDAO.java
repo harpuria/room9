@@ -17,10 +17,35 @@ public class NoticeDAO implements NoticeService{
 	@Resource(name="template")
 	SqlSessionTemplate template;
 	
+	//공지사항 리스트
 	@Override
 	public List<NoticeDTO> noticeList(Map map) {
-		
 		return template.selectList("noticeList",map);
+	}
+
+	//삭제/입력/수정
+	@Override
+	public int delete(Map map) {
+		// TODO Auto-generated method stub
+		return template.delete("noticeDelete",map);
+	}
+
+	@Override
+	public int insert(Map map) {
+		
+		return template.insert("noticeInsert",map);
+	}
+
+	@Override
+	public int update(Map map) {
+		return template.update("noticeUpdate",map);
+		
+	}
+	//공지사항상세보기
+	@Override
+	public NoticeDTO selectOne(Map map) {
+		
+		return template.selectOne("noticeselectOne",map);
 	}
 	
 

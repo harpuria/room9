@@ -7,6 +7,11 @@
       SELECT COUNT(*) FROM R9_MEMBER WHERE M_EMAIL=#{emailid} AND M_PWD=#{pwd}
    </select>
    
+   <!-- 호스트넘버 가져오는 쿼리 -->
+   <select id="adminhostNo" parameterType="java.util.Map" resultType="int">
+		SELECT H_NO FROM R9_MEMBER M JOIN R9_HOST H ON M.M_NO = H.M_NO WHERE H_NO = (SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{emailid})
+	</select>
+   
    <!-- 회원가입 처리 -->
    <insert id="signOn" parameterType="java.util.Map">
       INSERT INTO R9_MEMBER VALUES(SEQ_R9_MEMBER.NEXTVAL,#{emailid}, null, null,null,null, #{signpwd}, #{name}, #{phonenumber}, sysdate )
@@ -79,5 +84,11 @@
  	<update id="userInfoUpdate" parameterType="java.util.Map">
  		UPDATE R9_MEMBER SET m_pwd=#{changePwd} WHERE m_pwd=#{currentPwd} AND ${changePwd}=#{re_changePwd} AND M_EMAIL=#{m_email}
  	</update>
+ 	
+ 	<!-- 공지사항리스트 -->
+ 	<select id="noticeList" parameterType="java.util.Map" resultType="NoticeDTO">
+ 		SELECT * FROM R9_NOTICE ORDER BY R_POSTDATE DESC
+ 	</select>
+ 	
  	
 </mapper>

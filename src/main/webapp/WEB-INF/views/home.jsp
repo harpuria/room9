@@ -5,10 +5,6 @@
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
-<script>
-	console.log("<c:url value='resources/JSON/room9.json'/>");
-</script>
-
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
 	<div id="myCarousel" class="carousel slide carousel-fade"
 		data-ride="carousel"
@@ -353,8 +349,5 @@
 			});
 		});
 	});
-	
-	            
-	     
 	// --- 지도 클러스터링 끝 --- //
 </script>

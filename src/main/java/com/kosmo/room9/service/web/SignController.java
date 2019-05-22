@@ -391,6 +391,8 @@ public class SignController {
 	   String naveremailid = service.naverLogin(map);
 	   session.setAttribute("emailid", naveremailid);
 	   
+	   
+	   
 	   return "home.tiles";
        
 	}

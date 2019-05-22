@@ -92,13 +92,7 @@ public class Room9Controller {
 		return "open.tiles";
 	}
 	
-	@RequestMapping("/reservation.room9")
-	public String reservation(@RequestParam Map map, Model model) throws Exception{
-		Room9DTO record = service.selectOne(map);
-		model.addAttribute("record", record);	
-		return "reservation.tiles";
-	}
-	
+
 	@RequestMapping("/host.room9")
 	public String host(@RequestParam Map map, Model model) throws Exception{
 		return "host.tiles";
@@ -132,4 +126,11 @@ public class Room9Controller {
 		
 		return "/FileUpDown13/UploadComplete.jsp";
 	}///////////////
+
+	
+	
+	@RequestMapping("/home.room9")
+	public String home(@RequestParam Map map, Model model) throws Exception{
+		return "home.tiles";
+	}
 }

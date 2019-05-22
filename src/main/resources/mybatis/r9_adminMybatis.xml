@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="mybatis.r9_adminMybatis">
+<!-- 	<insert id="mittingInsert" parameterType="java.util.Map"> -->
+<!-- 		INSERT INTO R9_ROOM VALUES(SEQ_R9_ROOM,(SELECT H_NO FROM R9_HOST ))  -->
+<!-- 	</insert> -->
+	
+	
+</mapper>

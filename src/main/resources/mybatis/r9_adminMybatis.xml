@@ -7,7 +7,7 @@
 	<insert id="insertHost" parameterType="java.util.Map">
 		INSERT INTO R9_HOST VALUES(SEQ_R9_HOST.NEXTVAL, (SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{m_email}),
 		#{h_name}, #{m_email}, #{h_tel}, #{h_company}, #{h_address}, #{h_company_tel}, #{h_fax}, #{h_owner}, #{h_registration}, 
-		#{h_business}, #{h_stoke}, #{h_registration_file}, #{h_account_file}, #{h_manager}, #{h_manager_mail}, #{h_manager_tel}, 
+		#{h_business}, #{h_stoke}, #{h_manager}, #{h_manager_mail}, #{h_manager_tel}, 
 		SYSDATE)
 	</insert>
 	
@@ -31,7 +31,7 @@
 	</select>
 	
 	<insert id="mittingInsert" parameterType="java.util.Map">
-		INSERT INTO R9_ROOM VALUES(SEQ_R9_ROOM.NEXTVAL,#{h_no},#{title},${areaType},#{peoplecount},#{price},#{contact},#{content},#{tag_1},#{tag_2},#{tag_3},null,#{refund},${days},null,null,null,null,null,#{emailid},#{phoneNumber},'신한','계좌번호',SYSDATE)
+		INSERT INTO R9_ROOM VALUES(SEQ_R9_ROOM.NEXTVAL,#{h_no},#{title},#{addr},#{r_img_0},#{r_img_1},#{r_img_2},#{r_img_3},#{r_img_4},#{areaType},#{totaltime},#{days},#{opt},#{price},#{contact},#{content},#{tag_1},#{tag_2},#{tag_3},#{warning},#{warning_tel},#{refund},SYSDATE,#{peoplecount})
 	</insert>
 </mapper>
 

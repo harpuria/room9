@@ -433,11 +433,7 @@
                 <div class="editArea">
                     <ul class="imgArea">
                         <li class="img" style="display: inline-flex" >
-							<input type="checkbox" class="imgFile_0" value="" style="display: none"/>
-							<input type="checkbox" class="imgFile_1" value="" style="display: none"/>
-							<input type="checkbox" class="imgFile_2" value="" style="display: none"/>
-							<input type="checkbox" class="imgFile_3" value="" style="display: none"/>
-							<input type="checkbox" class="imgFile_4" value="" style="display: none"/>
+							<input type="text" class="imgFile" name="imgfiles" style="display: none"/>
                         </li>
                     </ul>
                     <input type="text" class="imgListCount" style="display: none" value="0" readonly=""
@@ -448,7 +444,14 @@
 	                    <input type="file" id="imgUpload" class="fileUpload" name="imgname" onchange="uploadImg(this)" multiple>
 	                    <label for="imgUpload" class="uploadBtn">등록하기</label>
 	                    <script>
+	                    var names = "";
+	                    
 							var uploadImg = function(value){
+								
+								names += $('#imgUpload').val().replace("C:\\fakepath\\" ,"")+",";
+								console.log(names);
+								$('.imgFile').val(names);
+								console.log("네임즈 val: " + $('.imgFile').val());
 								
 								var form = $("form")[0];
 								var formData = new FormData(form);
@@ -473,10 +476,12 @@
 										
 										console.log("성공");
 										var reader = new FileReader();
-
-										$('.img').append("<img src='<c:url value='upload/"+files[count].name+"'/>'/ style='display:inline-block'>");
-										$('.imgFile_'+count+'').val(files[count].name);
-											
+									
+										for(var i=0; i<files.length; i++)
+										{
+											$('.img').append("<img src='<c:url value='upload/"+files[i].name+"'/>'/ style='display:inline-block'>");
+											//$('.imgFile_'+i+'').val(files[i].name);
+										}	
 // 											reader.onload = function(e)
 // 											{
 // 												$('.imgload'+i+'').attr('src',e.target.result);
@@ -620,7 +625,7 @@
                     <h4>대관가능 시간</h4>
                 </div>
                 <div class="editArea">
-                    <select class="form-control" id="exampleFormControlSelect1" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;">
+                    <select class="form-control" id="exampleFormControlSelect1" name="start_time" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;" >
                          <option value="00:00">0시 00분</option>
                               <option value="00:30">0시 30분</option>
                               <option value="01:00">1시 00분</option>
@@ -671,8 +676,8 @@
                               <option value="23:30">23시 30분</option>
                        </select>
                             ~
-                            <select class="form-control" id="exampleFormControlSelect1" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;">
-                         <option value="00:00">0시 00분</option>
+                            <select class="form-control" id="exampleFormControlSelect1" name="end_time" style="width: 180px; height: 38px; background-color: white; color: black;display: inline;">
+                        	  <option value="00:00">0시 00분</option>
                               <option value="00:30">0시 30분</option>
                               <option value="01:00">1시 00분</option>
                               <option value="01:30">1시 30분</option>
@@ -1061,7 +1066,7 @@
                     <h4>안내 및 주의사항</h4>
                 </div>
                 <div class="editArea">
-                    <textarea name="refund" placeholder="안내 및 주의사항을 입력해 주세요" data-parsley-required="true"
+                    <textarea name="warning" placeholder="안내 및 주의사항을 입력해 주세요" data-parsley-required="true"
                         data-parsley-error-message="안내 및 주의사항을 입력해 주세요"></textarea>
                 </div>
             </article>
@@ -1072,7 +1077,7 @@
                     <h4>문의처</h4>
                 </div>
                 <div class="editArea">
-                    <input type="text" name="phoneNumber" placeholder="사용자와 소통 가능한 연락처를 입력해 주세요"
+                    <input type="text" name="warning_tel" placeholder="사용자와 소통 가능한 연락처를 입력해 주세요"
                         data-parsley-required="true" data-parsley-error-message="문의 연락처를 입력해 주세요">
                 </div>
             </article>

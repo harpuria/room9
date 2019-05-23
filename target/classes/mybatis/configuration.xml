@@ -19,6 +19,7 @@
 		<typeAlias alias="ReservationDataDTO" type="com.kosmo.room9.service.ReservationDataDTO"/>
 		<typeAlias alias="CrawlingDataDTO" type="com.kosmo.room9.service.CrawlingDataDTO"/>
 		<typeAlias alias="HostDTO" type="com.kosmo.room9.service.HostDTO"/>
+		<typeAlias alias="SuggestionDTO" type="com.kosmo.room9.service.SuggestionDTO"/>
 	</typeAliases>
 	
 	<!-- MapperFile(SQL쿼리 결과와 자바빈 제공) 위치 정보 -->

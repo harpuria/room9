@@ -1497,7 +1497,7 @@ pre code {
 }
 
 .table tbody+tbody {
-  border-top: 0.125rem solid #e3e3e3;
+  /*border-top: 0.125rem solid #e3e3e3;*/
 }
 
 .table .table {

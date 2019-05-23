@@ -123,7 +123,7 @@
 <div style="height: 150px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
-<div class="col-md-12 ">
+<div class="col-md-12">
 	<table class="table table-hover" style="text-align: center;margin-bottom:none">
 		<thead class="" style="border-collapse:none">
 			<tr style="background-color: gray;color:white">
@@ -131,30 +131,25 @@
 				<th class="col-md-8" scope="col">제목</th>
 				<th class="col-md-8" scope="col">작성자</th>
 				<th class="col-md-2" scope="col">날짜</th>
-			</tr>
-			
+			</tr>			
 		</thead>
 		<tbody style="color:black">
+		
+		<c:forEach items="${requestScope.list }" var="item">
+			
 			<tr>
-				<td>1</td>
-				<td>제목1</td>
-				<td>작성자1</td>
-				<td>19-05-21</td>
+				<td>${item.no }</td>
+				<td><a href="<c:url value='/suggestionview.room9?no=${item.no}'/>">${item.title }</a></td>
+				<td>${item.name }</td>
+				<td>${item.postdate }</td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>제목2</td>
-				<td>작성자2</td>
-				<td>19-05-21</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>제목3</td>
-				<td>작성자3</td>
-				<td>19-05-21</td>
-			</tr>
+
+		</c:forEach>
+			
 		</tbody>
 	</table>
+
+	<a href="<c:url value='/write.room9'/>" class="btn btn-success">등록</a>
 
 </div>
 

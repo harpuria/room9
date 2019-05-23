@@ -385,10 +385,10 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
       <article class="placeListArea">
          <ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
             <c:forEach items="${list }" var="item" varStatus="loop">
-	            <li class="filter ${tag1[loop.index] } ${tag2[loop.index] } ${tag3[loop.index] } ">
-	               <a href="<c:url value='/reservation.room9?r_no=${item.r_no }'/>">
+	            <li class="filter ${category[loop.index] } reunion">
+	               <a href="<c:url value='/reservation.room9?r_no=${item.r_no }&m_email=${sessionScope.emailid }'/>">
 	                  <div class="imgArea">
-	                     <img src="<c:url value='resources/img/book.jpg'/>" />                           
+	                     <img src="<c:url value='upload/${item.r_image_1 }'/>" />                           
 	                  </div>
 	                  <div class="tagArea">
 	                     <span class="btn tag">#${item.r_tag_1 }</span>
@@ -400,7 +400,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                     <p class="address text-muted" style="font-weight: bold; font-size: 12px" ><i class="fas fa-map-marker-alt"></i> ${item.r_address }</p>                           
 	                  </div>
 	                  <div class="subInfoArea">
-	                     <span class="capacity" style="font-weight: bold;">수용인원 : <span style="color: #333333; font-weight: bold">${item.r_people_count_max }</span> 명</span>
+	                     <span class="capacity" style="font-weight: bold;">수용인원 : <span style="color: #333333; font-weight: bold">${item.r_peoplecount}</span> 명</span>
 	                     <p class="priceAndTime">
 	                        <span class="price">${item.r_money }원</span>
 	                        <span class="time">/시간</span>

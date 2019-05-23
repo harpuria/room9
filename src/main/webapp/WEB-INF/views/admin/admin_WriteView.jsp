@@ -47,5 +47,5 @@ p.result {padding-top: 1.5%;}
 		if (confirm("정말로 삭제 하시겠습니까?")) {
 			location.replace("<c:url value='/admin_DeleteNotice.room9?no=${record.no}'/>");
 		}
-	};
+	}
 </script>

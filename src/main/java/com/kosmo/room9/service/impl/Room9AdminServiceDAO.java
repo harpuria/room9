@@ -32,7 +32,7 @@ public class Room9AdminServiceDAO implements Room9AdminService {
 	@Override
 	public int Room9MittingDelete(Map map) {
 	
-		return 0;
+		return template.delete("room9MittingDelete", map);
 	}
 
 

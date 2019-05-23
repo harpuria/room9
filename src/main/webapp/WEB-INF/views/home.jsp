@@ -190,7 +190,7 @@
 </div>
 
 <div class="container-fluid" id="download"
-	style="background: url('assets/img/phoneback.png'); background-attachment: fixed; background-size: 100% 100%; height: 850px;">
+	style="background: url('resources/img/phoneback.png'); background-attachment: fixed; background-size: 100% 100%; height: 850px;">
 	<div class="row">
 		<div class="container">
 			<div class="row">

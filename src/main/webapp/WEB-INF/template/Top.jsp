@@ -189,18 +189,13 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 	s0.parentNode.insertBefore(s1, s0);
 })();
 
-Kakao.init('016468dc8f440427772427c119b7bc1d');
+Kakao.init('615a47dc9ab54901a377182285275dd6');
 
 function addPlusFriend() {
     Kakao.PlusFriend.addFriend({
-    	plusFriendId: '_bFUxkj' // 플러스친구 홈 URL에 명시된 id로 설정합니다.
+    	plusFriendId: '_GxiAET' // 플러스친구 홈 URL에 명시된 id로 설정합니다.
     });
 }
 
-function plusFriendChat() {
-    Kakao.PlusFriend.chat({
-    	plusFriendId: '_bFUxkj/chat' // 플러스친구 홈 URL에 명시된 id로 설정합니다.
-    });
-}
 
 </script>

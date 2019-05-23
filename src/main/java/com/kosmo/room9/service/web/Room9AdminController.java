@@ -18,14 +18,24 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.kosmo.room9.service.HostDTO;
+import com.kosmo.room9.service.NoticeDTO;
+import com.kosmo.room9.service.Room9DTO;
+import com.kosmo.room9.service.Room9MemberDTO;
+import com.kosmo.room9.service.impl.HostServiceImpl;
 import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
+import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
 @Controller
 public class Room9AdminController {
 	
 	@Resource(name="Room9AdminServiceImpl")
 	private Room9AdminServiceImpl service;
-
+	//호스트명을 가져오기위한 서비스주입
+	@Resource(name="hostServiceImpl")
+	private HostServiceImpl hostservice;
+	
+	
 	@RequestMapping("/admin_main.room9")
 	public String admin_main(@RequestParam Map map, Model model, HttpSession session) throws Exception{
 		
@@ -34,6 +44,23 @@ public class Room9AdminController {
 
 		return "admin_main.adminTiles";
 	}
+	//룸리스트(뿌려주기)
+	@RequestMapping("/admin_room9List.room9")
+	public String room9List(@RequestParam Map map, Model model) throws Exception{
+		List<HostDTO> list = hostservice.room9List(map);
+		model.addAttribute("list", list);
+		
+		return "admin_room9List.adminTiles";
+	}
+	//룸삭제
+	@RequestMapping("/admin_roomListDelete.room9")
+	public String room9delete(@RequestParam Map map) throws Exception{
+		//서비스 호출]
+		service.Room9MittingDelete(map);
+		
+		return "forward:/admin_room9List.room9";
+	}
+	
 	
 	@RequestMapping("/admin_calender.room9")
 	public String admin_calender() throws Exception{

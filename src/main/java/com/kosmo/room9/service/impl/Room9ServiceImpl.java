@@ -26,5 +26,11 @@ public class Room9ServiceImpl implements Room9Service{
 	
 		return dao.selectOne(map);
 	}
+
+	@Override
+	public int reservationInsert(Map map) {
+		
+		return dao.reservationInsert(map);
+	}
 	
 }

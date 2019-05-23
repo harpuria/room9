@@ -106,5 +106,8 @@
  		SELECT * FROM R9_NOTICE WHERE no=#{no}
  	</select>
  	
- 	
+ 	<!-- 예약하기 -->
+ 	<insert id="reservationInsert" parameterType="java.util.Map" >
+		INSERT INTO R9_RESERVATION VALUES(SEQ_R9_RESERVATION.NEXTVAL,(SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{emailid}),#{r_no},#{r_money},#{res_dday},#{res_name},#{res_tel},#{emailid},#{res_peoplecount},sysdate)
+	</insert>
 </mapper>

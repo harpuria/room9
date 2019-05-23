@@ -5,7 +5,9 @@
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.m	in.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.in.css">
+<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
@@ -29,8 +31,6 @@ s.setAttribute('data-timestamp', +new Date());
 <style type="text/css">
 
 .start,.end{ width: 100px;background-color: gray;text-align: center;"}
-
-
 
 .topBanner {display: block;position: relative;overflow: hidden;background-color: #000000;}
 @media (max-width: 767px) {
@@ -503,21 +503,29 @@ margin-right:0.5em;
 	                </li>
                 </ul>
                </div>
-<%-- 	            <form action="<c:url value='/reservationProcess.room9'/>"> --%>
                 <ul class="list-group mb-3">
 	                	<li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h5 class="my-0">이용금액</h5>
-                            <small class="text-muted">(시간단위)</small>
                         </div>
                          <h3 class="my-0"><span style="color:#61ce4e">${record.r_money }원</span>~/시간</h3>
 
                     </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div class="col-md-12">
-                            <h6 class="my-0">캘린더</h6>
-                            
-                        </div>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
+                        
+                           	<div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+                           		<p class="text-muted">예약 날짜 : </p>
+                           	</div>
+							<div class="col-md-9 text-center " style="padding: 13px 0;padding-left:25px">
+								<input id="datepicker" width="210" />
+							</div>
+							
+					       <script>
+				            $('#datepicker').datepicker({
+					            uiLibrary: 'bootstrap',
+					            format:'yyyy/mm/dd'
+					        });
+					       </script> 
 					</li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
 	                 <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
@@ -525,105 +533,57 @@ margin-right:0.5em;
 	                 </div>
                     	<div class="col-md-9 text-center " style="padding: 10px 0;">
 	                       <select class="form-control start_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-	                       		  <option value="00:00">0시 00분</option>
-	                              <option value="00:30">0시 30분</option>
-	                              <option value="01:00">1시 00분</option>
-	                              <option value="01:30">1시 30분</option>
-	                              <option value="02:00">2시 00분</option>
-	                              <option value="02:30">2시 30분</option>
-	                              <option value="03:00">3시 00분</option>
-	                              <option value="03:30">3시 30분</option>
-	                              <option value="04:00">4시 00분</option>
-	                              <option value="04:30">4시 30분</option>
-	                              <option value="05:00">5시 00분</option>
-	                              <option value="05:30">5시 30분</option>
-	                              <option value="06:00">6시 00분</option>
-	                              <option value="06:30">6시 30분</option>
-	                              <option value="07:00">7시 00분</option>
-	                              <option value="07:30">7시 30분</option>
-	                              <option value="08:00">8시 00분</option>
-	                              <option value="08:30">8시 30분</option>
-	                              <option value="09:00">9시 00분</option>
-	                              <option value="09:30">9시 30분</option>
-	                              <option value="10:00" selected="selected">10시 00분</option>
-	                              <option value="10:30">10시 30분</option>
-	                              <option value="11:00">11시 00분</option>
-	                              <option value="11:30">11시 30분</option>
-	                              <option value="12:00">12시 00분</option>
-	                              <option value="12:30">12시 30분</option>
-	                              <option value="13:00">13시 00분</option>
-	                              <option value="13:30">13시 30분</option>
-	                              <option value="14:00">14시 00분</option>
-	                              <option value="14:30">14시 30분</option>
-	                              <option value="15:00">15시 00분</option>
-	                              <option value="15:30">15시 30분</option>
-	                              <option value="16:00">16시 00분</option>
-	                              <option value="16:30">16시 30분</option>
-	                              <option value="17:00">17시 00분</option>
-	                              <option value="17:30">17시 30분</option>
-	                              <option value="18:00">18시 00분</option>
-	                              <option value="18:30">18시 30분</option>
-	                              <option value="19:00">19시 00분</option>
-	                              <option value="19:30">19시 30분</option>
-	                              <option value="20:00">20시 00분</option>
-	                              <option value="20:30">20시 30분</option>
-	                              <option value="21:00">21시 00분</option>
-	                              <option value="21:30">21시 30분</option>
-	                              <option value="22:00">22시 00분</option>
-	                              <option value="22:30">22시 30분</option>
-	                              <option value="23:00">23시 00분</option>
-	                              <option value="23:30">23시 30분</option>
+	                       		  <option value="0">0시 00분</option>
+	                              <option value="1">1시 00분</option>
+	                              <option value="2">2시 00분</option>
+	                              <option value="3">3시 00분</option>
+	                              <option value="4">4시 00분</option>
+	                              <option value="5">5시 00분</option>
+	                              <option value="6">6시 00분</option>
+	                              <option value="7">7시 00분</option>
+	                              <option value="8">8시 00분</option>
+	                              <option value="9">9시 00분</option>
+	                              <option value="10" selected="selected">10시 00분</option>
+	                              <option value="11">11시 00분</option>
+	                              <option value="12">12시 00분</option>
+	                              <option value="13">13시 00분</option>
+	                              <option value="14">14시 00분</option>
+	                              <option value="15">15시 00분</option>
+	                              <option value="16">16시 00분</option>
+	                              <option value="17">17시 00분</option>
+	                              <option value="18">18시 00분</option>
+	                              <option value="19">19시 00분</option>
+	                              <option value="20">20시 00분</option>
+	                              <option value="21">21시 00분</option>
+	                              <option value="22">22시 00분</option>
+	                              <option value="23">23시 00분</option>
 	                       </select>
 	                            ~
-	                            <select class="form-control end_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-	                         	  <option value="00:00">0시 00분</option>
-	                              <option value="00:30">0시 30분</option>
-	                              <option value="01:00">1시 00분</option>
-	                              <option value="01:30">1시 30분</option>
-	                              <option value="02:00">2시 00분</option>
-	                              <option value="02:30">2시 30분</option>
-	                              <option value="03:00">3시 00분</option>
-	                              <option value="03:30">3시 30분</option>
-	                              <option value="04:00">4시 00분</option>
-	                              <option value="04:30">4시 30분</option>
-	                              <option value="05:00">5시 00분</option>
-	                              <option value="05:30">5시 30분</option>
-	                              <option value="06:00">6시 00분</option>
-	                              <option value="06:30">6시 30분</option>
-	                              <option value="07:00">7시 00분</option>
-	                              <option value="07:30">7시 30분</option>
-	                              <option value="08:00">8시 00분</option>
-	                              <option value="08:30">8시 30분</option>
-	                              <option value="09:00">9시 00분</option>
-	                              <option value="09:30">9시 30분</option>
-	                              <option value="10:00" selected="selected">10시 00분</option>
-	                              <option value="10:30">10시 30분</option>
-	                              <option value="11:00">11시 00분</option>
-	                              <option value="11:30">11시 30분</option>
-	                              <option value="12:00">12시 00분</option>
-	                              <option value="12:30">12시 30분</option>
-	                              <option value="13:00">13시 00분</option>
-	                              <option value="13:30">13시 30분</option>
-	                              <option value="14:00">14시 00분</option>
-	                              <option value="14:30">14시 30분</option>
-	                              <option value="15:00">15시 00분</option>
-	                              <option value="15:30">15시 30분</option>
-	                              <option value="16:00">16시 00분</option>
-	                              <option value="16:30">16시 30분</option>
-	                              <option value="17:00">17시 00분</option>
-	                              <option value="17:30">17시 30분</option>
-	                              <option value="18:00">18시 00분</option>
-	                              <option value="18:30">18시 30분</option>
-	                              <option value="19:00">19시 00분</option>
-	                              <option value="19:30">19시 30분</option>
-	                              <option value="20:00">20시 00분</option>
-	                              <option value="20:30">20시 30분</option>
-	                              <option value="21:00">21시 00분</option>
-	                              <option value="21:30">21시 30분</option>
-	                              <option value="22:00">22시 00분</option>
-	                              <option value="22:30">22시 30분</option>
-	                              <option value="23:00">23시 00분</option>
-	                              <option value="23:30">23시 30분</option>
+	                            <select class="form-control end_time" id="exampleFormControlSelect2" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         	  <option value="0">0시 00분</option>
+	                              <option value="1">1시 00분</option>
+	                              <option value="2">2시 00분</option>
+	                              <option value="3">3시 00분</option>
+	                              <option value="4">4시 00분</option>
+	                              <option value="5">5시 00분</option>
+	                              <option value="6">6시 00분</option>
+	                              <option value="7">7시 00분</option>
+	                              <option value="8">8시 00분</option>
+	                              <option value="9">9시 00분</option>
+	                              <option value="10">10시 00분</option>
+	                              <option value="11">11시 00분</option>
+	                              <option value="12">12시 00분</option>
+	                              <option value="13">13시 00분</option>
+	                              <option value="14">14시 00분</option>
+	                              <option value="15">15시 00분</option>
+	                              <option value="16">16시 00분</option>
+	                              <option value="17">17시 00분</option>
+	                              <option value="18">18시 00분</option>
+	                              <option value="19">19시 00분</option>
+	                              <option value="20">20시 00분</option>
+	                              <option value="21">21시 00분</option>
+	                              <option value="22">22시 00분</option>
+	                              <option value="23"selected="selected">23시 00분</option>
 	                       </select>
 	                   	</div>
                     </li>
@@ -632,13 +592,15 @@ margin-right:0.5em;
 						<div class="col-md-8 text-center" style="margin-right: 25px;">
 							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px" class="peoplecount">
 								<c:forEach begin="1" end="20" var="count">
-								    	<option>${count} 명</option>
+								    	<option>${count}</option>명
 								</c:forEach>
 							</select>
 						</div>
 					</li>
                 </ul>
+
                 <hr class="mb-4">
+
                 <button onclick="resview()" class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
@@ -856,22 +818,39 @@ margin-right:0.5em;
 		               </div>
 		               <hr/>
 		               <div class="" style="padding-bottom: 5%">
-		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <p style="display:inline"><input type="hidden" name="res_dday"><!-- 정보뿌려주세요 --></p></h3>   
-		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <p style="display:inline"><input type="hidden" name="res_time" value="fff"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <p style="display:inline"><input type="hidden" name="res_peoplecount"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <p style="display:inline"><input type="hidden" name="res_name"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <p style="display:inline"><input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></p></h3>
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <p style="display:inline"></p></h3>
+		                  	<input type="hidden" name="res_dday" value=""/>   
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <p style="display:inline"></p></h3>
+		                 	<input type="hidden" name="res_time" value=""/>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_peoplecount" value="" />
+                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_name" value="${memeberinfo.m_name}"/>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_tel" value="${memeberinfo.m_tel}"/>
+                          	<input type="hidden" name="r_no" value="${record.r_no}"/>
+                          	<input type="hidden" name="r_money" value=""/>
+                          
 		               </div>
 		               <script>
 		               var resview = function(){
-		            	   var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
-			               console.log(time);
-				               	$('.res_dday p').html();
+		            	   var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text();
+		            	   var restime = $('.end_time option:selected').val() - $('.start_time option:selected').val() ;
+		            	   var resultprice = (${record.r_money}) * restime;
+		            	   
+			               console.log("예약가격 : "+ resultprice);
+			               
+			               		$('.res_dday p').html($("#datepicker").datepicker().val());
 				               	$('.res_time p').html(time);
-				               	$('.res_peoplecount p').html($('.peoplecount option').html());
+				               	$('.res_peoplecount p').html($('.peoplecount option:selected').val());
 				             	$('.res_name p').html('${memeberinfo.m_name}');
-				               	$('.res_tel p').html('${memeberinfo.m_tel}');   
-		               };
+				               	$('.res_tel p').html('${memeberinfo.m_tel}');
+				               	
+				               	$('input[name=res_time]').val(restime);
+				               	$('input[name=res_dday]').val($("#datepicker").datepicker().val());
+				               	$('input[name=res_peoplecount]').val($('.peoplecount option:selected').val());
+				               	$('input[name=r_money]').val(resultprice);
+							};
 		               </script>
 		               <div>
 		               </div>
@@ -879,7 +858,7 @@ margin-right:0.5em;
 		            <h6 style="text-align: center">예약을 원하시면  "확인" 버튼을 눌러주세요</h6>
   					<div class="modal-footer" style="padding:15px 35%;border-top: none">
 						<button class="btn inputbutton" style="padding-bottom: 10px;" type="submit" >확인</button>
-						<button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;">취소</button>
+						<button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;" type="reset">취소</button>
 					</div>
 		         </div>
 		      </div>
@@ -924,6 +903,11 @@ margin-right:0.5em;
           map.setCenter(coords);
        }
     });
+    
+    function myListener(obj) {
+        alert(obj.value);
+    }
+
 </script>
 
 <script>
@@ -957,3 +941,4 @@ margin-right:0.5em;
 		});
 	}
 </script>
+

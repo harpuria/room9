@@ -116,17 +116,14 @@
 
 
 <div class="topSkin web">
-    <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
+    <div class="skin" style="background-image: url('resources/img/topback2.png')"></div>
     <h2 class="skinTitle">ROOM9 자유게시판</h2>
 </div>
  <!-- 공지테이블 -->
-<div style="height: 150px"></div>
+<div style="height: 50px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
 <div class="col-md-12 ">
-
-
-			
 			<div class="row" style="margin-bottom: 10px">
 		<div class="col-md-12 text-right">
 			<a href="<c:url value='/freeWrite.room9'/>" class="btn btn-success">등록</a>
@@ -141,18 +138,7 @@
 				<th class="col-md-2" scope="col" style="width: 500px;">제목</th>
 				<th class="col-md-2" scope="col" style="width: 100px;">작성자</th>
 				<th class="col-md-2" scope="col" style="width: 100px;">날짜</th>
-<!-- 				<th class="col-md-2" scope="col" style="width: 100px;">조회</th> -->
 			</tr>
-			
-			
-<!-- 			<tr style="background-color: white;color:white;"> -->
-<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
-<!-- 				<th class="col-md-2" scope="col" style="width: 500px;"></th> -->
-<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
-<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
-<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
-<!-- 			</tr> -->
-			
 		</thead>
 		 <tbody style="color:black">
 		 <c:forEach items="${list }" var="items">
@@ -161,8 +147,6 @@
 				<td><a href="<c:url value='/freeView.room9?no=${items.no}'/>" style="color:black;">${items.title}</a></td>
 				<td>${items.m_name}</td>
 				<td>${items.postdate}</td>
-<!-- 				<td></td> -->
-<!-- 				<td>{list.see}</td> -->
 			</tr>
 			</c:forEach>
 		</tbody>

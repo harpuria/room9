@@ -34,7 +34,7 @@ position: relative;line-height: normal;text-align: center;z-index: 11;}
 .topBanner .bannerTitle {margin-top: 55px;font-size: 36px;font-weight: 200;color: #ffffff;}
 }
 @media (min-width: 1280px) {
-.topBanner .bannerTitle {margin-top: 96px;font-size: 54px;font-weight: 200;color: #ffffff;}
+.topBanner .bannerTitle {margin-top: 150px;font-size: 54px;font-weight: 200;color: #ffffff;}
 }
 .topBanner .tagArea {
 position: relative;text-align: center;overflow: hidden;z-index: 11;}

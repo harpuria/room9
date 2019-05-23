@@ -811,7 +811,7 @@
                     <ul class="facilityList">
                         <li>
                             <label>
-                                <input type="checkbox" class="facilityCheck" name="opt value="1"
+                                <input type="checkbox" class="facilityCheck" name="opt" value="1"
                                     data-parsley-required="true" data-parsley-class-handler=".facilityList"
                                     data-parsley-errors-container=".facilityErrorWrap"
                                     data-parsley-error-message="편의시설을 선택해 주세요" data-parsley-multiple="opt">

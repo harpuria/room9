@@ -408,6 +408,16 @@ public class SignController {
 	   
 	   String naveremailid = service.naverLogin(map);
 	   session.setAttribute("emailid", naveremailid);
+	   model.addAttribute("emailid", naveremailid);
+	   
+	// 로그인 한 유저가 호스트인지 아닌지 확인 (로그인 자체에 영향은 없음)
+	if(hostService.isHost(map)) {
+		session.setAttribute("isHost", "true");
+		session.setAttribute("h_no", hostService.selecthost_no(map));
+	}
+	else{
+		session.setAttribute("isHost", "false");
+	}
 	   
 	   
 	   

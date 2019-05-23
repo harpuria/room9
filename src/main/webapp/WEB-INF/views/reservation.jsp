@@ -833,10 +833,12 @@ margin-right:0.5em;
                           
 		               </div>
 		               <script>
+		               var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text();
+	            	   var restime = $('.end_time option:selected').val() - $('.start_time option:selected').val() ;
+	            	   var resultprice = (${record.r_money}) * restime;
+	            	   
 		               var resview = function(){
-		            	   var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text();
-		            	   var restime = $('.end_time option:selected').val() - $('.start_time option:selected').val() ;
-		            	   var resultprice = (${record.r_money}) * restime;
+		            	 
 		            	   
 			               console.log("예약가격 : "+ resultprice);
 			               
@@ -857,7 +859,7 @@ margin-right:0.5em;
 		            </div>
 		            <h6 style="text-align: center">예약을 원하시면  "확인" 버튼을 눌러주세요</h6>
   					<div class="modal-footer" style="padding:15px 35%;border-top: none">
-						<button class="btn inputbutton" style="padding-bottom: 10px;" type="submit" >확인</button>
+						<button class="btn inputbutton" id="res_button" style="padding-bottom: 10px;" type="button" onclick="payment()" >확인</button>
 						<button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;" type="reset">취소</button>
 					</div>
 		         </div>
@@ -898,7 +900,7 @@ margin-right:0.5em;
              map : map,
              position : coords
           });
-    
+     
      	// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
        }
@@ -911,34 +913,44 @@ margin-right:0.5em;
 </script>
 
 <script>
-	var payment = function(){
-		var IMP = window.IMP; // 생략가능
-		IMP.init('imp95302034'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-		IMP.request_pay({
-		    pg : 'inicis', // version 1.1.0부터 지원.
-		    pay_method : 'card',
-		    merchant_uid : 'merchant_' + new Date().getTime(),
-		    name : '주문명:결제테스트', // 결제 주문명
-		    amount : 100, // 결제금액
-		    buyer_email : 'iamport@siot.do',//구매자 이메일
-		    buyer_name : '구매자이름',//구매자 이름
-		    buyer_tel : '010-1234-5678',//구매자 핸드폰번호
-		    buyer_addr : '서울특별시 강남구 삼성동',//구매자 주소
-		    buyer_postcode : '123-456', //주문자 우편번호
-		    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
-		}, function(rsp) {
-		    if ( rsp.success ) {
-		        var msg = '결제가 완료되었습니다.';
-		        msg += '고유ID : ' + rsp.imp_uid;
-		        msg += '상점 거래ID : ' + rsp.merchant_uid;
-		        msg += '결제 금액 : ' + rsp.paid_amount;
-		        msg += '카드 승인번호 : ' + rsp.apply_num;
-		    } else {
-		        var msg = '결제에 실패하였습니다.';
-		        msg += '에러내용 : ' + rsp.error_msg;
-		    }
-		    alert(msg);
-		});
-	}
+
+var payment = function(){
+	var IMP = window.IMP; // 생략가능
+	IMP.init('imp95302034'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+	IMP.request_pay({
+	    pg : 'inicis', // version 1.1.0부터 지원.
+	    pay_method : 'card',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '예약 테스트', // 결제 주문명
+	    amount : /*resultprice*/ 100, // 결제금액
+	    buyer_email : '${sessionScope.emailid}',//구매자 이메일
+	    buyer_name : '${memeberinfo.m_name}',//구매자 이름
+	    buyer_tel : '${memeberinfo.m_tel}',//구매자 핸드폰번호
+	    buyer_addr : '',//구매자 주소
+	    buyer_postcode : '', //주문자 우편번호
+	    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+	}, function(rsp) {
+	    if ( rsp.success ) {
+	        var msg = '결제가 완료되었습니다.';
+	        $('form').submit();
+	    } else {
+	        var msg = '결제에 실패하였습니다.';
+	        msg += '에러내용 : ' + rsp.error_msg;
+	    }
+	    alert(msg);
+	});
+// 	var payment = function(){
+// 		$.ajax({
+// 			URL: "<c:url value='/payment.room9'/>",
+// 			type:"post",
+// 			success : function(data){
+// 				console.log("성공");
+// 			},
+// 			error: function(){
+// 				console.log("에러엘레ㅓ러럴");
+// 			}
+// 		});
+// 	}
+}	
 </script>
 

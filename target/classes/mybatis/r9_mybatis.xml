@@ -110,4 +110,26 @@
  	<insert id="reservationInsert" parameterType="java.util.Map" >
 		INSERT INTO R9_RESERVATION VALUES(SEQ_R9_RESERVATION.NEXTVAL,(SELECT M_NO FROM R9_MEMBER WHERE M_EMAIL=#{emailid}),#{r_no},#{r_money},#{res_dday},#{res_name},#{res_tel},#{emailid},#{res_peoplecount},sysdate)
 	</insert>
+
+ 	<!-- 건의사항 쿼리문 시작 -->
+ 	<select id="SuggestionSelectList" parameterType="java.util.Map" resultType="SuggestionDTO">
+ 		SELECT * FROM SUGGESTION ORDER BY NO
+ 	</select>
+ 	
+ 	<select id="SuggestionSelectOne" parameterType="java.util.Map" resultType="SuggestionDTO">
+ 		SELECT * FROM SUGGESTION WHERE no=#{no}
+ 	</select>
+ 	
+ 	<delete id="SuggestionDelete" parameterType="java.util.Map">
+ 		DELETE FROM SUGGESTION WHERE no=#{no}
+ 	</delete>
+ 	<insert id="SuggestionInsert" parameterType="java.util.Map">
+ 		INSERT INTO SUGGESTION VALUES(SEQ_SUGGESTION.NEXTVAL,#{title},#{name},#{content},sysdate)
+ 	</insert>
+ 	
+ 	<update id="SuggestionUpdate" parameterType="java.util.Map">
+ 		UPDATE SUGGESTION SET title=#{title},content=#{content}
+ 	</update>
+ 	<!-- 건의사항 쿼리문 끝 -->
+ 	
 </mapper>

@@ -97,7 +97,7 @@ public class NoticeController {
 	public String admin_DeleteNotice(@RequestParam Map map)throws Exception{
 		
 		//서비스 호출]
-		service.delete(map);	
+		service.delete(map);
 		//뷰정보 반환]
 		return"forward:/admin_notice.room9";
 	}	

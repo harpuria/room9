@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.kosmo.room9.service.HostDTO;
 import com.kosmo.room9.service.HostService;
+import com.kosmo.room9.service.Room9DTO;
 
 @Service("hostServiceImpl")
 public class HostServiceImpl implements HostService {
@@ -37,4 +38,12 @@ public class HostServiceImpl implements HostService {
 		
 		return dao.selecthost_no(map);
 	}
+
+	@Override
+	public List<HostDTO> room9List(Map map) {
+		
+		return dao.room9List(map);
+	}
+	
+	
 }

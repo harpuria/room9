@@ -24,20 +24,7 @@ var navbar_initialized = false;
 $(document).ready(function(){
     window_width = $(window).width();
 
-    //  Activate the tooltips
-    $('[data-toggle="tooltip"]').tooltip();
-
-    if($(".tagsinput").length != 0){
-        $(".tagsinput").tagsInput();
-    }
-    if (window_width >= 768) {
-        big_image = $('.page-header[data-parallax="true"]');
-
-        if(big_image.length != 0){
-           $(window).on('scroll', pk.checkScrollForPresentationPage);
-        }
-    }
-
+    
     if($("#datetimepicker").length != 0){
         $('#datetimepicker').datetimepicker({
             icons: {
@@ -55,8 +42,6 @@ $(document).ready(function(){
         });
     };
 
-    // Activate bootstrap switch
-    $('[data-toggle="switch"]').bootstrapSwitch();
 
     // Navbar color change on scroll
     if($('.navbar[color-on-scroll]').length != 0){

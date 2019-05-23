@@ -21,9 +21,17 @@
 		SELECT * FROM R9_HOST ORDER BY H_NO DESC
 	</select>
 	
+	<!-- 호스트이름과 방제목 조인해서 목록에뿌려주기 -->
+	<select id="room9List" parameterType="java.util.Map" resultType="HostDTO">
+		SELECT R.R_NO,H.H_NAME,R.R_NAME,R.R_DATE FROM R9_ROOM R JOIN R9_HOST H ON R.H_NO = H.H_NO ORDER BY R_DATE DESC
+	</select>
+	<!-- 호스트 삭제 -->
+ 	<delete id="room9MittingDelete" parameterType="java.util.Map">
+ 		DELETE R9_ROOM WHERE r_no=#{r_no}
+ 	</delete>
 	<!-- 회원목록 -->
 	<select id="selectMemberInfoList" parameterType="java.util.Map" resultType="MemberInfoDTO">
-		SELECT * FROM R9_MEMBER ORDER BY M_NO DESC
+		SELECT FROM R9_MEMBER ORDER BY M_NO DESC
 	</select>
 	
 	<select id="selecthost_no" parameterType="java.util.Map" resultType="int">
@@ -33,5 +41,15 @@
 	<insert id="mittingInsert" parameterType="java.util.Map">
 		INSERT INTO R9_ROOM VALUES(SEQ_R9_ROOM.NEXTVAL,#{h_no},#{title},#{addr},#{r_img_0},#{r_img_1},#{r_img_2},#{r_img_3},#{r_img_4},#{areaType},#{totaltime},#{days},#{opt},#{price},#{contact},#{content},#{tag_1},#{tag_2},#{tag_3},#{warning},#{warning_tel},#{refund},SYSDATE,#{peoplecount})
 	</insert>
+	
+	<!-- 회원 수 가져오기 -->
+	<select id="getMember" parameterType="java.util.Map" resultType="String">
+		SELECT COUNT(*) FROM R9_MEMBER 
+	</select>
+	
+	<!-- 호스트 회원 수 가져오기 -->
+	<select id="getHostMember" parameterType="java.util.Map" resultType="String">
+		SELECT COUNT(*) FROM R9_HOST
+	</select>
 </mapper>
 

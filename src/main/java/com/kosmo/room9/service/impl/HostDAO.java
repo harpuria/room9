@@ -37,4 +37,9 @@ public class HostDAO implements HostService{
 		
 		return template.selectOne("selecthost_no", map);
 	}
+
+	@Override
+	public List<HostDTO> room9List(Map map) {
+		return template.selectList("room9List",map);
+	}
 }

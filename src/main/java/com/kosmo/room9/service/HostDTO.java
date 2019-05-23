@@ -20,7 +20,30 @@ public class HostDTO {
 	private String h_manager_mail;
 	private String h_manager_tel;
 	private String h_date;
+	//방정보 뿌려주기위해서 DTO작성
+	private String r_name;
+	private String r_date;
+	private String r_no;
 	
+	
+	public String getR_no() {
+		return r_no;
+	}
+	public void setR_no(String r_no) {
+		this.r_no = r_no;
+	}
+	public String getR_name() {
+		return r_name;
+	}
+	public void setR_name(String r_name) {
+		this.r_name = r_name;
+	}
+	public String getR_date() {
+		return r_date;
+	}
+	public void setR_date(String r_date) {
+		this.r_date = r_date;
+	}
 	public String getH_no() {
 		return h_no;
 	}

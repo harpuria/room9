@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
-<link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
+<link href="<c:url value='/css/main.css'/>" rel="stylesheet"a  />
 
 <style>
 	th{
@@ -117,42 +117,54 @@
 
 <div class="topSkin web">
     <div class="skin" style="background-image: url('resources/img/Notice.png')"></div>
-    <h2 class="skinTitle">ROOM9 건의게시판</h2>
+    <h2 class="skinTitle">ROOM9 자유게시판</h2>
 </div>
  <!-- 공지테이블 -->
 <div style="height: 150px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
 <div class="col-md-12 ">
+
+
+			
+			<div class="row" style="margin-bottom: 10px">
+		<div class="col-md-12 text-right">
+			<a href="<c:url value='/freeWrite.room9'/>" class="btn btn-success">등록</a>
+		</div>
+	</div>
+	</div>
+			
 	<table class="table table-hover" style="text-align: center;margin-bottom:none">
 		<thead class="" style="border-collapse:none">
-			<tr style="background-color: gray;color:white">
-				<th class="col-md-2" scope="col">글번호</th>
-				<th class="col-md-8" scope="col">제목</th>
-				<th class="col-md-8" scope="col">작성자</th>
-				<th class="col-md-2" scope="col">날짜</th>
+			<tr style="background-color: gray;color:white;">
+				<th class="col-md-2" scope="col" style="width: 100px;">글번호</th>
+				<th class="col-md-2" scope="col" style="width: 500px;">제목</th>
+				<th class="col-md-2" scope="col" style="width: 100px;">작성자</th>
+				<th class="col-md-2" scope="col" style="width: 100px;">날짜</th>
+<!-- 				<th class="col-md-2" scope="col" style="width: 100px;">조회</th> -->
 			</tr>
 			
+			
+<!-- 			<tr style="background-color: white;color:white;"> -->
+<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
+<!-- 				<th class="col-md-2" scope="col" style="width: 500px;"></th> -->
+<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
+<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
+<!-- 				<th class="col-md-2" scope="col" style="width: 100px;"></th> -->
+<!-- 			</tr> -->
+			
 		</thead>
-		<tbody style="color:black">
+		 <tbody style="color:black">
+		 <c:forEach items="${list }" var="items">
 			<tr>
-				<td>1</td>
-				<td>제목1</td>
-				<td>작성자1</td>
-				<td>19-05-21</td>
+				<td scope="row">${items.no }</td>
+				<td><a href="<c:url value='/freeView.room9?no=${items.no}'/>" style="color:black;">${items.title}</a></td>
+				<td>${items.m_name}</td>
+				<td>${items.postdate}</td>
+<!-- 				<td></td> -->
+<!-- 				<td>{list.see}</td> -->
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>제목2</td>
-				<td>작성자2</td>
-				<td>19-05-21</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>제목3</td>
-				<td>작성자3</td>
-				<td>19-05-21</td>
-			</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 

@@ -66,10 +66,5 @@ public class ContactController {
 		return "freebbs.tiles";
 	}
 	
-	@RequestMapping("/suggestionBbs.room9")
-	public String suggestionBbs() throws Exception{
-		return "suggestionbbs.tiles";
-	}
-	
 
 }

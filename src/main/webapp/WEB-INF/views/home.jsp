@@ -190,7 +190,7 @@
 </div>
 
 <div class="container-fluid" id="download"
-	style="background: url('assets/img/phoneback.png'); background-attachment: fixed; background-size: 100% 100%; height: 850px;">
+	style="background: url('resources/img/phoneback.png'); background-attachment: fixed; background-size: 100% 100%; height: 850px;">
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -277,21 +277,13 @@
 	var geocoder = new daum.maps.services.Geocoder();
 
 	// JSON 에 있는 주소 읽어오기
-	// test.json 에는 모임장소의 주소들이 들어가야함. 이거 처리는 또 어케하지... ㅅㅂ..
 	$.getJSON("<c:url value='resources/JSON/room9.json'/>", function(data) {
 		$.each(data, function(i, elt) {
-			console.log("test : " + elt.addr);
-			console.log("test : " + elt.name);
-
 			//주소로 좌표를 검색합니다
 			geocoder.addressSearch(elt.addr, function(result, status) {
-				console.log("쓰바 들어오냐?? " + status + ":" + result);
-				
-				
 				// 정상적으로 검색이 완료됐으면 
 				if (status === daum.maps.services.Status.OK) {
-
-					console.log("다시 한번 : " + result[0].y, result[0].x);
+					console.log("좌표 확인 : " + result[0].y, result[0].x);
 
 					// 해당 위치의 마커를 만들고...
 					var marker = new daum.maps.Marker({

@@ -365,7 +365,7 @@ label.error {
 
 <div id="app" style="padding-left: 14%;">
         <div class="topSkin web">
-            <div class="skin" style="background-image: url('resources/img/bg_intro.jpg')"></div>
+            <div class="skin" style="background-image: url('resources/img/topback3.png')"></div>
             <h2 class="skinTitle">MyPage</h2>
         </div>
         <section class="content">
@@ -410,7 +410,7 @@ label.error {
 									</a> 
 									<a id="custom-login-btn" href="#"> 
 									<img src="<c:url value='/resources/img/facebooklogin.png'/>" alt="페이스북로그인버튼">
-									</a> 
+									</a>
 								</div>
 	                        </div>
 	                    </article>

@@ -120,7 +120,7 @@
     <h2 class="skinTitle">ROOM9 자유게시판</h2>
 </div>
  <!-- 공지테이블 -->
-<div style="height: 150px"></div>
+<div style="height: 50px"></div>
 <div class="container wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
 <div class="row">
 <div class="col-md-12 ">

@@ -214,6 +214,29 @@
 	</div>
 </div>
 
+<div class="container-fluid" id="download"
+	style="background: url('resources/img/kakao/kakaoback1.jpg'); background-attachment: fixed; background-size: 100% 100%; height: 850px;">
+	<div class="row">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 text-center  wow fadeInUp"
+					data-wow-duration="1.5s" data-wow-delay=".5s">
+					<article style="padding-bottom: 12%; padding-top: 50%;">
+						<img src="<c:url value='resources/img/kakao/kakaoqr.png'/>"
+						style="width: 20%;">
+					</article>
+				</div>
+				<div class="col-md-6 text-center wow fadeInUp"
+					data-wow-duration="1.5s" data-wow-delay=".5s"
+					style="width: 100%; height: 100%">
+					<img src="<c:url value='resources/img/kakao/kakaoback.png'/>"
+						style="width: 100%; height: 100%; padding-top: 20%">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <style>
     .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
     .wrap * {padding: 0;margin: 0;}

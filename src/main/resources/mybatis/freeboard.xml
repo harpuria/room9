@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="mybatis.freeboard">
+  	<select id="freeSelectList" parameterType="java.util.Map" resultType="FreeBbsDTO">
+  		select * from free_bbs order by no desc
+  	</select>
+  	
+   <insert id="insert" parameterType="java.util.Map">
+  		INSERT INTO free_bbs VALUES(seq_freeboardNo.nextval,#{title},#{content},default, 'cch')
+  	</insert> 
+  	
+  	<select id="freeSelectone" parameterType="java.util.Map" resultType="FreeBbsDTO">
+  		SELECT * FROM FREE_BBS WHERE NO = #{no}
+  	</select>
+  	 
+  	<delete id="delete" parameterType="java.util.Map" >
+  		Delete free_bbs where no = #{no} 
+  	</delete> 
+  
+  	<update id="update" parameterType="java.util.Map" >
+  		UPDATE free_bbs SET title =#{title},content=#{content} WHERE no =#{no}
+<!--   		select * from free_bbs where no = #{no}  -->
+  	</update>
+</mapper>

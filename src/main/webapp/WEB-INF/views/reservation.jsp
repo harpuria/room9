@@ -6,6 +6,11 @@
 <link href="<c:url value='/css/main.css'/>" rel="stylesheet" />
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.m	in.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script>
 
@@ -506,16 +511,26 @@ margin-right:0.5em;
 	                	<li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h5 class="my-0">이용금액</h5>
-                            <small class="text-muted">(시간단위)</small>
                         </div>
                          <h3 class="my-0"><span style="color:#61ce4e">${record.r_money }원</span>~/시간</h3>
 
                     </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div class="col-md-12">
-                            <h6 class="my-0">캘린더</h6>
-                            
-                        </div>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
+                        
+                           	<div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+                           		<p class="text-muted">예약 날짜 : </p>
+                           	</div>
+							<div class="col-md-9 text-center " style="padding: 13px 0;padding-left:25px">
+								<input id="datepicker" width="210" />
+							</div>
+							
+					       <script>
+				            $('#datepicker').datepicker({
+					            uiLibrary: 'bootstrap',
+					            format:'yyyy/mm/dd'
+					        });
+					       </script> 
+						
 					</li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
 	                 <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
@@ -573,7 +588,7 @@ margin-right:0.5em;
 	                              <option value="23:30">23시 30분</option>
 	                       </select>
 	                            ~
-	                            <select class="form-control end_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                            <select class="form-control end_time" id="exampleFormControlSelect2" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
 	                         	  <option value="00:00">0시 00분</option>
 	                              <option value="00:30">0시 30분</option>
 	                              <option value="01:00">1시 00분</option>
@@ -638,7 +653,7 @@ margin-right:0.5em;
                 </ul>
                 <hr class="mb-4">
 
-                <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
+                <button onclick="resview()" class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
@@ -863,14 +878,16 @@ margin-right:0.5em;
                           <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></h3>
 		               </div>
 		               <script>
-		               //예약시간 선택할때 체인지 함수 불러서 바꿔줘야할거같음.. 낼하자
-		               var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
-		               console.log(time);
-			               	$('.res_dday').append();
+		               
+		               var resview=function(){
+		            	   var time = $('#exampleFormControlSelect1 option:selected').val() + " ~ " + $('#exampleFormControlSelect2 option:selected').val(); 
+			               console.log("kk"+$('.gj-picker').val());
+			               	$('.res_dday').append($('.gj-picker').val());
 			               	$('.res_time').append(time);
-			               	$('.res_peoplecount').append($('.peoplecount option').html());
+			               	$('.res_peoplecount').append($('.peoplecount option:selected').val());
 			             	$('.res_name').append('${memeberinfo.m_name}');
-			               	$('.res_tel').append('${memeberinfo.m_tel}');
+			               	$('.res_tel').append('${memeberinfo.m_tel}');   
+		               };
 		               </script>
 		               <div>
 		               </div>
@@ -924,4 +941,11 @@ margin-right:0.5em;
           map.setCenter(coords);
        }
     });
+    
+    function myListener(obj) {
+        alert(obj.value);
+    }
+
 </script>
+
+

@@ -58,7 +58,7 @@
             <ul class="sub-links">
                 <li><a href="<c:url value='/notice.room9'/>">공지사항</a></li>
                 <li><a href="<c:url value='/question.room9'/>">문의하기</a></li>
-                <li><a href="<c:url value='/freeBbs.room9'/>">자유게시판</a></li>
+                <li><a href="<c:url value='/freeboard.room9'/>">자유게시판</a></li>
                 <li><a href="<c:url value='/suggestionBbs.room9'/>">건의게시판</a></li>
             </ul>
         </div>

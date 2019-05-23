@@ -101,7 +101,7 @@ public class Room9AdminController {
 		map.put("totaltime", starttime +" ~ "+endtime );
 		
 		//주소와 상세주소 합쳐서 테이블저장
-		map.put("addr",map.get("addr").toString() +" "+ map.get("addr_detail").toString());
+//		map.put("addr",map.get("addr").toString() +" "+ map.get("addr_detail").toString());
 		
 		String[] files = map.get("imgfiles").toString().split(",");
 		map.put("r_img_0","null");

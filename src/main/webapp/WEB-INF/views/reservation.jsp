@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.m	in.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
 
 /**
@@ -361,6 +362,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 </style>
 
 <style>
+
 /* 편의기능 css적용 */
 .r_guid {
 width:25%;
@@ -637,8 +639,7 @@ margin-right:0.5em;
 					</li>
                 </ul>
                 <hr class="mb-4">
-
-                <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
+                <button onclick="resview()" class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
@@ -851,40 +852,39 @@ margin-right:0.5em;
 		                     aria-label="Close" style="color: white;">
 		                     <span aria-hidden="true">&times;</span>
 		                  </button>
-		                  <h2 class="title mb-3 mt-3"
-		                     style="text-align: center">예약확인</h2>
+		                  <h2 class="title mb-3 mt-3" style="text-align: center" >예약확인</h2>
 		               </div>
 		               <hr/>
 		               <div class="" style="padding-bottom: 5%">
-		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <input type="hidden" name="res_dday"><!-- 정보뿌려주세요 --></h3>   
-		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <input type="hidden" name="res_time"><!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <input type="hidden" name="res_peoplecount"><!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <input type="hidden" name="res_name"><!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></h3>
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <p style="display:inline"><input type="hidden" name="res_dday"><!-- 정보뿌려주세요 --></p></h3>   
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <p style="display:inline"><input type="hidden" name="res_time" value="fff"><!-- 정보 뿌려주세요 --></p></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <p style="display:inline"><input type="hidden" name="res_peoplecount"><!-- 정보 뿌려주세요 --></p></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <p style="display:inline"><input type="hidden" name="res_name"><!-- 정보 뿌려주세요 --></p></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <p style="display:inline"><input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></p></h3>
 		               </div>
 		               <script>
-		               //예약시간 선택할때 체인지 함수 불러서 바꿔줘야할거같음.. 낼하자
-		               var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
-		               console.log(time);
-			               	$('.res_dday').append();
-			               	$('.res_time').append(time);
-			               	$('.res_peoplecount').append($('.peoplecount option').html());
-			             	$('.res_name').append('${memeberinfo.m_name}');
-			               	$('.res_tel').append('${memeberinfo.m_tel}');
+		               var resview = function(){
+		            	   var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
+			               console.log(time);
+				               	$('.res_dday p').html();
+				               	$('.res_time p').html(time);
+				               	$('.res_peoplecount p').html($('.peoplecount option').html());
+				             	$('.res_name p').html('${memeberinfo.m_name}');
+				               	$('.res_tel p').html('${memeberinfo.m_tel}');   
+		               };
 		               </script>
 		               <div>
 		               </div>
 		            </div>
-		            <h6 style="text-align: center">예약을 원하시면 "확인" 버튼을 눌러주세요</h6>
+		            <h6 style="text-align: center">예약을 원하시면  "확인" 버튼을 눌러주세요</h6>
   					<div class="modal-footer" style="padding:15px 35%;border-top: none">
-						<button class="btn inputbutton" style="padding-bottom: 10px;">확인</button>
+						<button class="btn inputbutton" style="padding-bottom: 10px;" type="submit" >확인</button>
 						<button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;">취소</button>
 					</div>
 		         </div>
 		      </div>
 		   </div>
 		</form>
-
 
 <script>
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -924,4 +924,36 @@ margin-right:0.5em;
           map.setCenter(coords);
        }
     });
+</script>
+
+<script>
+	var payment = function(){
+		var IMP = window.IMP; // 생략가능
+		IMP.init('imp95302034'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+		IMP.request_pay({
+		    pg : 'inicis', // version 1.1.0부터 지원.
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '주문명:결제테스트', // 결제 주문명
+		    amount : 100, // 결제금액
+		    buyer_email : 'iamport@siot.do',//구매자 이메일
+		    buyer_name : '구매자이름',//구매자 이름
+		    buyer_tel : '010-1234-5678',//구매자 핸드폰번호
+		    buyer_addr : '서울특별시 강남구 삼성동',//구매자 주소
+		    buyer_postcode : '123-456', //주문자 우편번호
+		    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+		}, function(rsp) {
+		    if ( rsp.success ) {
+		        var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+		    }
+		    alert(msg);
+		});
+	}
 </script>

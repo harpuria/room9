@@ -43,6 +43,10 @@ public class ContactController {
 	public String reservationProcess(@RequestParam Map map, Model model) throws Exception{
 		
 		System.out.println("예약하기 값 :" + map);
+		//예약 내용을 넣어줘야함 
+		
+		
+		
 		
 		//예약하면 결제 페이지로
 		return "redirect:/";

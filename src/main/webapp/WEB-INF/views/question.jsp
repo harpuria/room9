@@ -349,7 +349,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 <link href="css/formcommon.css" rel="stylesheet" />
 <link href="css/jquery.ui.selectmenu.css" rel="stylesheet" />
 
-<div id="app">
+<div id="app" style="padding-left: 14%;">
         <div class="topSkin web">
             <div class="skin" style="background-image: url('resources/img/topbanner.png')"></div>
             <h2 class="skinTitle">문의하기</h2>

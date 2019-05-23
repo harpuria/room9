@@ -365,8 +365,9 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 
 /* 편의기능 css적용 */
 .r_guid {
-width:25%;
-height:3em;
+width:2em;
+height:2em;
+margin:10px 0;
 }
 
 .r_guid_label{

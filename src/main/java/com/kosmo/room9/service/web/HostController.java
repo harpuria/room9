@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.room9.service.HostDTO;
+import com.kosmo.room9.service.Room9DTO;
 import com.kosmo.room9.service.impl.HostServiceImpl;
+import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
 @Controller
 public class HostController {
@@ -40,6 +42,4 @@ public class HostController {
 		
 		return "admin_host.adminTiles";
 	}
-	
-	
 }

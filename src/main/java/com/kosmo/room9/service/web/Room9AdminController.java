@@ -18,6 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.kosmo.room9.service.HostService;
+import com.kosmo.room9.service.MemberService;
+import com.kosmo.room9.service.impl.HostServiceImpl;
+import com.kosmo.room9.service.impl.MemberServiceImpl;
 import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
 
 @Controller
@@ -32,7 +36,8 @@ public class Room9AdminController {
 		map.put("emailid", session.getAttribute("emailid"));
 		System.out.println("네이버로그인 했다 : " + session.getAttribute("emailid"));
 		
-
+		model.addAttribute("memberCount", service.getMember(map));
+		model.addAttribute("hostMemberCount", service.getHostMember(map));
 		
 		return "admin_main.adminTiles";
 	}
@@ -44,10 +49,9 @@ public class Room9AdminController {
 
 	//room9 등록 페이지로 이동
 	@RequestMapping("/admin_room9_join.room9")
-	public String admin_room9_join(@RequestParam Map map, Model model, HttpSession session) throws Exception{
+	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{
 		
-		//호스트번호
-		map.put("h_no", session.getAttribute("h_no"));
+		
 		
 		return "admin_room9_join.adminTiles";
 	}
@@ -58,7 +62,7 @@ public class Room9AdminController {
 			@RequestParam(value="AreaType", required=true) List<String> areaType,
 			@RequestParam(value="days", required=true) List<String> days,
 			@RequestParam(value="opt", required=true) List<String> opt,
-			@RequestParam(value="imgname") List<MultipartFile> imgs
+			HttpSession session
 			) throws Exception{
 		
 //		List<String> list = new ArrayList<String>();
@@ -67,32 +71,58 @@ public class Room9AdminController {
 //			list.add(type.toString());
 //			System.out.println("룸공간타입 : " + type);
 //		}
+		
+		//호스트번호
+		map.put("h_no", session.getAttribute("h_no"));
+		
 		System.out.println("받아온 파라미터 : " + map);
+		
+		String area = "";
+		String day = "";
+		String funs ="";
 		
 		for(String type : areaType)
 		{
 			System.out.println("룸공간 타입 리스트로 : " + type);
+			area += type +" ";
 		}
-		map.put("areaType", areaType);
+		area = area.trim().replace(" ", ",");
+		map.put("areaType", area);
 		
-		for(String day : days)
+		for(String value : days)
 		{
-			System.out.println("선택 요일 : " + day);
+			day += value +" ";
 		}
-		map.put("days", days);
+		day = day.trim().replace(" ", ",");
+		map.put("days", day);
+		
 		for(String value : opt)
 		{
 			System.out.println("편의기능 선택 : " + value);
+			funs+= value +" ";
 		}
-		map.put("opt", opt);
+		funs = funs.trim().replace(" ", ",");
+		map.put("opt", funs);
+
+		String starttime = map.get("start_time").toString();
+		String endtime = map.get("end_time").toString();
 		
-		for(MultipartFile img : imgs)
+		map.put("totaltime", starttime +" ~ "+endtime );
+		
+		String[] files = map.get("imgfiles").toString().split(",");
+		map.put("r_img_0","null");
+		map.put("r_img_1","null");
+		map.put("r_img_2","null");
+		map.put("r_img_3","null");
+		map.put("r_img_4","null");
+		for(int i=0; i<files.length; i++)
 		{
-			System.out.println("이미지들:" + img.getOriginalFilename() );
+			map.put("r_img_"+i,files[i]);
 		}
 
+		System.out.println("마지막맵 : " + map);
 		
-//		service.Room9MittingInsert(map);
+		service.Room9MittingInsert(map);
 		
 		return "forward:/admin_main.room9";
 	}
@@ -105,12 +135,10 @@ public class Room9AdminController {
 		//1]서버의 물리적 경로 얻기
 		String phisicalPath=mhsr.getServletContext().getRealPath("/upload");
 		System.out.println("실질적 경로 : " + phisicalPath);
-		List<MultipartFile> upload = mhsr.getFiles("imgname");
+		MultipartFile upload = mhsr.getFile("imgname");
 		
-		for(MultipartFile imgfile : upload)
-		{
 			//2-1] 파일 중복시 이름 변경
-			String newFileName=FileUpDownUtils.getNewFileName(phisicalPath, imgfile.getOriginalFilename());
+			String newFileName=FileUpDownUtils.getNewFileName(phisicalPath, upload.getOriginalFilename());
 			File file = new File(phisicalPath+File.separator+newFileName); //파일경로 넣어주기
 			
 			//파일이 없다면 디렉토리를 생성
@@ -119,20 +147,17 @@ public class Room9AdminController {
 		    }	
 			
 			//3]업로드 처리		
-		    imgfile.transferTo(file);
+		    upload.transferTo(file);
 			
-	
 			//파일과 관련된 정보]
-			mhsr.setAttribute("original",imgfile.getOriginalFilename());
-			mhsr.setAttribute("type",imgfile.getContentType());
-			mhsr.setAttribute("size",(int)Math.ceil(imgfile.getSize()/1024.0));
+			mhsr.setAttribute("original",upload.getOriginalFilename());
+			mhsr.setAttribute("type",upload.getContentType());
+			mhsr.setAttribute("size",(int)Math.ceil(upload.getSize()/1024.0));
 			
-			System.out.println("이미지들 : " + imgfile.getOriginalFilename());
+			System.out.println("이미지들 : " + upload.getOriginalFilename());
 			
-			 return imgfile.getOriginalFilename();
-		}
+			 return upload.getOriginalFilename();
 		
-		return "redirect:/";
 		
 	}///////////////
 }

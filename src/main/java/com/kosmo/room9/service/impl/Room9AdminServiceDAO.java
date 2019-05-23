@@ -35,5 +35,15 @@ public class Room9AdminServiceDAO implements Room9AdminService {
 		return 0;
 	}
 
+	@Override
+	public String getMember(Map map) {
+		return template.selectOne("getMember", map);
+	}
+
+	@Override
+	public String getHostMember(Map map) {
+		return template.selectOne("getHostMember", map);
+	}
+
 
 }

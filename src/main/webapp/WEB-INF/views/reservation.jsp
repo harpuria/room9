@@ -7,7 +7,24 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.m	in.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script>
 
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://room9-project.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
 <style type="text/css">
 
 .start,.end{ width: 100px;background-color: gray;text-align: center;"}
@@ -487,23 +504,118 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                             
                         </div>
 					</li>
-                    
-                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding-bottom: 0%">
-	                    <p class="text-muted" style="padding-top: 10px">예약 시간 : </p>
-                            <div class="form-group bootstrap-timepicker">
-                             <input id="start" name="start" ng-model="start" type="text" required="required" class="form-control start"style="color:white" placeholder="선택"/>
-                         </div>
-                       
-                   	    <span style="padding-top:10px;font-weight: bold">~</span>
-                      
-                         <div class="form-group bootstrap-timepicker">
-                             <input id="end" name="end" ng-model="end" type="text" required="required" class="form-control end" style="color:white" placeholder="선택" />
-                         </div>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
+	                 <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+	                 <p class="text-muted">예약 시간 : </p>
+	                 </div>
+                    	<div class="col-md-9 text-center " style="padding: 10px 0;">
+	                       <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         <option value="00:00">0시 00분</option>
+	                              <option value="00:30">0시 30분</option>
+	                              <option value="01:00">1시 00분</option>
+	                              <option value="01:30">1시 30분</option>
+	                              <option value="02:00">2시 00분</option>
+	                              <option value="02:30">2시 30분</option>
+	                              <option value="03:00">3시 00분</option>
+	                              <option value="03:30">3시 30분</option>
+	                              <option value="04:00">4시 00분</option>
+	                              <option value="04:30">4시 30분</option>
+	                              <option value="05:00">5시 00분</option>
+	                              <option value="05:30">5시 30분</option>
+	                              <option value="06:00">6시 00분</option>
+	                              <option value="06:30">6시 30분</option>
+	                              <option value="07:00">7시 00분</option>
+	                              <option value="07:30">7시 30분</option>
+	                              <option value="08:00">8시 00분</option>
+	                              <option value="08:30">8시 30분</option>
+	                              <option value="09:00">9시 00분</option>
+	                              <option value="09:30">9시 30분</option>
+	                              <option value="10:00" selected="selected">10시 00분</option>
+	                              <option value="10:30">10시 30분</option>
+	                              <option value="11:00">11시 00분</option>
+	                              <option value="11:30">11시 30분</option>
+	                              <option value="12:00">12시 00분</option>
+	                              <option value="12:30">12시 30분</option>
+	                              <option value="13:00">13시 00분</option>
+	                              <option value="13:30">13시 30분</option>
+	                              <option value="14:00">14시 00분</option>
+	                              <option value="14:30">14시 30분</option>
+	                              <option value="15:00">15시 00분</option>
+	                              <option value="15:30">15시 30분</option>
+	                              <option value="16:00">16시 00분</option>
+	                              <option value="16:30">16시 30분</option>
+	                              <option value="17:00">17시 00분</option>
+	                              <option value="17:30">17시 30분</option>
+	                              <option value="18:00">18시 00분</option>
+	                              <option value="18:30">18시 30분</option>
+	                              <option value="19:00">19시 00분</option>
+	                              <option value="19:30">19시 30분</option>
+	                              <option value="20:00">20시 00분</option>
+	                              <option value="20:30">20시 30분</option>
+	                              <option value="21:00">21시 00분</option>
+	                              <option value="21:30">21시 30분</option>
+	                              <option value="22:00">22시 00분</option>
+	                              <option value="22:30">22시 30분</option>
+	                              <option value="23:00">23시 00분</option>
+	                              <option value="23:30">23시 30분</option>
+	                       </select>
+	                            ~
+	                            <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         <option value="00:00">0시 00분</option>
+	                              <option value="00:30">0시 30분</option>
+	                              <option value="01:00">1시 00분</option>
+	                              <option value="01:30">1시 30분</option>
+	                              <option value="02:00">2시 00분</option>
+	                              <option value="02:30">2시 30분</option>
+	                              <option value="03:00">3시 00분</option>
+	                              <option value="03:30">3시 30분</option>
+	                              <option value="04:00">4시 00분</option>
+	                              <option value="04:30">4시 30분</option>
+	                              <option value="05:00">5시 00분</option>
+	                              <option value="05:30">5시 30분</option>
+	                              <option value="06:00">6시 00분</option>
+	                              <option value="06:30">6시 30분</option>
+	                              <option value="07:00">7시 00분</option>
+	                              <option value="07:30">7시 30분</option>
+	                              <option value="08:00">8시 00분</option>
+	                              <option value="08:30">8시 30분</option>
+	                              <option value="09:00">9시 00분</option>
+	                              <option value="09:30">9시 30분</option>
+	                              <option value="10:00" selected="selected">10시 00분</option>
+	                              <option value="10:30">10시 30분</option>
+	                              <option value="11:00">11시 00분</option>
+	                              <option value="11:30">11시 30분</option>
+	                              <option value="12:00">12시 00분</option>
+	                              <option value="12:30">12시 30분</option>
+	                              <option value="13:00">13시 00분</option>
+	                              <option value="13:30">13시 30분</option>
+	                              <option value="14:00">14시 00분</option>
+	                              <option value="14:30">14시 30분</option>
+	                              <option value="15:00">15시 00분</option>
+	                              <option value="15:30">15시 30분</option>
+	                              <option value="16:00">16시 00분</option>
+	                              <option value="16:30">16시 30분</option>
+	                              <option value="17:00">17시 00분</option>
+	                              <option value="17:30">17시 30분</option>
+	                              <option value="18:00">18시 00분</option>
+	                              <option value="18:30">18시 30분</option>
+	                              <option value="19:00">19시 00분</option>
+	                              <option value="19:30">19시 30분</option>
+	                              <option value="20:00">20시 00분</option>
+	                              <option value="20:30">20시 30분</option>
+	                              <option value="21:00">21시 00분</option>
+	                              <option value="21:30">21시 30분</option>
+	                              <option value="22:00">22시 00분</option>
+	                              <option value="22:30">22시 30분</option>
+	                              <option value="23:00">23시 00분</option>
+	                              <option value="23:30">23시 30분</option>
+	                       </select>
+	                   	</div>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    	<p class="text-muted" style="padding-top: 10px">예약 인원 : </p>
-						<div class="col-md-8">
-							<select style="width: 55%;height:95%;text-align: center">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0;">
+                    	<p class="text-muted" style="padding-top: 15px;padding-left: 8px;padding-bottom: 10px;">예약 인원 : </p>
+						<div class="col-md-8 text-center" style="margin-right: 25px;">
+							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px">
 							<c:forEach begin="1" end="${record.r_people_count_max }" var="count">
 							    	<option>${count} 명</option>
 							</c:forEach>
@@ -516,7 +628,32 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
-                <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/${record.r_image_1}'/>" style="width:100%">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/1.jpg'/>" style="width:100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/2.jpg'/>" style="width:100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/3.jpg'/>" style="width:100%">
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
                     <h4 class="subTitle">RooM9 정보</h4>
                     <div class="col-md-12 mb-3 ">
                         <p class="tips">
@@ -558,6 +695,9 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                 </div>
             </div>
         </div>
+        
+      
+      <div id="disqus_thread" style="padding:0 14%; width: 100%"></div>
         <!-- 예약신청Modal -->
 		<form method="get" action="<c:url value='/sendpw.room9'/>" id="registerform">
 		   <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -594,58 +734,6 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 		   </div>
 		</form>
 
-		<script>
-
-			$('.start, .end').timepicker({
-			      showInputs: false,
-				  minuteStep: 1,
-				  interval: 60
-				  
-			  });
-			$( "#end, #start" ).change(function() {
-	
-			var time = $("#start").val();
-				var hours = Number(time.match(/^(\d+)/)[1]);
-				var minutes = Number(time.match(/:(\d+)/)[1]);
-				var AMPM = time.match(/\s(.*)$/)[1];
-				if (AMPM == "PM" && hours < 12)
-					hours = hours + 12;
-				if (AMPM == "AM" && hours == 12)
-					hours = hours - 12;
-				var sHours = hours.toString();
-				var sMinutes = minutes.toString();
-				if (hours < 10)
-					sHours = "0" + sHours;
-				if (minutes < 10)
-					sMinutes = "0" + sMinutes;
-				var time2 = $("#end").val();
-				if (time2 == "") {
-					var time2 = "00:00 AM";
-				}
-				var hours2 = Number(time2.match(/^(\d+)/)[1]);
-				var minutes2 = Number(time2.match(/:(\d+)/)[1]);
-				var AMPM2 = time2.match(/\s(.*)$/)[1];
-				if (AMPM2 == "PM" && hours2 < 12)
-					hours2 = hours2 + 12;
-				if (AMPM2 == "AM" && hours2 == 12)
-					hours2 = hours2 - 12;
-				var sHours2 = hours2.toString();
-				var sMinutes2 = minutes2.toString();
-				if (hours2 < 10)
-					sHours2 = "0" + sHours2;
-				if (minutes2 < 10)
-					sMinutes2 = "0" + sMinutes2;
-				//alert(sHours + ":" + sMinutes);
-				var comparehour = sHours2 - sHours;
-				var comparemin = sMinutes2 - sMinutes;
-				if (comparehour < 0) {
-					$("#end").val(time);
-				} else if ((comparehour == 0) && (comparemin < 0)) {
-					$("#end").val(time);
-				}
-				
-			});
-</script>
 
 <script>
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

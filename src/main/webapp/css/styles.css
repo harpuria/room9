@@ -58,9 +58,6 @@ table {
 /* variables */
 /* mixin */
 /* layouts */
-body {
-  font-family: "NanumBarunGothic", "dotum", sans-serif;
-}
 body img {
   display: block;
 }

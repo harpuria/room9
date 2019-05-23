@@ -340,6 +340,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 .placeListArea .pagingWrap .pagination li.active a {color: #ff4081;}
 .placeListArea .pagingWrap .pagination li a {display: block;font-size: 14px;font-weight: normal;color: #333333;text-decoration: none;}
  
+.password, .password1, .password2, .tel {width:713px; height:38px;}
 </style>
 
 
@@ -362,9 +363,9 @@ label.error {
 }
 </style>
 
-<div id="app">
+<div id="app" style="padding-left: 14%;">
         <div class="topSkin web">
-            <div class="skin" style="background-image: url('assets/img/bg_intro.jpg')"></div>
+            <div class="skin" style="background-image: url('resources/img/bg_intro.jpg')"></div>
             <h2 class="skinTitle">MyPage</h2>
         </div>
         <section class="content">
@@ -443,12 +444,20 @@ label.error {
 	                    
                     </div>
                     <hr/>
+                    <article class="companyInfo">
+                        <div class="titleArea">
+                            <h4>전화번호<span class="requiredIcon">*</span></h4>
+                        </div>
+                        <div class="editArea">
+                            <input class="tel" name="tel" type="text" placeholder="전화번호를 입력해주세요" value="${memberRecord.m_tel }">
+                        </div>
+                    </article>
                     <article class="companyName">
                         <div class="titleArea">
                             <h4>현재 비밀번호<span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="currentPwd" placeholder="비밀번호입력" id="currentPwd"
+                              <input class="password" type="password" name="currentPwd" placeholder="현재 비밀번호 입력" id="currentPwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
                         </div>
@@ -458,7 +467,7 @@ label.error {
                             <h4>변경할 비밀번호 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="changePwd" placeholder="변경할 비밀번호입력" id="changePwd"
+                              <input class="password1" type="password" name="changePwd" placeholder="변경할 비밀번호 입력" id="changePwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
                         </div>
@@ -468,17 +477,9 @@ label.error {
                             <h4>변경할 비밀번호확인 <span class="requiredIcon">*</span></h4>
                         </div>
                         <div class="editArea">
-                              <input type="password" name="re_changePwd" placeholder="변경할 비밀번호입력" id="re_changePwd"
+                              <input class="password2" type="password" name="re_changePwd" placeholder="변경할 비밀번호 입력" id="re_changePwd"
                                 data-parsley-required="true" data-parsley-type="number"
                                 data-parsley-error-message="비밀번호입력">
-                        </div>
-                    </article>
-                    <article class="companyInfo">
-                        <div class="titleArea">
-                            <h4>전화번호<span class="requiredIcon">*</span></h4>
-                        </div>
-                        <div class="editArea">
-                            <input name="tel" type="text" placeholder="내번호 뿌려주세요" value="${memberRecord.m_tel }">
                         </div>
                     </article>
                </div>
@@ -488,8 +489,8 @@ label.error {
             </form>
         </section>
     </div>
-<section class="content">
-	<h3 class="mainTitle">나의 예약내역</h3>
+<section class="content" style="padding-left: 7%;">
+	<h3 class="mainTitle" style="width: 112%;">나의 예약내역</h3>
 	<c:if test="${not empty list }" var="isEmpty">
 		<c:forEach items="${list }" var="items" varStatus="loop">
 			<div class="container-fluid" id="">

@@ -31,9 +31,7 @@ public class Room9AdminController {
 		
 		map.put("emailid", session.getAttribute("emailid"));
 		System.out.println("네이버로그인 했다 : " + session.getAttribute("emailid"));
-		
 
-		
 		return "admin_main.adminTiles";
 	}
 	
@@ -45,8 +43,6 @@ public class Room9AdminController {
 	//room9 등록 페이지로 이동
 	@RequestMapping("/admin_room9_join.room9")
 	public String admin_room9_join(@RequestParam Map map, Model model) throws Exception{
-		
-		
 		
 		return "admin_room9_join.adminTiles";
 	}
@@ -103,6 +99,9 @@ public class Room9AdminController {
 		String endtime = map.get("end_time").toString();
 		
 		map.put("totaltime", starttime +" ~ "+endtime );
+		
+		//주소와 상세주소 합쳐서 테이블저장
+		map.put("addr",map.get("addr").toString() +" "+ map.get("addr_detail").toString());
 		
 		String[] files = map.get("imgfiles").toString().split(",");
 		map.put("r_img_0","null");

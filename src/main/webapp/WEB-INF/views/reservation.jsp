@@ -357,6 +357,22 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
    list-style:none;
    font-weight:bold;
    }
+                    
+</style>
+
+<style>
+/* 편의기능 css적용 */
+.r_guid {
+width:25%;
+height:3em;
+}
+
+.r_guid_label{
+text-align: center;
+margin-top:1em;
+margin-left:0.5em;
+margin-right:0.5em;
+}
 
 </style>
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
@@ -379,8 +395,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 								<a class="caro2" href="#">둘러보기</a>
 							</div>
 							<div class="col-md-5 col-12 order-md-2 order-1">
-								<img src="<c:url value='resources/img/cemina.jpeg'/>" style="padding-top: 20%;"
-									class="mx-auto" alt="slide">
+								<img src="<c:url value='resources/img/cemina.jpeg'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
 							</div>
 						</div>
 					</div>
@@ -396,8 +411,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 								<a class="caro2" href="#">둘러보기</a>
 							</div>
 							<div class="col-md-5 col-12 order-md-2 order-1">
-								<img src="<c:url value='resources/img/partyroom.jpeg'/>" style="padding-top: 65px;"
-									class="mx-auto" alt="slide">
+								<img src="<c:url value='resources/img/partyroom.jpeg'/>" style="padding-top: 65px;" class="mx-auto" alt="slide">
 							</div>
 						</div>
 					</div>
@@ -413,8 +427,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 								<a class="caro2" href="#">둘러보기</a>
 							</div>
 							<div class="col-md-5 col-12 order-md-2 order-1">
-								<img src="<c:url value='resources/img/office.png'/>" style="padding-top: 20%;"
-									class="mx-auto" alt="slide">
+								<img src="<c:url value='resources/img/office.png'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
 							</div>
 						</div>
 					</div>
@@ -441,7 +454,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     <span class="formTitle">공간유형</span>
 	                    <div class="rightArea">
 	                        <p>
-                            	회의실,파티룸,스터디룸,다목적홀,작업실,연습실,카페
+                            	${record.r_category }
 	                        </p>
 	                    </div>
 	                </li>
@@ -457,7 +470,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">수용인원</span>
 	                    <div class="rightArea">
 	                        <p>
-	                          	  최소 ${record.r_people_count_min }명 ~ 최대 ${record.r_people_count_max }명 까지
+	                          	  최소 1명 ~ 최대 ${record.r_peoplecount }명 까지
 	                        </p>
 	                    </div>
 	                </li>
@@ -473,7 +486,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">대관요일</span>
 	                    <div class="rightArea">
 	                        <p>
-	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_holiday } 
+	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_day } 
 	                        </p>
 	                    </div>
 	                </li>
@@ -481,14 +494,13 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                    <span class="formTitle">문의처</span>
 	                    <div class="rightArea">
 	                        <p>
-	                            ${items.r_tel }
+	                            ${record.r_email_tel }
 	                        </p>
 	                    </div>
 	                </li>
                 </ul>
-               
                </div>
-	              
+<%-- 	            <form action="<c:url value='/reservationProcess.room9'/>"> --%>
                 <ul class="list-group mb-3">
 	                	<li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -509,8 +521,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                 <p class="text-muted">예약 시간 : </p>
 	                 </div>
                     	<div class="col-md-9 text-center " style="padding: 10px 0;">
-	                       <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-	                         <option value="00:00">0시 00분</option>
+	                       <select class="form-control start_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                       		  <option value="00:00">0시 00분</option>
 	                              <option value="00:30">0시 30분</option>
 	                              <option value="01:00">1시 00분</option>
 	                              <option value="01:30">1시 30분</option>
@@ -560,8 +572,8 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 	                              <option value="23:30">23시 30분</option>
 	                       </select>
 	                            ~
-	                            <select class="form-control" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-	                         <option value="00:00">0시 00분</option>
+	                            <select class="form-control end_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         	  <option value="00:00">0시 00분</option>
 	                              <option value="00:30">0시 30분</option>
 	                              <option value="01:00">1시 00분</option>
 	                              <option value="01:30">1시 30분</option>
@@ -615,16 +627,17 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0;">
                     	<p class="text-muted" style="padding-top: 15px;padding-left: 8px;padding-bottom: 10px;">예약 인원 : </p>
 						<div class="col-md-8 text-center" style="margin-right: 25px;">
-							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px">
-							<c:forEach begin="1" end="${record.r_people_count_max }" var="count">
-							    	<option>${count} 명</option>
-							</c:forEach>
+							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px" class="peoplecount">
+								<c:forEach begin="1" end="20" var="count">
+								    	<option>${count} 명</option>
+								</c:forEach>
 							</select>
 						</div>
 					</li>
                 </ul>
                 <hr class="mb-4">
                 <button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e">예약하기</button>
+<!--                 </form> -->
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
@@ -634,16 +647,36 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 				  </ol>
+				 
 				  <div class="carousel-inner">
-				    <div class="carousel-item active">
-				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/1.jpg'/>" style="width:100%">
-				    </div>
-				    <div class="carousel-item">
-				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/2.jpg'/>" style="width:100%">
-				    </div>
-				    <div class="carousel-item">
-				      <img id="이미지" class="image_one" alt="이미지" src= "<c:url value='/resources/img/roomimg/3.jpg'/>" style="width:100%">
-				    </div>
+				   <c:if test="${record.r_image_1 != 'null' }" >
+					    <div class="carousel-item active">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_1 }'/>" style="width:100%">
+					    </div>
+				  </c:if>
+				   <c:if test="${record.r_image_2 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_2 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_3 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_3 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_4 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_4 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_5 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one" src= "<c:url value='upload/${record.r_image_5 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
 				  </div>
 				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -663,7 +696,113 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
                     </div>
                     <h3 class="h_intro">편의 시설</h3>
                     <div class="mb-3 border">
-						
+                    
+                    <c:forEach items="${r_guid }" var="item" varStatus="">
+						<c:choose >
+							<c:when test="${item =='1'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon1.png'/>" alt="TV/프로젝터" class="r_guid"/>
+									<p>TV/프로젝터</p>
+								</label>		
+							</c:when>
+							<c:when test="${item =='2'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon2.png'/>" alt="인터넷/WiFi" class="r_guid"/>
+									<p>인터넷/WiFi</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='3'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon3.png'/>" alt="복사/인쇄기" class="r_guid"/>
+									<p>복사/인쇄기</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='4'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon4.png'/>" alt="화이트보드" class="r_guid"/>
+									<p>화이트보드</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='5'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon5.png'/>" alt="음향/마이크" class="r_guid"/>
+									<p>음향/마이크</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='6'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon6.png'/>" alt="취사시설" class="r_guid"/>
+									<p>취사시설</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='7'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon7.png'/>" alt="음식물반입가능" class="r_guid"/>
+									<p>음식물반입가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='8'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon8.png'/>" alt="주류반입가능" class="r_guid"/>
+									<p>주류반입가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='9'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon9.png'/>" alt="샤워시설" class="r_guid"/>
+									<p>샤워시설</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='10'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon10.png'/>" alt="주차가능" class="r_guid"/>
+									<p>주차가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='11'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon11.png'/>" alt="금연" class="r_guid"/>
+									<p>금연</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='12'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon12.png'/>" alt="반려동물동반가능" class="r_guid"/>
+									<p>반려동물동반가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='13'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon13.png'/>" alt="PC/노트북" class="r_guid"/>
+									<p>PC/노트북</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='14'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon14.png'/>" alt="의자/테이블" class="r_guid"/>
+									<p>의자/테이블</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='15'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon15.png'/>" alt="내부화장실" class="r_guid"/>
+									<p>내부화장실</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='16'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon16.png'/>" alt="남여화장실분리" class="r_guid"/>
+									<p>남여화장실분리</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='17'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon17.png'/>" alt="남여공용화장실" class="r_guid"/>
+									<p>남여공용화장실</p>
+								</label>
+							</c:when>
+						</c:choose>
+					</c:forEach> 
 					</div>
                     <h4 class="subTitle">위치정보</h4>
                     	${record.r_address }
@@ -699,7 +838,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
       
       <div id="disqus_thread" style="padding:0 14%; width: 100%"></div>
         <!-- 예약신청Modal -->
-		<form method="get" action="<c:url value='/sendpw.room9'/>" id="registerform">
+		<form method="get" action="<c:url value='/reservationProcess.room9'/>" id="registerform">
 		   <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		      aria-labelledby="myModalLabel" aria-hidden="true">
 		      <div class="modal-dialog" style="padding-top: 5%">
@@ -715,12 +854,22 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 		               </div>
 		               <hr/>
 		               <div class="" style="padding-bottom: 5%">
-		                  <h3 style="color: gray;font-size:1em !important;">예약일자:<!-- 정보뿌려주세요 --></h3>   
-		                  <h3 style="color: gray;font-size:1em !important;">예약시간:<!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;">예약인원:<!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;">예약자:<!-- 정보 뿌려주세요 --></h3>
-                          <h3 style="color: gray;font-size:1em !important;">등록된번호:<!-- 정보 뿌려주세요 --></h3>
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <input type="hidden" name="res_dday"><!-- 정보뿌려주세요 --></h3>   
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <input type="hidden" name="res_time"><!-- 정보 뿌려주세요 --></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <input type="hidden" name="res_peoplecount"><!-- 정보 뿌려주세요 --></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <input type="hidden" name="res_name"><!-- 정보 뿌려주세요 --></h3>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></h3>
 		               </div>
+		               <script>
+		               //예약시간 선택할때 체인지 함수 불러서 바꿔줘야할거같음.. 낼하자
+		               var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
+		               console.log(time);
+			               	$('.res_dday').append();
+			               	$('.res_time').append(time);
+			               	$('.res_peoplecount').append($('.peoplecount option').html());
+			             	$('.res_name').append('${memeberinfo.m_name}');
+			               	$('.res_tel').append('${memeberinfo.m_tel}');
+		               </script>
 		               <div>
 		               </div>
 		            </div>

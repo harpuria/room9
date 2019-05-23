@@ -106,5 +106,26 @@
  		SELECT * FROM R9_NOTICE WHERE no=#{no}
  	</select>
  	
+ 	<!-- 건의사항 쿼리문 시작 -->
+ 	<select id="SuggestionSelectList" parameterType="java.util.Map" resultType="SuggestionDTO">
+ 		SELECT * FROM SUGGESTION ORDER BY NO
+ 	</select>
+ 	
+ 	<select id="SuggestionSelectOne" parameterType="java.util.Map" resultType="SuggestionDTO">
+ 		SELECT * FROM SUGGESTION WHERE no=#{no}
+ 	</select>
+ 	
+ 	<delete id="SuggestionDelete" parameterType="java.util.Map">
+ 		DELETE FROM SUGGESTION WHERE no=#{no}
+ 	</delete>
+ 	<insert id="SuggestionInsert" parameterType="java.util.Map">
+ 		INSERT INTO SUGGESTION VALUES(SEQ_SUGGESTION.NEXTVAL,#{title},#{name},#{content},sysdate)
+ 	</insert>
+ 	
+ 	<update id="SuggestionUpdate" parameterType="java.util.Map">
+ 		UPDATE SUGGESTION SET title=#{title},content=#{content}
+ 	</update>
+ 	<!-- 건의사항 쿼리문 끝 -->
+ 	
  	
 </mapper>

@@ -32,5 +32,15 @@ public class Room9AdminServiceImpl implements Room9AdminService {
 		return dao.Room9MittingDelete(map);
 	}
 
+	@Override
+	public String getMember(Map map) {
+		return dao.getMember(map);
+	}
+
+	@Override
+	public String getHostMember(Map map) {
+		return dao.getHostMember(map);
+	}
+
 
 }

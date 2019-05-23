@@ -18,11 +18,18 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
+
 import com.kosmo.room9.service.HostDTO;
 import com.kosmo.room9.service.NoticeDTO;
 import com.kosmo.room9.service.Room9DTO;
 import com.kosmo.room9.service.Room9MemberDTO;
 import com.kosmo.room9.service.impl.HostServiceImpl;
+
+import com.kosmo.room9.service.HostService;
+import com.kosmo.room9.service.MemberService;
+import com.kosmo.room9.service.impl.HostServiceImpl;
+import com.kosmo.room9.service.impl.MemberServiceImpl;
+
 import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
@@ -41,6 +48,9 @@ public class Room9AdminController {
 		
 		map.put("emailid", session.getAttribute("emailid"));
 		System.out.println("네이버로그인 했다 : " + session.getAttribute("emailid"));
+
+		model.addAttribute("memberCount", service.getMember(map));
+		model.addAttribute("hostMemberCount", service.getHostMember(map));
 
 		return "admin_main.adminTiles";
 	}

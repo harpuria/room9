@@ -58,9 +58,4 @@ public class ContactController {
 	public String freeBbs() throws Exception{
 		return "freebbs.tiles";
 	}
-	
-	@RequestMapping("/suggestionBbs.room9")
-	public String suggestionBbs() throws Exception{
-		return "suggestionbbs.tiles";
-	}
 }

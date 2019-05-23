@@ -1,5 +1,6 @@
 package com.kosmo.room9.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -7,6 +8,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kosmo.room9.service.ReservationDataDTO;
 import com.kosmo.room9.service.Room9AdminService;
 
 @Repository("Room9AdminServiceDAO")
@@ -43,6 +45,11 @@ public class Room9AdminServiceDAO implements Room9AdminService {
 	@Override
 	public String getHostMember(Map map) {
 		return template.selectOne("getHostMember", map);
+	}
+
+	@Override
+	public List<ReservationDataDTO> reservationList(Map map) {
+		return template.selectList("reservationList", map);
 	}
 
 

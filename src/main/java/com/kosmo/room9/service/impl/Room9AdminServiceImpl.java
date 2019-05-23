@@ -1,11 +1,13 @@
 package com.kosmo.room9.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.kosmo.room9.service.ReservationDataDTO;
 import com.kosmo.room9.service.Room9AdminService;
 
 @Service("Room9AdminServiceImpl")
@@ -40,6 +42,11 @@ public class Room9AdminServiceImpl implements Room9AdminService {
 	@Override
 	public String getHostMember(Map map) {
 		return dao.getHostMember(map);
+	}
+
+	@Override
+	public List<ReservationDataDTO> reservationList(Map map) {
+		return dao.reservationList(map);
 	}
 
 

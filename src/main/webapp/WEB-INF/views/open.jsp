@@ -361,21 +361,17 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
        <div class="row wow zoomIn" data-wow-duration="1s" data-wow-delay=".5s">   
         <div align="center" style="padding:2% 0;" class="col-md-12 text-center">
             <button class="btn btn-default filter-button active" data-filter="all">All</button>
-            <button class="btn btn-default filter-button" data-filter="seoul">#서울</button>
-            <button class="btn btn-default filter-button" data-filter="gyeonggi">#경기</button>
-            <button class="btn btn-default filter-button" data-filter="gangwon">#강원</button>
-            <button class="btn btn-default filter-button" data-filter="chungcheong">#충청</button>
-            <button class="btn btn-default filter-button" data-filter="jeonla">#전라</button>
-            <button class="btn btn-default filter-button" data-filter="gyeongsang">#경상</button>
-            <button class="btn btn-default filter-button" data-filter="cafa">#카페</button>
-            <button class="btn btn-default filter-button" data-filter="study">#스터디</button>
-            <button class="btn btn-default filter-button" data-filter="seminar">#세미나</button>
-            <button class="btn btn-default filter-button" data-filter="lecture">#강연</button>
-            <button class="btn btn-default filter-button" data-filter="reunion">#동창회</button>
-            <button class="btn btn-default filter-button" data-filter="doljanchi">#돌잔치</button>
-            <button class="btn btn-default filter-button" data-filter="office">#오피스</button>
-            <button class="btn btn-default filter-button" data-filter="band">#밴드</button>
+            <button class="btn btn-default filter-button" data-filter="conference">#회의실</button>
             <button class="btn btn-default filter-button" data-filter="party">#파티룸</button>
+            <button class="btn btn-default filter-button" data-filter="study">#스터디룸</button>
+            <button class="btn btn-default filter-button" data-filter="multi">#다목적홀</button>
+            <button class="btn btn-default filter-button" data-filter="show">#공연장</button>
+            <button class="btn btn-default filter-button" data-filter="training">#연수원</button>
+            <button class="btn btn-default filter-button" data-filter="work">#작업실</button>
+            <button class="btn btn-default filter-button" data-filter="practice">#연습실</button>
+            <button class="btn btn-default filter-button" data-filter="leisure">#레저시설</button>
+            <button class="btn btn-default filter-button" data-filter="cafe">#카페</button>
+            
         </div>
     </div>
    </div>

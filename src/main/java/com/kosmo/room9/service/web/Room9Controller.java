@@ -31,20 +31,50 @@ public class Room9Controller {
 		List<Room9DTO> list = service.selectList(null);
 		model.addAttribute("list", list);
 		
-		List<String> tag1 = new ArrayList<String>();
-		List<String> tag2 = new ArrayList<String>();
-		List<String> tag3 = new ArrayList<String>();
+		List<String> category = new ArrayList<String>();
 		
 		// 한글로 되어있는 카테고리를 영어로 치환 (jsp 에서 사용하기 위해서)
 		for(int i = 0; i < list.size(); i++) {
-			tag1.add(list.get(i).getR_tag_1());
-			tag2.add(list.get(i).getR_tag_2());
-			tag3.add(list.get(i).getR_tag_3());
+			
+			category.add(list.get(i).getR_category());
+			
+			/*
+			switch(list.get(i).getR_category().split(",")[0]) {
+			case "회의실":
+				category.add("conference");
+				break;
+			case "파티룸":
+				category.add("party");
+				break;
+			case "스터디룸":
+				category.add("study");
+				break;
+			case "다목적홀":
+				category.add("multi");
+				break;
+			case "공연장":
+				category.add("show");
+				break;
+			case "연수원":
+				category.add("training");
+				break;
+			case "작업실":
+				category.add("work");
+				break;
+			case "연습실":
+				category.add("practice");
+				break;
+			case "레저시설":
+				category.add("leisure");
+				break;
+			case "카페":
+				category.add("cafe");
+				break;
+			}
+			*/
 		}
 		
-		model.addAttribute("tag1", tag1);
-		model.addAttribute("tag2", tag2);
-		model.addAttribute("tag3", tag3);
+		model.addAttribute("category", category);
 		
 		return "open.tiles";
 	}

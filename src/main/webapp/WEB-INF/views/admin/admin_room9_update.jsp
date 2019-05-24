@@ -17,8 +17,8 @@
                     <h4>ROOM9 명</h4>
                 </div>
                 <div class="editArea">
-                    <input type="text" name="title" placeholder="최대 100자 이내 입력" maxlength="100"
-                        data-parsley-required="true" data-parsley-error-message="ROOM9 명을 입력해 주세요">
+                    <input type="text" name="title" value="${room9record.r_name }" placeholder="최대 100자 이내 입력" maxlength="100" data-parsley-required="true" data-parsley-error-message="ROOM9 명을 입력해 주세요">
+                    
                 </div>
             </article>
             <article class="placeLocation">
@@ -33,10 +33,10 @@
                     <input type="hidden" name="sublocality2" id="dong" value="시흥동">
                 </div>
                 <div class="editArea">
-                    <input type="text" placeholder="주소 검색 / 예) 강남구 영동대로" id="mapAddr" name="addr"
-                        class="search ui-autocomplete-input" data-parsley-required="true"
+                    <input type="text" placeholder="주소 검색 / 예) 강남구 영동대로" id="mapAddr" name="addr" value="${room9record.r_address }"
+                        class="search ui-autocomplete-input" data-parsley-required="true" 
                         data-parsley-error-message="플레이스 위치를 입력해 주세요" autocomplete="off">
-                    <input type="text" placeholder="상세주소 입력" class="detail" id="location" name="addr_detail">
+                    <input type="text" placeholder="상세주소 입력" class="detail" id="location" name="addr_detail" value="">
                     <!--
                 <input type="submit" class="mapSearchBtn" value="검색"/>
                 -->
@@ -412,17 +412,6 @@
                     <ul id="ui-id-3" tabindex="0"
                         class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front"
                         style="display: none; position: relative; top: -359px; left: 0px; width: 712px;">
-                        <li class="ui-menu-item">
-                            <div id="ui-id-29" tabindex="-1" class="ui-menu-item-wrapper">[한국국토정보공사 서울시금천구청]서울특별시
-                                금천구 시흥대로73길 70</div>
-                        </li>
-                        <li class="ui-menu-item">
-                            <div id="ui-id-30" tabindex="-1" class="ui-menu-item-wrapper">[서울시 금천구청 보건소 전기차충전소]서울특별시
-                                금천구 시흥대로73길 70</div>
-                        </li>
-                        <li class="ui-menu-item">
-                            <div id="ui-id-31" tabindex="-1" class="ui-menu-item-wrapper">서울특별시 금천구</div>
-                        </li>
                     </ul>
                 </div>
             </article>

@@ -235,7 +235,6 @@ public class Room9AdminController {
 		Room9DTO record = room9service.selectOne(map);
 		model.addAttribute("room9record", record);
 		
-		
-		return "admin_room9_update.tiles";
+		return "admin_room9_update.adminTiles";
 	}
 }

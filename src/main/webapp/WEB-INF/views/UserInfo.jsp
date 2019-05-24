@@ -494,8 +494,10 @@ label.error {
 	<div class="container-fluid" id="">
 		<article class="placeListArea">
 			<ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="display: inline">
-				<c:if test="${not empty list }" var="isEmpty">
+
+				<c:if test="${not empty list }" >
 					<c:forEach items="${list }" var="items" varStatus="loop">
+						
 						<li class="row"><a href="#">
 								<div class="imgArea">
 									<img src="<c:url value='upload/${items.r_image_1 }'/>" />
@@ -512,9 +514,12 @@ label.error {
 								<div class="subInfoArea">
 									<span class="capacity"> <!-- 에약날짜 -->
 									</span>
-									<p class="priceAndTime">
-										<span class="price">총 예약금액 : ${items.s_money }원</span>
-									</p>
+									<form>
+										<button type="button" onclick="isDelete(${items.s_no})" class="btn btn-sm" style="background-color: #61ce4e; border: 1px solid white; font-size: 15px;margin-top:-8px">예약취소</button>
+										<p class="priceAndTime">
+											<span class="price">총 예약금액 : ${items.s_money }원</span>
+										</p>
+									</form>
 								</div>
 						</a></li>
 					</c:forEach>
@@ -562,4 +567,14 @@ label.error {
 
 		}
 	});
-</script>	
+	
+	
+</script>
+<script>
+	var isDelete = function(s_no) {
+		if (confirm("정말로 삭제 하시겠습니까?")) {	
+			location.replace('<c:url value="/roomCancle.room9?s_no='+s_no+'&m_email=${memberRecord.m_email }"/>');
+		}
+	}
+	
+</script>

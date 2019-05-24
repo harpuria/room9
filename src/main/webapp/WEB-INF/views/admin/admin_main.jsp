@@ -52,8 +52,8 @@
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">공지사항</h6>
+				<div class="card-header py-3" >
+					<h6 class="m-0 font-weight-bold text-primary" >공지사항</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -68,7 +68,7 @@
 							<tbody>
 								<c:forEach items="${list }" var="items" end="4">
 									<tr>
-										<th class="text-center" scope="row">공지사항</th>
+										<th class="text-center" scope="row">공지</th>
 										<td><a
 											href="<c:url value='/admin_WriteView.room9?no=${items.no}'/>">${items.r_title }</a></td>
 										<td class="text-center">${items.r_postdate }</td>
@@ -76,10 +76,12 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<button type="button" onclick="location.href='<c:url value='/admin_notice.room9'/>'" class="btn btn-primary" style="left:37%">더보기</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 
 		<div class="col-lg-6">
 			<div class="card shadow mb-4">
@@ -106,6 +108,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<button type="button" onclick="location.href='<c:url value='/admin_room9List.room9'/>'" class="btn btn-primary" style="left:37%">더보기</button>
 					</div>
 				</div>
 			</div>

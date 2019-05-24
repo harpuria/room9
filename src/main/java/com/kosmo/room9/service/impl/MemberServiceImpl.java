@@ -81,5 +81,9 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.ResInfoSelectList(map);
 	}
-
+	//예약취소
+	public int roomCancle(Map map) {
+		return dao.roomCancle(map);
+	}
+	
 }

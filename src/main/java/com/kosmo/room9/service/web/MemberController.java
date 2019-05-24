@@ -39,10 +39,14 @@ public class MemberController {
 		List<ReservationDataDTO> list = service.ResInfoSelectList(map);
 		model.addAttribute("list", list);
 		
+		System.out.println(list.get(0).getR_image_1());
+		
 		
 		return "UserInfo.tiles";
 	}
 	
+	
+	//비밀번호 수정하는 곳
 	@RequestMapping(value="/UserinfoUpdate.room9", method=RequestMethod.POST )
 	public String UserinfoUpdate(@RequestParam Map map, Model model, HttpServletResponse resp) throws Exception{
 		

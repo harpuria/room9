@@ -20,6 +20,10 @@ public class ReservationDataDTO {
 	private String r_name;
 	private String r_address;
 	private String r_money;
+	private String r_tag_1;
+	private String r_tag_2;
+	private String r_tag_3;
+	private String r_image_1;
 	
 	public String getR_name() {
 		return r_name;
@@ -110,6 +114,30 @@ public class ReservationDataDTO {
 	}
 	public void setS_date(String s_date) {
 		this.s_date = s_date;
+	}
+	public String getR_tag_1() {
+		return r_tag_1;
+	}
+	public void setR_tag_1(String r_tag_1) {
+		this.r_tag_1 = r_tag_1;
+	}
+	public String getR_tag_2() {
+		return r_tag_2;
+	}
+	public void setR_tag_2(String r_tag_2) {
+		this.r_tag_2 = r_tag_2;
+	}
+	public String getR_tag_3() {
+		return r_tag_3;
+	}
+	public void setR_tag_3(String r_tag_3) {
+		this.r_tag_3 = r_tag_3;
+	}
+	public String getR_image_1() {
+		return r_image_1;
+	}
+	public void setR_image_1(String r_image_1) {
+		this.r_image_1 = r_image_1;
 	}
 	
 	

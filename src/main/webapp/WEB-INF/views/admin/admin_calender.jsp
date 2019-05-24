@@ -3,13 +3,14 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
     
 <style>
+
 #calendar {
-    max-width: 90%;
-    margin: 0 auto;
-    color: black;
-    background-color: whitesmoke;
-    border-radius: 7px;
-  }
+  max-width: 90%;
+  margin: 0 auto;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 7px;
+}
 </style>
 
 <div class="content">

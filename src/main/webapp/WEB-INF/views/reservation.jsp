@@ -600,9 +600,11 @@ margin-right:0.5em;
 					</li>
                 </ul>
 
-                <hr class="mb-4">
-
-                <button onclick="resview()" class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
+                
+				<c:if test="${not empty sessionScope.emailid }">
+					<hr class="mb-4">
+                	<button onclick="resview()" class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal" type="submit" style="background-color: #61ce4e; border: 1px solid white; font-size: 20px;">예약하기</button>
+                </c:if>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>

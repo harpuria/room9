@@ -7,8 +7,10 @@ import java.util.Locale;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSessionContext;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,7 +25,7 @@ import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
 @Controller
 public class HomeController {
-
+	
 	@Resource(name="room9ServiceImpl")
 	Room9ServiceImpl service;
 	

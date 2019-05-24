@@ -30,17 +30,6 @@ public class MemberController {
 	@RequestMapping("/UserInfo.room9")
 	public String UserInfo(@RequestParam Map map, Model model, HttpSession session ) throws Exception{
 		
-		System.out.println("1" + map);
-		//예약번호 봅아오기
-		String s_no = service.reservationPull(map);
-		if(s_no == null)
-		{
-			s_no = "-1";
-		}
-		map.put("s_no", s_no); // 전달해주기
-		session.setAttribute("s_no", s_no);
-		System.out.println("s_no : "+ s_no);
-		
 		//멤버정보를 뿌려주는 곳
 		Room9MemberDTO record = service.userInfoSelect(map);
 		model.addAttribute("memberRecord",record);

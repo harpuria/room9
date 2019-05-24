@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link href="<c:url value='/css/open.css' />" rel="stylesheet" />
@@ -354,7 +354,7 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
 .placeListArea .pagingWrap .pagination li.active {border-color: #ff4081;}
 .placeListArea .pagingWrap .pagination li.active a {color: #ff4081;}
 .placeListArea .pagingWrap .pagination li a {display: block;font-size: 14px;font-weight: normal;color: #333333;text-decoration: none;}
-.formTitle li   {
+.formTitle li	{
    list-style:none;
    font-weight:bold;
    }
@@ -379,68 +379,68 @@ margin-right:0.5em;
 
 </style>
 <div class="container-fluid" id="owlcaro" style="padding: 0 !important;">
-   <div id="myCarousel" class="carousel slide carousel-fade"
-      data-ride="carousel"
-      style="background: url('resources/img/01.jpg') center center no-repeat; background-size: cover;">
-      <ol class="carousel-indicators">
-         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-         <li data-target="#myCarousel" data-slide-to="1"></li>
-         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-         <div class="carousel-item active">
-            <div class="mask flex-center">
-               <div class="container">
-                  <div class="row align-items-center">
-                     <div class="col-md-7 col-12 order-md-1 order-2 text-center">
-                        <h4>"드리움"</h4>
-                        <p>#역삼 #드리움 #세미나</p>
-                        <a class="caro2" href="#">둘러보기</a>
-                     </div>
-                     <div class="col-md-5 col-12 order-md-2 order-1">
-                        <img src="<c:url value='resources/img/cemina.jpeg'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="carousel-item">
-            <div class="mask flex-center">
-               <div class="container">
-                  <div class="row align-items-center">
-                     <div class="col-md-7 col-12 order-md-1 order-2 text-center">
-                        <h4>"북카페세모"</h4>
-                        <p>#건대 #건대입구 #북카페</p>
-                        <a class="caro2" href="#">둘러보기</a>
-                     </div>
-                     <div class="col-md-5 col-12 order-md-2 order-1">
-                        <img src="<c:url value='resources/img/partyroom.jpeg'/>" style="padding-top: 65px;" class="mx-auto" alt="slide">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="carousel-item">
-            <div class="mask flex-center">
-               <div class="container">
-                  <div class="row align-items-center">
-                     <div class="col-md-7 col-12 order-md-1 order-2 text-center">
-                        <h4>"와이즈빈"</h4>
-                        <p>#선릉 #와이즈빈 #오피스</p>
-                        <a class="caro2" href="#">둘러보기</a>
-                     </div>
-                     <div class="col-md-5 col-12 order-md-2 order-1">
-                        <img src="<c:url value='resources/img/office.png'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+	<div id="myCarousel" class="carousel slide carousel-fade"
+		data-ride="carousel"
+		style="background: url('resources/img/01.jpg') center center no-repeat; background-size: cover;">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="mask flex-center">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-7 col-12 order-md-1 order-2 text-center">
+								<h4>"드리움"</h4>
+								<p>#역삼 #드리움 #세미나</p>
+								<a class="caro2" href="#">둘러보기</a>
+							</div>
+							<div class="col-md-5 col-12 order-md-2 order-1">
+								<img src="<c:url value='resources/img/cemina.jpeg'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="mask flex-center">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-7 col-12 order-md-1 order-2 text-center">
+								<h4>"북카페세모"</h4>
+								<p>#건대 #건대입구 #북카페</p>
+								<a class="caro2" href="#">둘러보기</a>
+							</div>
+							<div class="col-md-5 col-12 order-md-2 order-1">
+								<img src="<c:url value='resources/img/partyroom.jpeg'/>" style="padding-top: 65px;" class="mx-auto" alt="slide">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="mask flex-center">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-7 col-12 order-md-1 order-2 text-center">
+								<h4>"와이즈빈"</h4>
+								<p>#선릉 #와이즈빈 #오피스</p>
+								<a class="caro2" href="#">둘러보기</a>
+							</div>
+							<div class="col-md-5 col-12 order-md-2 order-1">
+								<img src="<c:url value='resources/img/office.png'/>" style="padding-top: 20%;" class="mx-auto" alt="slide">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- 내용시작 -->
-   <div class="container">
+	<div class="container">
         <div class="py-5 text-center">
             <h2>상세보기</h2>
             <br/>
@@ -456,56 +456,56 @@ margin-right:0.5em;
                 <ul style="list-style: none;padding: 0;">
                 <li>
                     <span class="formTitle">공간유형</span>
-                       <div class="rightArea">
-                           <p>
-                               ${record.r_category }
-                           </p>
-                       </div>
-                   </li>
-                   <li>
-                       <span class="formTitle">상세주소</span>
-                       <div class="rightArea">
-                           <p class="address">
-                                ${record.r_address }
-                           </p>
-                       </div>
-                   </li>
-                   <li>
-                       <span class="formTitle">수용인원</span>
-                       <div class="rightArea">
-                           <p>
-                                  최소 1명 ~ 최대 ${record.r_peoplecount }명 까지
-                           </p>
-                       </div>
-                   </li>
-               <li>
-                       <span class="formTitle">대관시간</span>
-                       <div class="rightArea">
-                           <p>
-                              ${record.r_time } 
-                           </p>
-                       </div>
-                   </li>
-                   <li>
-                       <span class="formTitle">대관요일</span>
-                       <div class="rightArea">
-                           <p>
-                               <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_day } 
-                           </p>
-                       </div>
-                   </li>
-                   <li>
-                       <span class="formTitle">문의처</span>
-                       <div class="rightArea">
-                           <p>
-                               ${record.r_email_tel }
-                           </p>
-                       </div>
-                   </li>
+	                    <div class="rightArea">
+	                        <p>
+                            	${record.r_category }
+	                        </p>
+	                    </div>
+	                </li>
+	                <li>
+	                    <span class="formTitle">상세주소</span>
+	                    <div class="rightArea">
+	                        <p class="address">
+	                         	 ${record.r_address }
+	                        </p>
+	                    </div>
+	                </li>
+	                <li>
+	                    <span class="formTitle">수용인원</span>
+	                    <div class="rightArea">
+	                        <p>
+	                          	  최소 1명 ~ 최대 ${record.r_peoplecount }명 까지
+	                        </p>
+	                    </div>
+	                </li>
+					<li>
+	                    <span class="formTitle">대관시간</span>
+	                    <div class="rightArea">
+	                        <p>
+	                           ${record.r_time } 
+	                        </p>
+	                    </div>
+	                </li>
+	                <li>
+	                    <span class="formTitle">대관요일</span>
+	                    <div class="rightArea">
+	                        <p>
+	                            <input type="hidden" class="weekCheck" value="월,화,수,목,금,토,일"> ${record.r_day } 
+	                        </p>
+	                    </div>
+	                </li>
+	                <li>
+	                    <span class="formTitle">문의처</span>
+	                    <div class="rightArea">
+	                        <p>
+	                            ${record.r_email_tel }
+	                        </p>
+	                    </div>
+	                </li>
                 </ul>
                </div>
                 <ul class="list-group mb-3">
-                      <li class="list-group-item d-flex justify-content-between lh-condensed">
+	                	<li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h5 class="my-0">이용금액</h5>
                         </div>
@@ -514,138 +514,90 @@ margin-right:0.5em;
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
                         
-                              <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
-                                 <p class="text-muted">예약 날짜 : </p>
-                              </div>
-                     <div class="col-md-9 text-center " style="padding: 13px 0;padding-left:25px">
-                        <input id="datepicker" width="210" placeholder="2019-05-30"/>
-                     </div>
-                     
-                      <script>
-                        $('#datepicker').datepicker({
-                           uiLibrary: 'bootstrap',
-                           format:'yyyy-mm-dd'
-                       });
-                      </script> 
-               </li>
+                           	<div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+                           		<p class="text-muted">예약 날짜 : </p>
+                           	</div>
+							<div class="col-md-9 text-center " style="padding: 13px 0;padding-left:25px">
+								<input id="datepicker" width="210" />
+							</div>
+							
+					       <script>
+				            $('#datepicker').datepicker({
+					            uiLibrary: 'bootstrap',
+					            format:'yyyy/mm/dd'
+					        });
+					       </script> 
+					</li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0">
-                    <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
-                    <p class="text-muted">예약 시간 : </p>
-                    </div>
-                       <div class="col-md-9 text-center " style="padding: 10px 0;">
-                          <select class="form-control start_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-                                  <option value="00:00">0시 00분</option>
-                                 <option value="00:30">0시 30분</option>
-                                 <option value="01:00">1시 00분</option>
-                                 <option value="01:30">1시 30분</option>
-                                 <option value="02:00">2시 00분</option>
-                                 <option value="02:30">2시 30분</option>
-                                 <option value="03:00">3시 00분</option>
-                                 <option value="03:30">3시 30분</option>
-                                 <option value="04:00">4시 00분</option>
-                                 <option value="04:30">4시 30분</option>
-                                 <option value="05:00">5시 00분</option>
-                                 <option value="05:30">5시 30분</option>
-                                 <option value="06:00">6시 00분</option>
-                                 <option value="06:30">6시 30분</option>
-                                 <option value="07:00">7시 00분</option>
-                                 <option value="07:30">7시 30분</option>
-                                 <option value="08:00">8시 00분</option>
-                                 <option value="08:30">8시 30분</option>
-                                 <option value="09:00">9시 00분</option>
-                                 <option value="09:30">9시 30분</option>
-                                 <option value="10:00" selected="selected">10시 00분</option>
-                                 <option value="10:30">10시 30분</option>
-                                 <option value="11:00">11시 00분</option>
-                                 <option value="11:30">11시 30분</option>
-                                 <option value="12:00">12시 00분</option>
-                                 <option value="12:30">12시 30분</option>
-                                 <option value="13:00">13시 00분</option>
-                                 <option value="13:30">13시 30분</option>
-                                 <option value="14:00">14시 00분</option>
-                                 <option value="14:30">14시 30분</option>
-                                 <option value="15:00">15시 00분</option>
-                                 <option value="15:30">15시 30분</option>
-                                 <option value="16:00">16시 00분</option>
-                                 <option value="16:30">16시 30분</option>
-                                 <option value="17:00">17시 00분</option>
-                                 <option value="17:30">17시 30분</option>
-                                 <option value="18:00">18시 00분</option>
-                                 <option value="18:30">18시 30분</option>
-                                 <option value="19:00">19시 00분</option>
-                                 <option value="19:30">19시 30분</option>
-                                 <option value="20:00">20시 00분</option>
-                                 <option value="20:30">20시 30분</option>
-                                 <option value="21:00">21시 00분</option>
-                                 <option value="21:30">21시 30분</option>
-                                 <option value="22:00">22시 00분</option>
-                                 <option value="22:30">22시 30분</option>
-                                 <option value="23:00">23시 00분</option>
-                                 <option value="23:30">23시 30분</option>
-                          </select>
-                               ~
-                               <select class="form-control end_time" id="exampleFormControlSelect2" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
-                                 <option value="00:00">0시 00분</option>
-                                 <option value="00:30">0시 30분</option>
-                                 <option value="01:00">1시 00분</option>
-                                 <option value="01:30">1시 30분</option>
-                                 <option value="02:00">2시 00분</option>
-                                 <option value="02:30">2시 30분</option>
-                                 <option value="03:00">3시 00분</option>
-                                 <option value="03:30">3시 30분</option>
-                                 <option value="04:00">4시 00분</option>
-                                 <option value="04:30">4시 30분</option>
-                                 <option value="05:00">5시 00분</option>
-                                 <option value="05:30">5시 30분</option>
-                                 <option value="06:00">6시 00분</option>
-                                 <option value="06:30">6시 30분</option>
-                                 <option value="07:00">7시 00분</option>
-                                 <option value="07:30">7시 30분</option>
-                                 <option value="08:00">8시 00분</option>
-                                 <option value="08:30">8시 30분</option>
-                                 <option value="09:00">9시 00분</option>
-                                 <option value="09:30">9시 30분</option>
-                                 <option value="10:00" selected="selected">10시 00분</option>
-                                 <option value="10:30">10시 30분</option>
-                                 <option value="11:00">11시 00분</option>
-                                 <option value="11:30">11시 30분</option>
-                                 <option value="12:00">12시 00분</option>
-                                 <option value="12:30">12시 30분</option>
-                                 <option value="13:00">13시 00분</option>
-                                 <option value="13:30">13시 30분</option>
-                                 <option value="14:00">14시 00분</option>
-                                 <option value="14:30">14시 30분</option>
-                                 <option value="15:00">15시 00분</option>
-                                 <option value="15:30">15시 30분</option>
-                                 <option value="16:00">16시 00분</option>
-                                 <option value="16:30">16시 30분</option>
-                                 <option value="17:00">17시 00분</option>
-                                 <option value="17:30">17시 30분</option>
-                                 <option value="18:00">18시 00분</option>
-                                 <option value="18:30">18시 30분</option>
-                                 <option value="19:00">19시 00분</option>
-                                 <option value="19:30">19시 30분</option>
-                                 <option value="20:00">20시 00분</option>
-                                 <option value="20:30">20시 30분</option>
-                                 <option value="21:00">21시 00분</option>
-                                 <option value="21:30">21시 30분</option>
-                                 <option value="22:00">22시 00분</option>
-                                 <option value="22:30">22시 30분</option>
-                                 <option value="23:00">23시 00분</option>
-                                 <option value="23:30">23시 30분</option>
-                          </select>
-                         </div>
+	                 <div style="padding: 10px 0;padding-top: 18px;" class="col-md-3 text-center">
+	                 <p class="text-muted">예약 시간 : </p>
+	                 </div>
+                    	<div class="col-md-9 text-center " style="padding: 10px 0;">
+	                       <select class="form-control start_time" id="exampleFormControlSelect1" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                       		  <option value="0">0시 00분</option>
+	                              <option value="1">1시 00분</option>
+	                              <option value="2">2시 00분</option>
+	                              <option value="3">3시 00분</option>
+	                              <option value="4">4시 00분</option>
+	                              <option value="5">5시 00분</option>
+	                              <option value="6">6시 00분</option>
+	                              <option value="7">7시 00분</option>
+	                              <option value="8">8시 00분</option>
+	                              <option value="9">9시 00분</option>
+	                              <option value="10" selected="selected">10시 00분</option>
+	                              <option value="11">11시 00분</option>
+	                              <option value="12">12시 00분</option>
+	                              <option value="13">13시 00분</option>
+	                              <option value="14">14시 00분</option>
+	                              <option value="15">15시 00분</option>
+	                              <option value="16">16시 00분</option>
+	                              <option value="17">17시 00분</option>
+	                              <option value="18">18시 00분</option>
+	                              <option value="19">19시 00분</option>
+	                              <option value="20">20시 00분</option>
+	                              <option value="21">21시 00분</option>
+	                              <option value="22">22시 00분</option>
+	                              <option value="23">23시 00분</option>
+	                       </select>
+	                            ~
+	                            <select class="form-control end_time" id="exampleFormControlSelect2" style="width: 113px; height: 38px; background-color: white; color: black;display: inline;">
+	                         	  <option value="0">0시 00분</option>
+	                              <option value="1">1시 00분</option>
+	                              <option value="2">2시 00분</option>
+	                              <option value="3">3시 00분</option>
+	                              <option value="4">4시 00분</option>
+	                              <option value="5">5시 00분</option>
+	                              <option value="6">6시 00분</option>
+	                              <option value="7">7시 00분</option>
+	                              <option value="8">8시 00분</option>
+	                              <option value="9">9시 00분</option>
+	                              <option value="10">10시 00분</option>
+	                              <option value="11">11시 00분</option>
+	                              <option value="12">12시 00분</option>
+	                              <option value="13">13시 00분</option>
+	                              <option value="14">14시 00분</option>
+	                              <option value="15">15시 00분</option>
+	                              <option value="16">16시 00분</option>
+	                              <option value="17">17시 00분</option>
+	                              <option value="18">18시 00분</option>
+	                              <option value="19">19시 00분</option>
+	                              <option value="20">20시 00분</option>
+	                              <option value="21">21시 00분</option>
+	                              <option value="22">22시 00분</option>
+	                              <option value="23"selected="selected">23시 00분</option>
+	                       </select>
+	                   	</div>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed" style="padding: 0;">
-                       <p class="text-muted" style="padding-top: 15px;padding-left: 8px;padding-bottom: 10px;">예약 인원 : </p>
-                  <div class="col-md-8 text-center" style="margin-right: 25px;">
-                     <select style="width: 50%;height:65%;text-align: center;margin-top: 10px" class="peoplecount">
-                        <c:forEach begin="1" end="20" var="count">
-                               <option>${count} 명</option>
-                        </c:forEach>
-                     </select>
-                  </div>
-               </li>
+                    	<p class="text-muted" style="padding-top: 15px;padding-left: 8px;padding-bottom: 10px;">예약 인원 : </p>
+						<div class="col-md-8 text-center" style="margin-right: 25px;">
+							<select style="width: 50%;height:65%;text-align: center;margin-top: 10px" class="peoplecount">
+								<c:forEach begin="1" end="20" var="count">
+								    	<option>${count}</option>명
+								</c:forEach>
+							</select>
+						</div>
+					</li>
                 </ul>
 
                 <hr class="mb-4">
@@ -655,51 +607,51 @@ margin-right:0.5em;
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">장소 이미지</h4>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-             
-              <div class="carousel-inner">
-               <c:if test="${record.r_image_1 != 'null' }" >
-                   <div class="carousel-item active">
-                     <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_1 }'/>" style="width:100%">
-                   </div>
-              </c:if>
-               <c:if test="${record.r_image_2 != 'null' }" >
-                   <div class="carousel-item ">
-                     <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_2 }'/>" style="width:100%">
-                   </div>
-                </c:if>
-                
-                 <c:if test="${record.r_image_3 != 'null' }" >
-                   <div class="carousel-item ">
-                     <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_3 }'/>" style="width:100%">
-                   </div>
-                </c:if>
-                
-                 <c:if test="${record.r_image_4 != 'null' }" >
-                   <div class="carousel-item ">
-                     <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_4 }'/>" style="width:100%">
-                   </div>
-                </c:if>
-                
-                 <c:if test="${record.r_image_5 != 'null' }" >
-                   <div class="carousel-item ">
-                     <img id="이미지" class="image_one" src= "<c:url value='upload/${record.r_image_5 }'/>" style="width:100%">
-                   </div>
-                </c:if>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				 
+				  <div class="carousel-inner">
+				   <c:if test="${record.r_image_1 != 'null' }" >
+					    <div class="carousel-item active">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_1 }'/>" style="width:100%">
+					    </div>
+				  </c:if>
+				   <c:if test="${record.r_image_2 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_2 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_3 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_3 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_4 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one"  src= "<c:url value='upload/${record.r_image_4 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				    
+				     <c:if test="${record.r_image_5 != 'null' }" >
+					    <div class="carousel-item ">
+					      <img id="이미지" class="image_one" src= "<c:url value='upload/${record.r_image_5 }'/>" style="width:100%">
+					    </div>
+				    </c:if>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
                     <h4 class="mb-3">RooM9 정보</h4>
                     <div class="col-md-12 mb-3 ">
                         <p class="tips">
@@ -711,114 +663,114 @@ margin-right:0.5em;
                     <div class="mb-3 border">
                     
                     <c:forEach items="${r_guid }" var="item" varStatus="">
-                  <c:choose >
-                     <c:when test="${item =='1'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon1.png'/>" alt="TV/프로젝터" class="r_guid"/>
-                           <p>TV/프로젝터</p>
-                        </label>      
-                     </c:when>
-                     <c:when test="${item =='2'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon2.png'/>" alt="인터넷/WiFi" class="r_guid"/>
-                           <p>인터넷/WiFi</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='3'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon3.png'/>" alt="복사/인쇄기" class="r_guid"/>
-                           <p>복사/인쇄기</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='4'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon4.png'/>" alt="화이트보드" class="r_guid"/>
-                           <p>화이트보드</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='5'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon5.png'/>" alt="음향/마이크" class="r_guid"/>
-                           <p>음향/마이크</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='6'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon6.png'/>" alt="취사시설" class="r_guid"/>
-                           <p>취사시설</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='7'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon7.png'/>" alt="음식물반입가능" class="r_guid"/>
-                           <p>음식물반입가능</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='8'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon8.png'/>" alt="주류반입가능" class="r_guid"/>
-                           <p>주류반입가능</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='9'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon9.png'/>" alt="샤워시설" class="r_guid"/>
-                           <p>샤워시설</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='10'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon10.png'/>" alt="주차가능" class="r_guid"/>
-                           <p>주차가능</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='11'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon11.png'/>" alt="금연" class="r_guid"/>
-                           <p>금연</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='12'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon12.png'/>" alt="반려동물동반가능" class="r_guid"/>
-                           <p>반려동물동반가능</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='13'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon13.png'/>" alt="PC/노트북" class="r_guid"/>
-                           <p>PC/노트북</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='14'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon14.png'/>" alt="의자/테이블" class="r_guid"/>
-                           <p>의자/테이블</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='15'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon15.png'/>" alt="내부화장실" class="r_guid"/>
-                           <p>내부화장실</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='16'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon16.png'/>" alt="남여화장실분리" class="r_guid"/>
-                           <p>남여화장실분리</p>
-                        </label>
-                     </c:when>
-                     <c:when test="${item =='17'}">
-                        <label class="r_guid_label">
-                           <img src="<c:url value='/assets/img/icon/facilityIcon17.png'/>" alt="남여공용화장실" class="r_guid"/>
-                           <p>남여공용화장실</p>
-                        </label>
-                     </c:when>
-                  </c:choose>
-               </c:forEach> 
-               </div>
+						<c:choose >
+							<c:when test="${item =='1'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon1.png'/>" alt="TV/프로젝터" class="r_guid"/>
+									<p>TV/프로젝터</p>
+								</label>		
+							</c:when>
+							<c:when test="${item =='2'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon2.png'/>" alt="인터넷/WiFi" class="r_guid"/>
+									<p>인터넷/WiFi</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='3'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon3.png'/>" alt="복사/인쇄기" class="r_guid"/>
+									<p>복사/인쇄기</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='4'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon4.png'/>" alt="화이트보드" class="r_guid"/>
+									<p>화이트보드</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='5'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon5.png'/>" alt="음향/마이크" class="r_guid"/>
+									<p>음향/마이크</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='6'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon6.png'/>" alt="취사시설" class="r_guid"/>
+									<p>취사시설</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='7'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon7.png'/>" alt="음식물반입가능" class="r_guid"/>
+									<p>음식물반입가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='8'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon8.png'/>" alt="주류반입가능" class="r_guid"/>
+									<p>주류반입가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='9'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon9.png'/>" alt="샤워시설" class="r_guid"/>
+									<p>샤워시설</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='10'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon10.png'/>" alt="주차가능" class="r_guid"/>
+									<p>주차가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='11'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon11.png'/>" alt="금연" class="r_guid"/>
+									<p>금연</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='12'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon12.png'/>" alt="반려동물동반가능" class="r_guid"/>
+									<p>반려동물동반가능</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='13'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon13.png'/>" alt="PC/노트북" class="r_guid"/>
+									<p>PC/노트북</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='14'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon14.png'/>" alt="의자/테이블" class="r_guid"/>
+									<p>의자/테이블</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='15'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon15.png'/>" alt="내부화장실" class="r_guid"/>
+									<p>내부화장실</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='16'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon16.png'/>" alt="남여화장실분리" class="r_guid"/>
+									<p>남여화장실분리</p>
+								</label>
+							</c:when>
+							<c:when test="${item =='17'}">
+								<label class="r_guid_label">
+									<img src="<c:url value='/assets/img/icon/facilityIcon17.png'/>" alt="남여공용화장실" class="r_guid"/>
+									<p>남여공용화장실</p>
+								</label>
+							</c:when>
+						</c:choose>
+					</c:forEach> 
+					</div>
                     <h4 class="mb-3">위치정보</h4>
-                       ${record.r_address }
+                    	${record.r_address }
                     <div class="mb-3 border">
                         <div id="map" style="width:100%; height:300px;"></div>
                     </div>
@@ -839,7 +791,7 @@ margin-right:0.5em;
                                 &nbsp;&nbsp;- 행사 28일 이내 통보시 : 예상매출 손실액 20%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
                                 &nbsp;&nbsp;- 행사 21일 이내 통보시 : 예상매출손실액 50%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
                                 &nbsp;&nbsp;- 행사   7일 이내 통보시 : 예상매출 손실액 70%를 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.<br />
-                                &nbsp;&nbsp;- 행사   3일 이내 통보시 : 예상매출 손실액 전액을 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.   <br />
+                                &nbsp;&nbsp;- 행사   3일 이내 통보시 : 예상매출 손실액 전액을 배상금으로 서울마리나 클럽&요트에 지불하셔야 합니다.	<br />
                                 <br />
                                 6. 불가항력(기상상황 포함) 또는 기타 서울마리나 클럽&요트에서 조정할 수 없는 원인으로 인하여 행사 장소를 사용할 수 없게 된 경우엔 서울마리나 클럽&요트에서 고객에게 다른 장소를 대체해 드릴 수 있는 권리를 갖습니다. 이에 고객께서 대채된 장소를 원하지 않으시는 경우 고객께서는 예약을 취소하실 수 있으며 이때 이미 지불된 계약금은 전액 환불됩니다.
                         </div>
@@ -852,50 +804,69 @@ margin-right:0.5em;
       <div id="disqus_thread" style="padding:5% 14%; width: 100%"></div>
       
         <!-- 예약신청Modal -->
-      <form method="get" action="<c:url value='/reservationProcess.room9'/>" id="registerform">
-         <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="padding-top: 5%">
-               <div class="modal-content">
-                  <div class="modal-body" style="padding: 10px 30px">
-                     <div class="modal-header" style="border-bottom: none">
-                        <button type="button" class="close" data-dismiss="modal"
-                           aria-label="Close" style="color: white;">
-                           <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h2 class="title mb-3 mt-3" style="text-align: center" >예약확인</h2>
-                     </div>
-                     <hr/>
-                     <div class="" style="padding-bottom: 5%">
-                        <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <p style="display:inline"><input type="hidden" name="res_dday"><!-- 정보뿌려주세요 --></p></h3>   
-                        <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <p style="display:inline"><input type="hidden" name="res_time" value="fff"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <p style="display:inline"><input type="hidden" name="res_peoplecount"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <p style="display:inline"><input type="hidden" name="res_name"><!-- 정보 뿌려주세요 --></p></h3>
-                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <p style="display:inline"><input type="hidden" name="res_tel"><!-- 정보 뿌려주세요 --></p></h3>
-                     </div>
-                     <script>
-                     var resview = function(){
-                        var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text(); 
-                        console.log(time);
-                              $('.res_dday p').html($("#datepicker").datepicker().val());
-                              $('.res_time p').html(time);
-                              $('.res_peoplecount p').html($('.peoplecount option:selected').html());
-                            $('.res_name p').html('${memeberinfo.m_name}');
-                              $('.res_tel p').html('${memeberinfo.m_tel}');   
-                     };
-                     </script>
-                     <div>
-                     </div>
-                  </div>
-                  <h6 style="text-align: center">예약을 원하시면  "확인" 버튼을 눌러주세요</h6>
-                 <div class="modal-footer" style="padding:15px 35%;border-top: none">
-                  <button class="btn inputbutton" style="padding-bottom: 10px;" type="submit" >확인</button>
-                  <button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;">취소</button>
-               </div>
-               </div>
-            </div>
-         </div>
-      </form>
+		<form method="get" action="<c:url value='/reservationProcess.room9'/>" id="registerform">
+		   <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		      aria-labelledby="myModalLabel" aria-hidden="true">
+		      <div class="modal-dialog" style="padding-top: 5%">
+		         <div class="modal-content">
+		            <div class="modal-body" style="padding: 10px 30px">
+		               <div class="modal-header" style="border-bottom: none">
+		                  <button type="button" class="close" data-dismiss="modal"
+		                     aria-label="Close" style="color: white;">
+		                     <span aria-hidden="true">&times;</span>
+		                  </button>
+		                  <h2 class="title mb-3 mt-3" style="text-align: center" >예약확인</h2>
+		               </div>
+		               <hr/>
+		               <div class="" style="padding-bottom: 5%">
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_dday">예약일자 : <p style="display:inline"></p></h3>
+		                  	<input type="hidden" name="res_dday" value=""/>   
+		                  <h3 style="color: gray;font-size:1em !important;" class="res_time">예약시간 : <p style="display:inline"></p></h3>
+		                 	<input type="hidden" name="res_time" value=""/>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_peoplecount">예약인원 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_peoplecount" value="" />
+                          <h3 style="color: gray;font-size:1em !important;" class="res_name">예약자 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_name" value="${memeberinfo.m_name}"/>
+                          <h3 style="color: gray;font-size:1em !important;" class="res_tel">등록된번호 : <p style="display:inline"></p></h3>
+                          	<input type="hidden" name="res_tel" value="${memeberinfo.m_tel}"/>
+                          	<input type="hidden" name="r_no" value="${record.r_no}"/>
+                          	<input type="hidden" name="r_money" value=""/>
+                          
+		               </div>
+		               <script>
+		               var time = $('.start_time option:selected').text() + " ~ " + $('.end_time option:selected').text();
+	            	   var restime = $('.end_time option:selected').val() - $('.start_time option:selected').val() ;
+	            	   var resultprice = (${record.r_money}) * restime;
+	            	   
+		               var resview = function(){
+		            	 
+		            	   
+			               console.log("예약가격 : "+ resultprice);
+			               
+			               		$('.res_dday p').html($("#datepicker").datepicker().val());
+				               	$('.res_time p').html(time);
+				               	$('.res_peoplecount p').html($('.peoplecount option:selected').val());
+				             	$('.res_name p').html('${memeberinfo.m_name}');
+				               	$('.res_tel p').html('${memeberinfo.m_tel}');
+				               	
+				               	$('input[name=res_time]').val(restime);
+				               	$('input[name=res_dday]').val($("#datepicker").datepicker().val());
+				               	$('input[name=res_peoplecount]').val($('.peoplecount option:selected').val());
+				               	$('input[name=r_money]').val(resultprice);
+							};
+		               </script>
+		               <div>
+		               </div>
+		            </div>
+		            <h6 style="text-align: center">예약을 원하시면  "확인" 버튼을 눌러주세요</h6>
+  					<div class="modal-footer" style="padding:15px 35%;border-top: none">
+						<button class="btn inputbutton" id="res_button" style="padding-bottom: 10px;" type="button" onclick="payment()" >확인</button>
+						<button class="btn inputbutton" type="button" data-dismiss="modal" style="padding-bottom: 10px;" type="reset">취소</button>
+					</div>
+		         </div>
+		      </div>
+		   </div>
+		</form>
 
 <script>
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -930,8 +901,8 @@ margin-right:0.5em;
              map : map,
              position : coords
           });
-    
-        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+     
+     	// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
        }
     });
@@ -943,33 +914,44 @@ margin-right:0.5em;
 </script>
 
 <script>
-   var payment = function(){
-      var IMP = window.IMP; // 생략가능
-      IMP.init('imp95302034'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-      IMP.request_pay({
-          pg : 'inicis', // version 1.1.0부터 지원.
-          pay_method : 'card',
-          merchant_uid : 'merchant_' + new Date().getTime(),
-          name : '주문명:결제테스트', // 결제 주문명
-          amount : 100, // 결제금액
-          buyer_email : 'iamport@siot.do',//구매자 이메일
-          buyer_name : '구매자이름',//구매자 이름
-          buyer_tel : '010-1234-5678',//구매자 핸드폰번호
-          buyer_addr : '서울특별시 강남구 삼성동',//구매자 주소
-          buyer_postcode : '123-456', //주문자 우편번호
-          m_redirect_url : 'https://www.yourdomain.com/payments/complete'
-      }, function(rsp) {
-          if ( rsp.success ) {
-              var msg = '결제가 완료되었습니다.';
-              msg += '고유ID : ' + rsp.imp_uid;
-              msg += '상점 거래ID : ' + rsp.merchant_uid;
-              msg += '결제 금액 : ' + rsp.paid_amount;
-              msg += '카드 승인번호 : ' + rsp.apply_num;
-          } else {
-              var msg = '결제에 실패하였습니다.';
-              msg += '에러내용 : ' + rsp.error_msg;
-          }
-          alert(msg);
-      });
-   }
+
+var payment = function(){
+	var IMP = window.IMP; // 생략가능
+	IMP.init('imp95302034'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+	IMP.request_pay({
+	    pg : 'inicis', // version 1.1.0부터 지원.
+	    pay_method : 'card',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '예약 테스트', // 결제 주문명
+	    amount : /*resultprice*/ 100, // 결제금액
+	    buyer_email : '${sessionScope.emailid}',//구매자 이메일
+	    buyer_name : '${memeberinfo.m_name}',//구매자 이름
+	    buyer_tel : '${memeberinfo.m_tel}',//구매자 핸드폰번호
+	    buyer_addr : '',//구매자 주소
+	    buyer_postcode : '', //주문자 우편번호
+	    m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+	}, function(rsp) {
+	    if ( rsp.success ) {
+	        var msg = '결제가 완료되었습니다.';
+	        $('form').submit();
+	    } else {
+	        var msg = '결제에 실패하였습니다.';
+	        msg += '에러내용 : ' + rsp.error_msg;
+	    }
+	    alert(msg);
+	});
+// 	var payment = function(){
+// 		$.ajax({
+// 			URL: "<c:url value='/payment.room9'/>",
+// 			type:"post",
+// 			success : function(data){
+// 				console.log("성공");
+// 			},
+// 			error: function(){
+// 				console.log("에러엘레ㅓ러럴");
+// 			}
+// 		});
+// 	}
+}	
 </script>
+

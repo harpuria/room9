@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +30,9 @@ import org.springframework.web.client.RestTemplate;
 import com.kosmo.room9.service.CrawlingDataDTO;
 import com.kosmo.room9.service.impl.CrawlingDataServiceImpl;
 import com.kosmo.room9.service.impl.MemberServiceImpl;
+import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
-
+import com.kosmo.room9.service.Room9DTO;
 @Controller
 public class AndroidController {
 	
@@ -39,6 +42,9 @@ public class AndroidController {
 	
 	@Resource(name="crawlingDataServiceImpl")
 	CrawlingDataServiceImpl crawlingservice;
+	
+	@Resource(name="room9ServiceImpl")
+	Room9ServiceImpl  listservice;
 	
 	// 안드로이드 로그인
 	@RequestMapping("/loginAndroid.room9")
@@ -125,42 +131,53 @@ public class AndroidController {
 				
 				
 	}
-	@RequestMapping("/fcmpushmsg.room9")
-	public String sendPush(HttpServletRequest request, Model model) {
-		System.out.println("sendPush.......");
-		String token = "fXAeeNRgOSg:APA91bHbM62B19ynfduWbb21D2TBw0RXF3a9uXZGaVcXvo-E92I0vEHhqnpv07cenP1kl2m9fNgin8SKvMBHQ3fr5NZ6m7F9vQ3PJcnpydua3HwjS8QdZoqZ-qHx11Vir2YlAtcirUJA"; // 서버에 저장된 토큰 가져오기
-		String title = "wiio";
-		String content = "kosmosmomom";
+	
+	@RequestMapping(value="/listapp.room9") 
+	public String listopenApp(@RequestParam Map map,HttpServletRequest req) throws Exception{
+		
+		List<Room9DTO> list = listservice.selectList(null);
+		
+		JSONArray jsonArray = new JSONArray();
+		for(int i=0;i < list.size();i++){
+			JSONObject json = new JSONObject();
+			json.put("R_image_1",list.get(i).getR_image_1());
+			json.put("R_money",list.get(i).getR_money());
+			
+			json.put("R_name",list.get(i).getR_name());
+			json.put("R_address",list.get(i).getR_address());
+			json.put("R_no",list.get(i).getR_no());
+			jsonArray.add(json);
+		 }
+		
+		String filepath = req.getSession().getServletContext().getRealPath("WEB-INF/views") + "/listapp.json";
+		
 		try {
-			title   = URLEncoder.encode(title  ,"UTF-8"); // 한글깨짐으로 URL인코딩해서 보냄
-			content = URLEncoder.encode(content,"UTF-8");
-			System.out.println(String.format("title : %s, content : %s", title, content));
-
-		} catch (UnsupportedEncodingException e) {
+			System.out.println(filepath);
+			FileWriter file = new FileWriter(filepath);
+			file.write(jsonArray.toJSONString());
+			file.flush();
+			file.close();
+		}
+		catch(IOException e) {
 			e.printStackTrace();
 		}
-		ResponseEntity<String> result = sendHttp(token, title, content);
-		model.addAttribute("serverTime", token);
-		model.addAttribute("result", result.getBody());
-		return "";
+		
+		return "forward:/WEB-INF/views/listapp.json";
+							
 	}
-
-	private ResponseEntity<String> sendHttp(String token, String title, String content){
-
-		RestTemplate template = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders(); 
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization", "key="+"AAAAwK1Lp9k:APA91bEALzuDFMJkmLT88Kj0Opt3x50GbFNGLIyFRoc1eyA-3DUeLAGwED0kw8Tjp4cWwyohk8MvixAQl3KDQo01toEtjVqWDAnJkDB1mWFktDKTNvT3I7IHhH-0xb2om2WLJHzT3r0p"); // API_KEY : Firebase 내 프로젝트의 서버키		
-		JSONObject json  = new JSONObject();
-		json.put("to", token);
 	
-		JSONObject data = new JSONObject();
-		data.put("title"  , title);
-		data.put("message", content);
-		json.put("data"   ,data);
-		HttpEntity entity = new HttpEntity(json.toJSONString(), headers);
-		return template.exchange("https://fcm.googleapis.com/fcm/send", HttpMethod.POST, entity, String.class);
-
+	@RequestMapping("/fcmpushmsg.room9")
+	public void Token(@RequestParam Map map) {
+		System.out.println(map);
+		System.out.println("Token :" +map.get("token").toString());
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	

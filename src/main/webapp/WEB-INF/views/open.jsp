@@ -371,7 +371,6 @@ width: 100%;overflow: hidden;box-sizing: border-box;}
             <button class="btn btn-default filter-button" data-filter="practice">#연습실</button>
             <button class="btn btn-default filter-button" data-filter="leisure">#레저시설</button>
             <button class="btn btn-default filter-button" data-filter="cafe">#카페</button>
-            
         </div>
     </div>
    </div>

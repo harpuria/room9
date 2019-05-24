@@ -17,5 +17,5 @@ public interface Room9AdminService {
 	
 	// 예약자 회원 목록 가져오기
 	List<ReservationDataDTO> reservationList(Map map);
-	
+
 }

@@ -22,7 +22,6 @@
 							<tbody>
 								<c:forEach items="${list }" var="item">
 									<tr>
-										
 										<td class="text-center">${item.h_name }</td>
 										<td class="text-center">${item.r_name }</th>
 										<td class="text-center">${item.r_date }</td>

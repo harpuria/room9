@@ -7,9 +7,20 @@
 			<div class="card ">
 				<div class="card-header">
 					<h4 class="card-title">예약자 리스트</h4>
-					<c:forEach items="${list }" var="item">
-						<a href="<c:url value='/adminReservationListDetail.room9?no=${item.r_no }'/>">${item.r_name }</a>&nbsp;&nbsp;&nbsp;
-					</c:forEach>
+					
+					<select>
+						<option>방을 선택해 주세요</option>
+						<c:forEach items="${list }" var="item">
+							<option onclick="listDetail('${item.r_no }')">${item.r_name }</option>
+						</c:forEach>
+					</select>
+					
+					<script>
+						function listDetail(no){
+							location.href = "<c:url value='/adminReservationListDetail.room9?no= " + no + " '/>";
+						}
+					</script>
+
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">

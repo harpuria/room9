@@ -81,5 +81,10 @@ public class MemberDAO implements MemberService{
 		return template.selectList("ResSelectList", map);
 	}
 
+	public int roomCancle(Map map) {
+
+		return template.delete("roomCancle",map);
+	}
+
 
 }

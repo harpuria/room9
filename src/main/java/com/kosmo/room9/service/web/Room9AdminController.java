@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.kosmo.room9.service.HostDTO;
 import com.kosmo.room9.service.NoticeDTO;
+import com.kosmo.room9.service.ReservationDataDTO;
 import com.kosmo.room9.service.Room9DTO;
 import com.kosmo.room9.service.Room9MemberDTO;
 import com.kosmo.room9.service.impl.HostServiceImpl;
@@ -41,6 +42,9 @@ public class Room9AdminController {
 	//호스트명을 가져오기위한 서비스주입
 	@Resource(name="hostServiceImpl")
 	private HostServiceImpl hostservice;
+	
+	@Resource(name="room9ServiceImpl")
+	Room9ServiceImpl room9service;
 	
 	
 	@RequestMapping("/admin_main.room9")
@@ -138,7 +142,7 @@ public class Room9AdminController {
 		map.put("totaltime", starttime +" ~ "+endtime );
 		
 		//주소와 상세주소 합쳐서 테이블저장
-		map.put("addr",map.get("addr").toString() +" "+ map.get("addr_detail").toString());
+//		map.put("addr",map.get("addr").toString() +" "+ map.get("addr_detail").toString());
 		
 		String[] files = map.get("imgfiles").toString().split(",");
 		map.put("r_img_0","null");
@@ -191,4 +195,26 @@ public class Room9AdminController {
 		
 		
 	}///////////////
+	
+	@RequestMapping("/admin_reservationList.room9")
+	public String adminReservationList(@RequestParam Map map, Model model) throws Exception{
+		
+		List<Room9DTO> list = room9service.selectList(null);
+		model.addAttribute("list", list);
+		
+		return "admin_reservationList.adminTiles";
+	}
+	
+	@RequestMapping("/adminReservationListDetail.room9")
+	public String adminReservationListDetail(@RequestParam Map map, Model model) throws Exception{
+		
+		List<Room9DTO> list = room9service.selectList(null);
+		model.addAttribute("list", list);
+		
+		List<ReservationDataDTO> listReservation = service.reservationList(map);
+		model.addAttribute("listReservation", listReservation);
+		
+		return "admin_reservationList.adminTiles";
+		
+	}
 }

@@ -31,6 +31,10 @@
 	        <li><a href=<c:url value="/admin_room9List.room9"/>>
 	          <i class="tim-icons icon-app"></i>
 	          <p>ROOM9 목록</p></a>
+	        </li>
+	       	<li><a href=<c:url value="/admin_reservationList.room9"/>>
+	          <i class="tim-icons icon-app"></i>
+	          <p>예약자 목록</p></a>
 	        </li>	        
 	        <li><a href=<c:url value="/admin_calender.room9"/>>
 	          <i class="tim-icons icon-calendar-60"></i>

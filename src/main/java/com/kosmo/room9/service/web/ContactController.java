@@ -3,6 +3,7 @@ package com.kosmo.room9.service.web;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +41,18 @@ public class ContactController {
 	}
 	
 	@RequestMapping("/reservationProcess.room9")
-	public String reservationProcess(@RequestParam Map map, Model model) throws Exception{
+	public String reservationProcess(@RequestParam Map map, Model model,HttpSession session) throws Exception{
+		
+		//세션영역에 있는 멤버 아이디를 받아옴
+		map.put("emailid", session.getAttribute("emailid"));
 		
 		System.out.println("예약하기 값 :" + map);
 		
+		//예약 내용을 넣어줘야함
+		service.reservationInsert(map);
+		
 		//예약하면 결제 페이지로
-		return "redirect:/";
+		return "home.tiles";
 	}
 	
 	@RequestMapping("/question.room9")
@@ -58,4 +65,6 @@ public class ContactController {
 	public String freeBbs() throws Exception{
 		return "freebbs.tiles";
 	}
+	
+
 }

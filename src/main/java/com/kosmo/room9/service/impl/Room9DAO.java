@@ -30,5 +30,12 @@ public class Room9DAO implements Room9Service {
 		
 		return template.selectOne("selectOne", map);
 	}
+
+
+	@Override
+	public int reservationInsert(Map map) {
+		
+		return template.insert("reservationInsert", map);
+	}
 	
 }

@@ -491,77 +491,75 @@ label.error {
     </div>
 <section class="content" style="padding-left: 7%;">
 	<h3 class="mainTitle" style="width: 112%;">나의 예약내역</h3>
-	<c:if test="${not empty list }" var="isEmpty">
-		<c:forEach items="${list }" var="items" varStatus="loop">
-			<div class="container-fluid" id="">
-				<div class="row">
-					<article class="placeListArea">
-						<ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-							<li><a href="#">
+	<div class="container-fluid" id="">
+		<article class="placeListArea">
+			<ul class="placeList wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s" style="display: inline">
+				<c:if test="${not empty list }" var="isEmpty">
+					<c:forEach items="${list }" var="items" varStatus="loop">
+						<li class="row"><a href="#">
 								<div class="imgArea">
-									<img src="<c:url value='resources/img/book.jpg'/>" />
+									<img src="<c:url value='upload/${items.r_image_1 }'/>" />
 								</div>
 								<div class="tagArea">
-									<span class="btn tag">#서울</span> <span class="btn tag">#회의실</span>
-									<span class="btn tag">#세미나</span>
+									<span class="btn tag">${items.r_tag_1 }</span>
+									<span class="btn tag">${items.r_tag_2 }</span>
+									<span class="btn tag">${items.r_tag_3 }</span>
 								</div>
 								<div class="infoArea">
 									<p class="title_1">${items.r_name }</p>
 									<p class="address">${items.r_address }</p>
 								</div>
 								<div class="subInfoArea">
-									<span class="capacity">
-										<!-- 에약날짜 -->
+									<span class="capacity"> <!-- 에약날짜 -->
 									</span>
 									<p class="priceAndTime">
-										<span class="price">총금액 : ${items.r_money }원</span>
+										<span class="price">총 예약금액 : ${items.s_money }원</span>
 									</p>
 								</div>
-							</a></li>
-						</ul>
-					</article>
-				</div>
-			</div>
-		</c:forEach>
-	</c:if>
+						</a></li>
+					</c:forEach>
+				</c:if>
+			</ul>
+		</article>
+	</div>
 </section>
 
 
 <script>
-$('.hostForm').validate({
-	//validation이 끝난 이후의 submit 직전 추가 작업할 부분
-	rules : {
-		currentPwd : {
-			required : true
+	$('.hostForm').validate({
+		//validation이 끝난 이후의 submit 직전 추가 작업할 부분
+		rules : {
+			currentPwd : {
+				required : true
+			},
+			changePwd : {
+				required : true,
+				maxlength : 9,
+				minlength : 4
+			},
+			re_changePwd : {
+				required : true,
+				maxlength : 9,
+				minlength : 4,
+				equalTo : changePwd
+			}
 		},
-		changePwd : {
-			required : true,
-			maxlength : 9,
-			minlength : 4
-		},
-		re_changePwd: {
-			required : true,
-			maxlength : 9,
-			minlength : 4,
-			equalTo : changePwd
+		messages : {
+			currentPwd : {
+				required : "현재 비밀번호를 입력해주세요"
+			},
+			changePwd : {
+				required : "바꾸고싶은 비밀번호를 입력해 주세요",
+				maxlength : "비밀번호는 9자 이내로 입력해 주세요",
+				minlength : "비밀번호는 최소 4자 이상 입력해 주세요"
+			},
+			re_changePwd : {
+				required : "비밀번호 확인을 위해서 비밀번호를 다시 입력해 주세요",
+				maxlength : "비밀번호는 9자 이내로 입력해 주세요",
+				minlength : "비밀번호는 최소 4자 이상 입력해 주세요",
+				equalTo : "비밀번호가 일치 하지 않습니다."
+			}
+
 		}
-	},
-	messages : {
-		currentPwd : {
-			required : "현재 비밀번호를 입력해주세요"
-		},
-		changePwd : {
-			required : "바꾸고싶은 비밀번호를 입력해 주세요",
-			maxlength : "비밀번호는 9자 이내로 입력해 주세요",
-			minlength : "비밀번호는 최소 4자 이상 입력해 주세요"
-		},
-		re_changePwd : {
-			required : "비밀번호 확인을 위해서 비밀번호를 다시 입력해 주세요",
-			maxlength : "비밀번호는 9자 이내로 입력해 주세요",
-			minlength : "비밀번호는 최소 4자 이상 입력해 주세요",
-			equalTo : "비밀번호가 일치 하지 않습니다."
-		}
-		
-	}
-});
+	});
 </script>	

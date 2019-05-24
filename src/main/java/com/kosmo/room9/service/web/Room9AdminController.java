@@ -56,6 +56,8 @@ public class Room9AdminController {
 		model.addAttribute("memberCount", service.getMember(map));
 		model.addAttribute("hostMemberCount", service.getHostMember(map));
 
+		
+		
 		return "admin_main.adminTiles";
 	}
 	//룸리스트(뿌려주기)

@@ -61,11 +61,11 @@
 				</div>
 			</div>
 		</div>
+		<c:if test="${sessionScope.emailid eq 'room@room.com' }">
 		<div class="col-md-12 text-center">
-			<button type="button"
-				onclick="location.href='<c:url value='/admin_WriteNotice.room9'/>'"
-				class="btn btn-primary">글쓰기</button>
+			<button onclick="location.href='<c:url value='/admin_WriteNotice.room9'/>'"class="btn btn-primary">글쓰기</button>
 		</div>
+		</c:if>
 	</div>
 </div>
 

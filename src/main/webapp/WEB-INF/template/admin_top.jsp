@@ -14,15 +14,19 @@
 	          <p>메인화면</p></a>
 	        </li>
 	        
-	        <li><a href=<c:url value="/admin_member.room9"/>> 
-	          <i class="tim-icons icon-single-02"></i>
-	          <p>회원관리</p></a>
-	        </li>
-	        
-	        <li><a href=<c:url value="/admin_host.room9"/>>
-	          <i class="tim-icons icon-badge"></i>
-	          <p>호스트관리</p></a>
-	        </li>
+	        <!-- 임시로 어드민만 보이게 -->
+	        <c:if test="${sessionScope.emailid eq 'room@room.com' }">
+		        <li><a href=<c:url value="/admin_member.room9"/>> 
+		          <i class="tim-icons icon-single-02"></i>
+		          <p>회원관리</p></a>
+		        </li>
+		        
+		        <li><a href=<c:url value="/admin_host.room9"/>>
+		          <i class="tim-icons icon-badge"></i>
+		          <p>호스트관리</p></a>
+		        </li>
+	        <!-- 어드민만 보이게 -->
+	        </c:if>
 	        
 	        <li><a href=<c:url value="/admin_room9_join.room9?h_no=${h_no }"/>>
 	          <i class="tim-icons icon-app"></i>
@@ -45,6 +49,7 @@
 	          <i class="tim-icons icon-bell-55"></i>
 	          <p>공지사항</p></a>
 	        </li>
+     
 	        
 	        <li><a href="<c:url value="/home.room9"/>"> 
 	          <i class="tim-icons icon-attach-87"></i>

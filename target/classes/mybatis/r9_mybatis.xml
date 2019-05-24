@@ -72,7 +72,7 @@
  	
  	<!-- 예약정보 뿌려주기 -->
  	<select id="ResSelectList" parameterType="java.util.Map" resultType="ReservationDataDTO">
- 		SELECT MEM.*,RES.S_NO, ROOM.R_NAME, ROOM.R_ADDRESS, ROOM.R_MONEY FROM 
+ 		SELECT MEM.*,RES.S_NO, RES.S_MONEY, ROOM.* FROM
 		R9_MEMBER MEM JOIN
 		R9_RESERVATION RES ON
 		MEM.M_NO = RES.M_NO  

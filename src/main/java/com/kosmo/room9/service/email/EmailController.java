@@ -3,6 +3,8 @@ package com.kosmo.room9.service.email;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.mail.BodyPart;
+import javax.mail.internet.MimeBodyPart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -58,11 +60,14 @@ public class EmailController {
 		String tel = map.get("tel").toString();
 		String title = map.get("title").toString();
 		String content = map.get("content").toString();
+
+		String htmlText = "<h1>" + name + "님의 문의 사항\r\n\r\n" + title + "\r\n" + content + "</h1>";
 		
-		email.setContent(name + "님의 문의 사항\r\n\r\n" + title + "\r\n" + content); // 내용
+		email.setContent(htmlText); // 내용
 		email.setReceiver("harpuria87@gmail.com");
 		email.setSubject(name + "님의 문의사항입니다"); // 제목
 		emailSender.SendEmail(mailSender, email); // 보내기!
+		
 		
 		model.addAttribute("msgType", "mailSendingComplete_q");
 		model.addAttribute("msg", "문의사항 전송이 완료되었습니다.");

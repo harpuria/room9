@@ -41,7 +41,6 @@ public class MemberController {
 		
 		System.out.println(list.get(0).getR_image_1());
 		
-		
 		return "UserInfo.tiles";
 	}
 	

@@ -25,6 +25,7 @@
 <script src=<c:url value="/assets/packages/daygrid/main.js" />></script>
 <script src=<c:url value="/assets/packages/list/main.js" />></script>
 <script src=<c:url value="/assets/packages/timegrid/main.js" />></script>  
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bae907e078c4dd929177071c5ed2263c&libraries=services,clusterer,drawing"></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

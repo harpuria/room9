@@ -30,7 +30,7 @@ import com.kosmo.room9.service.HostService;
 import com.kosmo.room9.service.MemberService;
 import com.kosmo.room9.service.impl.HostServiceImpl;
 import com.kosmo.room9.service.impl.MemberServiceImpl;
-
+import com.kosmo.room9.service.impl.NoticeServiceImpl;
 import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
 import com.kosmo.room9.service.impl.Room9ServiceImpl;
 
@@ -46,6 +46,9 @@ public class Room9AdminController {
 	@Resource(name="room9ServiceImpl")
 	Room9ServiceImpl room9service;
 	
+	@Resource(name="noticeServiceImpl")
+	NoticeServiceImpl noticeService;
+	
 	
 	@RequestMapping("/admin_main.room9")
 	public String admin_main(@RequestParam Map map, Model model, HttpSession session) throws Exception{
@@ -55,9 +58,13 @@ public class Room9AdminController {
 
 		model.addAttribute("memberCount", service.getMember(map));
 		model.addAttribute("hostMemberCount", service.getHostMember(map));
+		
+		List<NoticeDTO> list = noticeService.noticeList(map);
+		model.addAttribute("list", list);
+		
+		List<HostDTO> listRoom = hostservice.room9List(map);
+		model.addAttribute("listRoom", listRoom);
 
-		
-		
 		return "admin_main.adminTiles";
 	}
 	//룸리스트(뿌려주기)

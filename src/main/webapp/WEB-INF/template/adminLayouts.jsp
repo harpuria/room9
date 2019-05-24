@@ -19,10 +19,11 @@
 <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 <link href=<c:url value="/assets/packages/core/main.css" /> rel='stylesheet' />
 <link href=<c:url value="/assets/packages/daygrid/main.css" /> rel='stylesheet' />
-<link href=<c:url value="/assets/packages/timegrid/main.css" /> rel='stylesheet' />
+<link href=<c:url value="/assets/packages/list/main.css" /> rel='stylesheet' />
 <script src=<c:url value="/assets/packages/core/main.js" />></script>
 <script src=<c:url value="/assets/packages/interaction/main.js" />></script>
 <script src=<c:url value="/assets/packages/daygrid/main.js" />></script>
+<script src=<c:url value="/assets/packages/list/main.js" />></script>
 <script src=<c:url value="/assets/packages/timegrid/main.js" />></script>  
 
 <script>

@@ -15,7 +15,7 @@
 	        </li>
 	        
 	        <!-- 임시로 어드민만 보이게 -->
-	        <c:if test="${sessionScope.emailid eq 'room@room.com' }">
+	        <c:if test="${sessionScope.emailid eq 'room@room.com' }" var="isAdmin">
 		        <li><a href=<c:url value="/admin_member.room9"/>> 
 		          <i class="tim-icons icon-single-02"></i>
 		          <p>회원관리</p></a>
@@ -25,33 +25,37 @@
 		          <i class="tim-icons icon-badge"></i>
 		          <p>호스트관리</p></a>
 		        </li>
+		        
+		        <li><a href=<c:url value="/admin_room9List.room9"/>>
+		          <i class="tim-icons icon-app"></i>
+		          <p>ROOM9 목록</p></a>
+		        </li>
 	        <!-- 어드민만 보이게 -->
 	        </c:if>
 	        
-	        <li><a href=<c:url value="/admin_room9_join.room9?h_no=${h_no }"/>>
-	          <i class="tim-icons icon-app"></i>
-	          <p>ROOM9 등록</p></a>
-	        </li>
-	        <li><a href=<c:url value="/admin_room9List.room9"/>>
-	          <i class="tim-icons icon-app"></i>
-	          <p>ROOM9 목록</p></a>
-	        </li>
-	       	<li><a href=<c:url value="/admin_reservationList.room9"/>>
-	          <i class="tim-icons icon-app"></i>
-	          <p>예약자 목록</p></a>
-	        </li>	        
-	        <li><a href=<c:url value="/admin_calender.room9"/>>
-	          <i class="tim-icons icon-calendar-60"></i>
-	          <p>스케줄표</p></a>
-	        </li>
-	        
-	        <li><a href=<c:url value="/admin_notice.room9"/>> 
-	          <i class="tim-icons icon-bell-55"></i>
-	          <p>공지사항</p></a>
-	        </li>
-     
-	        
-	        <li><a href="<c:url value="/home.room9"/>"> 
+	        <c:if test="${not isAdmin }">
+		        <li><a href=<c:url value="/admin_room9_join.room9?h_no=${h_no }"/>>
+		          <i class="tim-icons icon-app"></i>
+		          <p>ROOM9 등록</p></a>
+		        </li>
+		        <li><a href=<c:url value="/admin_room9List.room9?emailid=${sessionScope.emailid }"/>>
+		          <i class="tim-icons icon-app"></i>
+		          <p>ROOM9 목록</p></a>
+		        </li>
+		       	<li><a href=<c:url value="/admin_reservationList.room9?emailid=${sessionScope.emailid }"/>>
+		          <i class="tim-icons icon-app"></i>
+		          <p>예약자 목록</p></a>
+		        </li>	        
+		        <li><a href=<c:url value="/admin_calender.room9"/>>
+		          <i class="tim-icons icon-calendar-60"></i>
+		          <p>스케줄표</p></a>
+		        </li>
+	        </c:if>
+
+			<li><a href=<c:url value="/admin_notice.room9"/>> <i
+					class="tim-icons icon-bell-55"></i>
+					<p>공지사항</p></a></li>
+			<li><a href="<c:url value="/home.room9"/>"> 
 	          <i class="tim-icons icon-attach-87"></i>
 	          <p>ROOM9</p></a>
 	        </li>

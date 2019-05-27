@@ -9,22 +9,17 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
 public class EmailSender {
-//   
-//	@Autowired
-//  private JavaMailSender mailSender;
     
     public void SendEmail(JavaMailSender mailSender, Email email) throws Exception {
     	System.out.println("들어오니? : " + mailSender);
         MimeMessage msg = mailSender.createMimeMessage();
-
-        
         
         try {
-        	msg.setHeader("Content-Type", "text/html; charset=UTF-8");
             msg.setSubject(email.getSubject());
-            msg.setContent(email.getContent(), "text/html");
+            msg.setContent(email.getContent(), "text/html; charset=UTF-8");
             //msg.setText(email.getContent());
             msg.setRecipients(MimeMessage.RecipientType.TO , InternetAddress.parse(email.getReceiver()));
            

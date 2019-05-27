@@ -208,7 +208,7 @@ public class Room9AdminController {
 	@RequestMapping("/admin_reservationList.room9")
 	public String adminReservationList(@RequestParam Map map, Model model) throws Exception{
 		
-		List<Room9DTO> list = room9service.selectList(null);
+		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		
 		return "admin_reservationList.adminTiles";
@@ -217,7 +217,7 @@ public class Room9AdminController {
 	@RequestMapping("/adminReservationListDetail.room9")
 	public String adminReservationListDetail(@RequestParam Map map, Model model) throws Exception{
 		
-		List<Room9DTO> list = room9service.selectList(null);
+		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		
 		List<ReservationDataDTO> listReservation = service.reservationList(map);

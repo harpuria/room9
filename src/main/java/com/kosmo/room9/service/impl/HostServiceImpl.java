@@ -44,6 +44,11 @@ public class HostServiceImpl implements HostService {
 		
 		return dao.room9List(map);
 	}
+
+	@Override
+	public List<Room9DTO> hostRoomList(Map map) {
+		return dao.hostRoomList(map);
+	}
 	
 	
 }

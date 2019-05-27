@@ -17,7 +17,7 @@
 					
 					<script>
 						function listDetail(no){
-							location.href = "<c:url value='/adminReservationListDetail.room9?no= " + no + " '/>";
+							location.href = "<c:url value='/adminReservationListDetail.room9?no= " + no + "&emailid=${sessionScope.emailid}'/>";
 						}
 					</script>
 

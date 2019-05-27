@@ -68,7 +68,7 @@
                 <i class="fas fa-handshake fa-2x" style="color: #86be2e"></i>&nbsp;&nbsp;COALITION
             </a>
         </div>
-        <c:if test="${sessionScope.isHost eq 'true' }" >
+        <c:if test="${sessionScope.isHost eq 'true' or sessionScope.emailid eq 'room@room.com'}" >
 	        <div class="link-ff">
 	            <a href="<c:url value='/admin_main.room9?h_no=${h_no }'/>">
 	                <i class="fas fa-chart-pie fa-2x" style="color: #FF00FF"></i>&nbsp;&nbsp;ADMIN

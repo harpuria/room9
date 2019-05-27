@@ -35,7 +35,7 @@
 	                    <h4>내용</h4>
 	                </div>
 	                <div class="editArea">
-	                    <textarea name="r_content" class="introText"
+	                    <textarea name="r_content" class="introText summernote"
 	                        placeholder="ROOM9공지사항 / 500자 이내 입력" maxlength="500"
 	                        data-parsley-required="true" data-parsley-errors-container=".introErrorWrap"
 	                        data-parsley-error-message="ROOM9공지사항"></textarea>

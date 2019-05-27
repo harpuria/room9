@@ -208,7 +208,7 @@ public class Room9AdminController {
 	@RequestMapping("/admin_reservationList.room9")
 	public String adminReservationList(@RequestParam Map map, Model model) throws Exception{
 		
-		List<Room9DTO> list = room9service.selectList(null);
+		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		
 		return "admin_reservationList.adminTiles";
@@ -217,7 +217,7 @@ public class Room9AdminController {
 	@RequestMapping("/adminReservationListDetail.room9")
 	public String adminReservationListDetail(@RequestParam Map map, Model model) throws Exception{
 		
-		List<Room9DTO> list = room9service.selectList(null);
+		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		
 		List<ReservationDataDTO> listReservation = service.reservationList(map);
@@ -225,5 +225,16 @@ public class Room9AdminController {
 		
 		return "admin_reservationList.adminTiles";
 		
+	}
+	
+	//호스트가 룸 정보 수정하는 페이지
+	@RequestMapping("/admin_roomListUpdate.room9")
+	public String admin_roomListUpdate(@RequestParam Map map, Model model) throws Exception{
+		
+		//룸 정보들 뽑아와야함 
+		Room9DTO record = room9service.selectOne(map);
+		model.addAttribute("room9record", record);
+		
+		return "admin_room9_update.adminTiles";
 	}
 }

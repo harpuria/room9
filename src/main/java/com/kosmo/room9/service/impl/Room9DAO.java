@@ -27,14 +27,12 @@ public class Room9DAO implements Room9Service {
 
 	@Override
 	public Room9DTO selectOne(Map map) {
-		
 		return template.selectOne("selectOne", map);
 	}
 
 
 	@Override
 	public int reservationInsert(Map map) {
-		
 		return template.insert("reservationInsert", map);
 	}
 	

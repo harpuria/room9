@@ -23,12 +23,12 @@
 								<c:forEach items="${list }" var="item">
 									<tr>
 										<td class="text-center">${item.h_name }</td>
-										<td class="text-center">${item.r_name }</th>
+										<td class="text-center">${item.r_name }</td>
 										<td class="text-center">${item.r_date }</td>
 										<td class="text-center">
 											<form>
 												<button type="button"
-													onclick="location.href='<c:url value='/admin_roomListUpdate.room9'/>'"
+													onclick="location.href='<c:url value='/admin_roomListUpdate.room9?r_no=${item.r_no }'/>'"
 													class="btn btn-primary">수정</button>
 												<button type="button"
 													onclick='location.href="<c:url value='/admin_roomListDelete.room9?r_no=${item.r_no}'/>"'

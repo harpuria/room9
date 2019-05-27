@@ -307,6 +307,7 @@
 				// 정상적으로 검색이 완료됐으면 
 				if (status === daum.maps.services.Status.OK) {
 					console.log("좌표 확인 : " + result[0].y, result[0].x);
+					console.log("img check :" + elt.img);
 
 					// 해당 위치의 마커를 만들고...
 					var marker = new daum.maps.Marker({
@@ -326,7 +327,7 @@
 					            '        </div>' + 
 					            '        <div class="body">' + 
 					            '            <div class="img">' +
-					            '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+					            '                <img src="<c:url value=' + "upload/" + elt.img + '/>" width="73" height="70">' +
 					            '           </div>' + 
 					            '            <div class="desc">' + 
 					            '                <div class="ellipsis">' + elt.addr + '</div>' + 

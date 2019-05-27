@@ -89,6 +89,7 @@
 <script src=<c:url value="/assets/js/black-dashboard.min.js?v=1.0.0"/>></script>
 <script src=<c:url value="/assets/demo/demo.js"/>></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
 <script>
   $(document).ready(function () {
     $().ready(function () {

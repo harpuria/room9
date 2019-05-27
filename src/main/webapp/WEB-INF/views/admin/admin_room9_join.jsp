@@ -7,6 +7,21 @@
 <link href=<c:url value="assets/css/common.css"/> rel="stylesheet" />
 <link href=<c:url value="assets/css/formcommon.css"/> rel="stylesheet" />    
 
+
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<script>
+function addrSearch(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+            $('#mapAddr').val(data.roadAddress);
+            $('#location').focus();
+        }
+    }).open();
+};
+</script>
+
 <section class="content" style="padding: 78px 30px 30px 280px;">
     <h3 class="mainTitle">ROOM9 정보 입력<span class="tips">* 모든 항목 필수</span></h3>
     <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data">
@@ -33,12 +48,11 @@
                     <input type="hidden" name="sublocality2" id="dong" value="시흥동">
                 </div>
                 <div class="editArea">
-                    <input type="text" placeholder="주소 검색 / 예) 강남구 영동대로" id="mapAddr" name="addr"
-                        class="search ui-autocomplete-input" data-parsley-required="true"
-                        data-parsley-error-message="플레이스 위치를 입력해 주세요" autocomplete="off">
-                    <input type="text" placeholder="상세주소 입력" class="detail" id="location" name="addr_detail">
- 
-                    <div class="col-md-12" style="width: 100%; height: 800px;" id="map"></div>
+                    <input onclick="addrSearch()" type="text" placeholder="주소 검색 / 예) 강남구 영동대로" id="mapAddr" name="addr"  >
+                    <input type="text" placeholder="상세주소 입력" class="detail" id="location" name="addr_detail" onfocus="addressSearch()">
+					
+					
+                    <div class="col-md-12" style="width: 100%; height: 300px;" id="map"></div>
                     
                     <!-- 지도 시작 (클릭시 마커 표시 하고 주소값 받아오기) -->
                     <script>
@@ -61,24 +75,33 @@
 						// 지도에 마커를 표시합니다
 						marker.setMap(map);
 						
-						// 지도에 클릭 이벤트를 등록합니다
-						// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-						daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
-							 searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
-						        if (status === daum.maps.services.Status.OK) {
-						            // 마커를 클릭한 위치에 표시합니다 
-						            marker.setPosition(mouseEvent.latLng);
-						            marker.setMap(map);
-						            
-						            $("#mapAddr").val(result[0].address.address_name);
-						        }   
-						    });
-						});
 						
-						function searchDetailAddrFromCoords(coords, callback) {
-						    // 좌표로 법정동 상세 주소 정보를 요청합니다
-						    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-						}
+						//주소를 적으면 마커가 찍히게끔 
+						function addressSearch(){
+						      address = $("#mapAddr").val();
+						      console.log(address);
+						      
+						      //주소로 좌표를 검색합니다
+						      geocoder.addressSearch(address,   function(result, status) {
+						         // 정상적으로 검색이 완료됐으면 
+						         if (status === daum.maps.services.Status.OK) {
+						      
+						            var coords = new daum.maps.LatLng(result[0].y,result[0].x);
+						            //console.log(address, result[0].y, result[0].x);
+						      
+						            // 결과값으로 받은 위치를 마커로 표시합니다
+						            var marker = new daum.maps.Marker({
+						               map : map,
+						               position : coords
+						            });
+						            marker.setMap(map);
+
+						            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+						            map.setCenter(coords);
+						         }
+						      });
+						      
+						   }
 					</script>
 					
 				</div>
@@ -160,7 +183,7 @@
                     <div class="imgUploadErrorWrap"></div>
 
                     <p class="tips">
-                        * 사진 권장사항 : 최대 10장, 사이즈 : 840 X 480픽셀(가로 X 세로), 용량 2MB 이하, 포맷 : Jpeg, gif, png<br>
+                        * 사진 권장사항 : 최대 5장, 사이즈 : 840 X 480픽셀(가로 X 세로), 용량 2MB 이하, 포맷 : Jpeg, gif, png<br>
                         * 대표이미지는 실제 장소 사진으로 선택해 주세요 (장소가 아닌 경우 임의 변경)<br>
                         * 인물, 특정 상표 등이 포함된 사진은 권리침해 등의 사유로 게재가 중단될 수 있으니 사전에 확인해 주세요
                     </p>

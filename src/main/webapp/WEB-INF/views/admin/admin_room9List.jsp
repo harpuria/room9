@@ -31,7 +31,7 @@
 													onclick="location.href='<c:url value='/admin_roomListUpdate.room9?r_no=${item.r_no }'/>'"
 													class="btn btn-primary">수정</button>
 												<button type="button"
-													onclick='location.href="<c:url value='/admin_roomListDelete.room9?r_no=${item.r_no}'/>"'
+													onclick='location.href="<c:url value='/admin_roomListDelete.room9?r_no=${item.r_no}&emailid=${sessionScope.emailid }'/>"'
 													class="btn btn-primary">삭제</button>
 											</form>
 										</td>

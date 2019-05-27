@@ -45,6 +45,7 @@ public class HomeController {
 			
 			room9Info.put("addr", obj.getR_address());
 			room9Info.put("name", obj.getR_name());
+			room9Info.put("img", obj.getR_image_1());
 			
 			room9Array.add(room9Info);
 		}

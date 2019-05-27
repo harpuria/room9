@@ -17,4 +17,7 @@ public interface HostService {
 		
 	//호스트번호뿌려주기
 	int selecthost_no(Map map);
+	
+	// 특정 호스트의 방 목록 뿌려주기
+	List<Room9DTO> hostRoomList(Map map);
 }

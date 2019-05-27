@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kosmo.room9.service.HostDTO;
 import com.kosmo.room9.service.HostService;
+import com.kosmo.room9.service.Room9DTO;
 
 @Repository("hostDAO")
 public class HostDAO implements HostService{
@@ -41,5 +42,10 @@ public class HostDAO implements HostService{
 	@Override
 	public List<HostDTO> room9List(Map map) {
 		return template.selectList("room9List",map);
+	}
+
+	@Override
+	public List<Room9DTO> hostRoomList(Map map) {
+		return template.selectList("hostRoomList", map);
 	}
 }

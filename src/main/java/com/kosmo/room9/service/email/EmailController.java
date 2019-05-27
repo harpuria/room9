@@ -8,6 +8,7 @@ import javax.mail.internet.MimeBodyPart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,13 +56,14 @@ public class EmailController {
 	// 문의 내용 보내기
 	@RequestMapping("/sendQuestion.room9")
 	public String sendQuestion (@RequestParam Map map, Model model) throws Exception{
+		
 		String e_mail = map.get("email").toString();
 		String name = map.get("name").toString();
 		String tel = map.get("tel").toString();
 		String title = map.get("title").toString();
 		String content = map.get("content").toString();
 
-		String htmlText = "<h1>" + name + "님의 문의 사항\r\n\r\n" + title + "\r\n" + content + "</h1>";
+		String htmlText = name + "님의 문의 사항<br>" + "문의 제목 : " + title + "<br>" + content;
 		
 		email.setContent(htmlText); // 내용
 		email.setReceiver("harpuria87@gmail.com");

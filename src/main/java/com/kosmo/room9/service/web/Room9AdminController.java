@@ -168,6 +168,8 @@ public class Room9AdminController {
 		
 		service.Room9MittingInsert(map);
 		
+		
+		
 		return "forward:/admin_main.room9";
 	}
 	

@@ -21,6 +21,7 @@
 		<typeAlias alias="HostDTO" type="com.kosmo.room9.service.HostDTO"/>
 		<typeAlias alias="SuggestionDTO" type="com.kosmo.room9.service.SuggestionDTO"/>
 		<typeAlias alias="FreeBbsDTO" type="com.kosmo.room9.service.FreeBbsDTO"/>
+		<typeAlias alias="AndroidTokenDTO" type="com.kosmo.room9.service.AndroidTokenDTO"/>
 	</typeAliases>
 	
 	<!-- MapperFile(SQL쿼리 결과와 자바빈 제공) 위치 정보 -->
@@ -28,6 +29,7 @@
 		<mapper resource="mybatis/r9_mybatis.xml" />
 		<mapper resource="mybatis/r9_adminMybatis.xml" />
 		<mapper resource="mybatis/freeboard.xml" />
+		<mapper resource="mybatis/r9_android.xml"/>
 	</mappers>
 	
 </configuration>

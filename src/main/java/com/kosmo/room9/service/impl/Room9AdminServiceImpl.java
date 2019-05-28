@@ -50,4 +50,15 @@ public class Room9AdminServiceImpl implements Room9AdminService {
 	}
 
 
+	@Override
+	public int RoomHostDelete(Map map) {
+		return dao.RoomHostDelete(map);
+	}
+
+	@Override
+	public int RoomMemberDelete(Map map) {
+		return dao.RoomMemberDelete(map);
+	}
+
+
 }

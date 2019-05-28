@@ -10,7 +10,7 @@
 <link href="<c:url value='/css/jquery.ui.selectmenu.css'/>" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-   <div id="app">
+   <div id="app" style="padding-left: 14%;">
         <div class="topSkin web">
             <div class="skin" style="background-image: url('resources/img/bg_intro.jpg')"></div>
             <h2 class="skinTitle">호스트 등록</h2>

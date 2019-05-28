@@ -69,7 +69,8 @@ public class Room9AdminController {
 	}
 	//룸리스트(뿌려주기)
 	@RequestMapping("/admin_room9List.room9")
-	public String room9List(@RequestParam Map map, Model model) throws Exception{
+	public String room9List(@RequestParam Map map, Model model,HttpSession session) throws Exception{
+		map.put("emailid",session.getAttribute("emailid"));
 		List<HostDTO> list = hostservice.room9List(map);
 		model.addAttribute("list", list);
 		
@@ -83,6 +84,25 @@ public class Room9AdminController {
 		
 		return "forward:/admin_room9List.room9";
 	}
+	/*
+	//호스트 삭제
+	@RequestMapping("/admin_roomHostDelete.room9")
+	public String room9Hostdelete(@RequestParam Map map) throws Exception{
+		//서비스 호출]
+		service.RoomHostDelete(map);
+		
+		return "forward:/admin_host.room9";
+	}
+	
+	//회원탈퇴
+	@RequestMapping("/admin_room9MemberDelete.room9")
+	public String room9Memberdelete(@RequestParam Map map) throws Exception{
+		//서비스 호출]
+		service.RoomMemberDelete(map);
+		
+		return "forward:/admin_member.room9";
+	}
+	*/
 	
 	
 	@RequestMapping("/admin_calender.room9")
@@ -168,6 +188,8 @@ public class Room9AdminController {
 		
 		service.Room9MittingInsert(map);
 		
+		
+		
 		return "forward:/admin_main.room9";
 	}
 	
@@ -207,7 +229,7 @@ public class Room9AdminController {
 	
 	@RequestMapping("/admin_reservationList.room9")
 	public String adminReservationList(@RequestParam Map map, Model model) throws Exception{
-		
+		//map.put("m_email", session.getAttribute(""));
 		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		

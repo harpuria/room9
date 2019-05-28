@@ -307,8 +307,6 @@
 				// 정상적으로 검색이 완료됐으면 
 				if (status === daum.maps.services.Status.OK) {
 					console.log("좌표 확인 : " + result[0].y, result[0].x);
-					console.log("img check :" + elt.img);
-					var image = elt.img;
 
 					// 해당 위치의 마커를 만들고...
 					var marker = new daum.maps.Marker({
@@ -328,12 +326,11 @@
 					            '        </div>' + 
 					            '        <div class="body">' + 
 					            '            <div class="img">' +
-					            '              <img src="<c:url value="/upload/' + image + '"/>" width="73" height="70">  ' +
+					            '              <img src="<c:url value="/upload/' + elt.img + '"/>" width="73" height="70">  ' +
 					            '           </div>' + 
 					            '            <div class="desc">' + 
 					            '                <div class="ellipsis">' + elt.addr + '</div>' + 
-					            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-					            '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+					            '                <div><a href="<c:url value="reservation.room9?r_no=' + elt.no + '&m_email="/>" target="_self" class="link">홈페이지</a></div>' + 
 					            '            </div>' + 
 					            '        </div>' + 
 					            '    </div>' +    

@@ -31,7 +31,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/home.room9", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpServletRequest req) {
-		
 		// 하나의 모임방 정보가 들어가는 JSONObject 객체
 		JSONObject room9Info;
 		// 모임은 여러개이기 때문에 배열의 형태로 저장해줄것임.
@@ -46,6 +45,7 @@ public class HomeController {
 			room9Info.put("addr", obj.getR_address());
 			room9Info.put("name", obj.getR_name());
 			room9Info.put("img", obj.getR_image_1());
+			room9Info.put("no", obj.getR_no());
 			
 			room9Array.add(room9Info);
 		}

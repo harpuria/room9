@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.mail.BodyPart;
 import javax.mail.internet.MimeBodyPart;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -55,7 +56,7 @@ public class EmailController {
 	
 	// 문의 내용 보내기
 	@RequestMapping("/sendQuestion.room9")
-	public String sendQuestion (@RequestParam Map map, Model model) throws Exception{
+	public String sendQuestion (@RequestParam Map map, Model model, HttpSession session) throws Exception{
 		
 		String e_mail = map.get("email").toString();
 		String name = map.get("name").toString();
@@ -63,7 +64,9 @@ public class EmailController {
 		String title = map.get("title").toString();
 		String content = map.get("content").toString();
 
-		String htmlText = name + "님의 문의 사항<br>" + "문의 제목 : " + title + "<br>" + content;
+		String imgPath = session.getServletContext().getRealPath("/resources/img/room9logo.png");
+		
+		String htmlText = "<img src='https://raw.githubusercontent.com/harpuria/room9/master/src/main/webapp/resources/img/room9logo_op.png' style='width:20%'/><br>" + name + "님의 문의 사항<br>" + "문의 제목 : " + title + "<br>" + content;
 		
 		email.setContent(htmlText); // 내용
 		email.setReceiver("harpuria87@gmail.com");

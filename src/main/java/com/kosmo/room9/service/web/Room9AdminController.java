@@ -62,8 +62,8 @@ public class Room9AdminController {
 		List<NoticeDTO> list = noticeService.noticeList(map);
 		model.addAttribute("list", list);
 		
-		//List<HostDTO> listRoom = hostservice.room9List(map);
-		//model.addAttribute("listRoom", listRoom);
+		List<HostDTO> listRoom = hostservice.room9List(map);
+		model.addAttribute("listRoom", listRoom);
 
 		return "admin_main.adminTiles";
 	}
@@ -168,6 +168,8 @@ public class Room9AdminController {
 		System.out.println("마지막맵 : " + map);
 		
 		service.Room9MittingInsert(map);
+		
+		
 		
 		return "forward:/admin_main.room9";
 	}

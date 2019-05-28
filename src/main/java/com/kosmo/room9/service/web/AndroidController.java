@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.kosmo.room9.service.AndroidTokenDTO;
 import com.kosmo.room9.service.CrawlingDataDTO;
+import com.kosmo.room9.service.impl.AndroidTokenServiceImpl;
 import com.kosmo.room9.service.impl.CrawlingDataServiceImpl;
 import com.kosmo.room9.service.impl.MemberServiceImpl;
 import com.kosmo.room9.service.impl.Room9AdminServiceImpl;
@@ -45,6 +47,9 @@ public class AndroidController {
 	
 	@Resource(name="room9ServiceImpl")
 	Room9ServiceImpl  listservice;
+	
+	@Resource(name="androidTokenServiceImpl")
+	AndroidTokenServiceImpl tokenservice;
 	
 	// 안드로이드 로그인
 	@RequestMapping("/loginAndroid.room9")
@@ -166,19 +171,71 @@ public class AndroidController {
 							
 	}
 	
-	@RequestMapping("/fcmpushmsg.room9")
+	@RequestMapping("/fcmpushtoken.room9")
 	public void Token(@RequestParam Map map) {
-		System.out.println(map);
-		System.out.println("Token :" +map.get("token").toString());
+	    String token = map.get("token").toString();
+	    //안드로이드에서 앱 설치시 생성된 토큰값을 테이블에 저장 
+		//System.out.println("Token :" +map.get("token").toString());
+		//String token = map.get("token").toString();
 		
-		
-		
-		
-		
-		
-		
+		//System.out.println(token);
+		tokenservice.insertToken(map);
 		
 	}
-
 	
+	@RequestMapping("/fcmpushmsg.room9")
+	public void sendPush(@RequestParam Map map, HttpServletRequest request, Model model) {
+		String token;
+		System.out.println("sendPush.......");
+		
+		List<String> list = tokenservice.selectToken(map);
+		for(int i=0;i < list.size();i++) {
+			//테이블에 저장한 토큰값 token에 저장
+			token =  list.get(i);
+			// 서버에 저장된 토큰 가져오기
+			
+			try {
+				//title = URLEncoder.encode(title, "UTF-8"); // 한글깨짐으로 URL인코딩해서 보냄
+				//content = URLEncoder.encode(content, "UTF-8");
+			String title = URLEncoder.encode("Room9","UTF-8");
+			String body = URLEncoder.encode("New_Room_Registration","UTF-8");
+				System.out.println(String.format("title : %s, body : %s", title, body));
+				System.out.println(token);
+				ResponseEntity<String> result = sendHttp(token,title,body);
+			
+			
+			
+			
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			
+			}
+	}
+	
+	/*	ResponseEntity<String> result = sendHttp(token, title, content);
+		
+		model.addAttribute("serverTime", token);
+		model.addAttribute("result", result.getBody());
+		return "home2.tiles";
+	}*/
+
+	private ResponseEntity<String> sendHttp(String token, String title, String body){
+		RestTemplate template = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders(); 
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.add("Authorization", "key="+"AAAAwK1Lp9k:APA91bEALzuDFMJkmLT88Kj0Opt3x50GbFNGLIyFRoc1eyA-3DUeLAGwED0kw8Tjp4cWwyohk8MvixAQl3KDQo01toEtjVqWDAnJkDB1mWFktDKTNvT3I7IHhH-0xb2om2WLJHzT3r0p"); // API_KEY : Firebase 내 프로젝트의 서버키		
+		JSONObject json  = new JSONObject();
+		json.put("to", token);
+		   
+		JSONObject notification = new JSONObject();
+		notification.put("title",title);
+		notification.put("body",body);
+		json.put("notification",notification);
+		
+		HttpEntity entity = new HttpEntity(json.toJSONString(), headers);
+		 
+		return template.exchange("https://fcm.googleapis.com/fcm/send", HttpMethod.POST, entity, String.class);
+
+	}
 }

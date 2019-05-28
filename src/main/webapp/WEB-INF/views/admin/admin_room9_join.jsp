@@ -24,7 +24,7 @@ function addrSearch(){
 
 <section class="content" style="padding: 78px 30px 30px 280px;">
     <h3 class="mainTitle">ROOM9 정보 입력<span class="tips">* 모든 항목 필수</span></h3>
-    <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data">
+      <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="#">
         <div class="formBox commonForm">
             <article class="placeName">
@@ -773,9 +773,30 @@ function addrSearch(){
         </div>
 
         <article class="btnArea">
-            <input type="submit" class="btn add" value="등록하기">
+            <input class="btn add" value="등록하기" onclick="submitForm()">
         </article>
+        
     </form>
 </section>
 
+<script>
 
+function submitForm(){
+	$.ajax({
+		url:"<c:url value='/fcmpushmsg.room9'/>",
+		type:"POST",
+		data: "JSON",
+		processData: false,
+	    contentType: false,
+		error:function(data){
+			console.log("에러");
+			$(".placeAddForm").submit();
+		},
+		success:function(data){
+			console.log("성공");
+		}
+	});	
+	
+}
+
+</script>

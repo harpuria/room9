@@ -23,8 +23,15 @@
 	
 	<!-- 호스트이름과 방제목 조인해서 목록에뿌려주기 -->
 	<select id="room9List" parameterType="java.util.Map" resultType="HostDTO">
-		<!--  SELECT R.R_NO,H.H_NAME,R.R_NAME,R.R_DATE FROM R9_ROOM R JOIN R9_HOST H ON R.H_NO = H.H_NO ORDER BY R_DATE DESC -->
+	<!-- 관리자일때 -->
+	<if test='emailid=="room@room.com"'>
+		SELECT R.R_NO,H.H_NAME,R.R_NAME,R.R_DATE FROM R9_ROOM R JOIN R9_HOST H ON R.H_NO = H.H_NO ORDER BY R_DATE DESC
+	</if>
+	<!-- 호스트(관리자x)일때 -->
+	<if test='emailid!="room@room.com"'>
 		SELECT R.R_NO,H.H_NAME,R.R_NAME,R.R_DATE FROM R9_ROOM R JOIN R9_HOST H ON R.H_NO = H.H_NO WHERE H_NAME=(SELECT H_NAME FROM R9_HOST WHERE H_EMAIL=#{emailid}) ORDER BY R_DATE DESC
+	</if>
+	
 	</select>
 	<!-- 호스트 삭제 -->
  	<delete id="room9MittingDelete" parameterType="java.util.Map">

@@ -33,6 +33,7 @@
 		      var options = {
 		        bar: {groupWidth: "30%"},
 		        legend: { position: "none" },
+		        
 		      };
 		      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
 		      chart.draw(view, options);

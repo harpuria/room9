@@ -62,14 +62,15 @@ public class Room9AdminController {
 		List<NoticeDTO> list = noticeService.noticeList(map);
 		model.addAttribute("list", list);
 		
-		List<HostDTO> listRoom = hostservice.room9List(map);
-		model.addAttribute("listRoom", listRoom);
+		//List<HostDTO> listRoom = hostservice.room9List(map);
+		//model.addAttribute("listRoom", listRoom);
 
 		return "admin_main.adminTiles";
 	}
 	//룸리스트(뿌려주기)
 	@RequestMapping("/admin_room9List.room9")
-	public String room9List(@RequestParam Map map, Model model) throws Exception{
+	public String room9List(@RequestParam Map map, Model model,HttpSession session) throws Exception{
+		map.put("emailid",session.getAttribute("emailid"));
 		List<HostDTO> list = hostservice.room9List(map);
 		model.addAttribute("list", list);
 		
@@ -207,7 +208,7 @@ public class Room9AdminController {
 	
 	@RequestMapping("/admin_reservationList.room9")
 	public String adminReservationList(@RequestParam Map map, Model model) throws Exception{
-		
+		//map.put("m_email", session.getAttribute(""));
 		List<Room9DTO> list = hostservice.hostRoomList(map);
 		model.addAttribute("list", list);
 		

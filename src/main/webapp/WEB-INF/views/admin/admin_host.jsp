@@ -18,6 +18,7 @@
 									<th class="text-center">호스트명</th>
 									<th class="text-center">전화번호</th>
 									<th class="text-center">호스트등록일</th>
+									<th class="text-center">메뉴</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -29,8 +30,14 @@
 										<td class="text-center">${item.h_name }</td>
 										<td class="text-center">${item.h_tel }</td>
 										<td class="text-center">${item.h_date }</td>
+										<td class="text-center">
+											<form>
+												<button type="button"
+													onclick='location.href="#"'
+													class="btn btn-primary">삭제</button>
+											</form>
+										</td>
 									</tr>
-									
 								</c:forEach>
 							</tbody>
 						</table>

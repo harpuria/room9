@@ -9,6 +9,10 @@ public interface Room9AdminService {
 	int Room9MittingUpdate(Map map);
 	int Room9MittingDelete(Map map);
 	
+	//호스트 ,회원 삭제 및 탈퇴
+	int RoomMemberDelete(Map map);
+	int RoomHostDelete(Map map);
+	
 	// 회원 수 가져오기
 	String getMember(Map map);
 	

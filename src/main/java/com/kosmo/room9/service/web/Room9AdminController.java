@@ -84,6 +84,25 @@ public class Room9AdminController {
 		
 		return "forward:/admin_room9List.room9";
 	}
+	/*
+	//호스트 삭제
+	@RequestMapping("/admin_roomHostDelete.room9")
+	public String room9Hostdelete(@RequestParam Map map) throws Exception{
+		//서비스 호출]
+		service.RoomHostDelete(map);
+		
+		return "forward:/admin_host.room9";
+	}
+	
+	//회원탈퇴
+	@RequestMapping("/admin_room9MemberDelete.room9")
+	public String room9Memberdelete(@RequestParam Map map) throws Exception{
+		//서비스 호출]
+		service.RoomMemberDelete(map);
+		
+		return "forward:/admin_member.room9";
+	}
+	*/
 	
 	
 	@RequestMapping("/admin_calender.room9")

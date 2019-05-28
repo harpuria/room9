@@ -52,5 +52,15 @@ public class Room9AdminServiceDAO implements Room9AdminService {
 		return template.selectList("reservationList", map);
 	}
 
+	@Override
+	public int RoomHostDelete(Map map) {
+		return template.selectOne("roomHostDelete",map);
+	}
+
+	@Override
+	public int RoomMemberDelete(Map map) {
+		return template.selectOne("roomMemberDelete",map);
+	}
+
 
 }

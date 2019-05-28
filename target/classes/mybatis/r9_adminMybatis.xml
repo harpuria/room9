@@ -64,6 +64,15 @@
 	<select id="reservationList" parameterType="java.util.Map" resultType="ReservationDataDTO">
 		SELECT * FROM R9_RESERVATION WHERE R_NO=#{no}
 	</select>
-
+	<!-- 
+		호스트,회원 탈퇴,삭제 
+	<delete id="roomHostDelete" parameterType="java.util.Map">
+		DELETE R9_HOST WHERE h_no=#{h_no}
+	</delete>
+	
+	<delete id="roomMemberDelete" parameterType="java.util.Map">
+		DELETE R9_MEMBER WHERE m_no=#{m_no}
+	</delete>
+ 	-->
 </mapper>
 

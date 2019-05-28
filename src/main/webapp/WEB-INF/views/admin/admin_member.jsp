@@ -17,6 +17,7 @@
 									<th class="text-center">아이디</th>
 									<th class="text-center">전화번호</th>
 									<th class="text-center">가입일</th>
+									<th class="text-center">메뉴</th>
 								</tr>
 							</thead>
 						<c:forEach items="${list }" var="items">
@@ -26,6 +27,13 @@
 									<td class="text-center">${items.m_email }</td>
 									<td class="text-center">${items.m_tel }</td>
 									<td class="text-center">${items.m_date }</td>
+									<td class="text-center">
+										<form>
+											<button type="button"
+												onclick='location.href="#"'
+												class="btn btn-primary">탈퇴</button>
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</c:forEach>	

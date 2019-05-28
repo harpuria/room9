@@ -498,7 +498,7 @@ label.error {
 				<c:if test="${not empty list }" >
 					<c:forEach items="${list }" var="items" varStatus="loop">
 						
-						<li class="row"><a href="#">
+						<li class="row"><a href="<c:url value='/reservation.room9?r_no=${items.r_no }&m_email=${sessionScope.emailid }'/>">
 								<div class="imgArea">
 									<img src="<c:url value='upload/${items.r_image_1 }'/>" />
 								</div>

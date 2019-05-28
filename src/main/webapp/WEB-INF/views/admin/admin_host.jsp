@@ -22,7 +22,6 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${list }" var="item">
-								
 									<tr>
 										<td class="text-center">${item.h_name }</td>
 										<td class="text-center">${item.h_email }</td>
@@ -30,9 +29,9 @@
 										<td class="text-center">${item.h_tel }</td>
 										<td class="text-center">${item.h_date }</td>
 									</tr>
-									
 								</c:forEach>
 							</tbody>
+							
 						</table>
 					</div>
 				</div>

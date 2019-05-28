@@ -16,15 +16,26 @@ function addrSearch(){
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
             // 예제를 참고하여 다양한 활용법을 확인해 보세요.
             $('#mapAddr').val(data.roadAddress);
-            $('#location').focus();
+            addressSearch();
         }
     }).open();
 };
 </script>
 
+<style>
+input.error, textarea.error {
+	border: 1px solid red;
+}
+
+label.error {
+	display: block;
+	color: red;
+}
+</style>
+
 <section class="content" style="padding: 78px 30px 30px 280px;">
     <h3 class="mainTitle">ROOM9 정보 입력<span class="tips">* 모든 항목 필수</span></h3>
-    <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data">
+    <form action="<c:url value='/admin_room9_joinProcess.room9'/>" class="placeAddForm" method="POST" enctype="multipart/form-data" id="placeAddForm">
         <input type="hidden" name="_token" value="#">
         <div class="formBox commonForm">
             <article class="placeName">
@@ -49,10 +60,7 @@ function addrSearch(){
                 </div>
                 <div class="editArea">
                     <input onclick="addrSearch()" type="text" placeholder="주소 검색 / 예) 강남구 영동대로" id="mapAddr" name="addr"  >
-                    <input type="text" placeholder="상세주소 입력" class="detail" id="location" name="addr_detail" onfocus="addressSearch()">
-					
-					
-                    <div class="col-md-12" style="width: 100%; height: 300px;" id="map"></div>
+                    <div class="col-md-12" style="width: 100%; height: 400px;" id="map"></div>
                     
                     <!-- 지도 시작 (클릭시 마커 표시 하고 주소값 받아오기) -->
                     <script>
@@ -176,9 +184,7 @@ function addrSearch(){
 								
 									}
 								});	
-				
 							}
-						
 						</script>
                     <div class="imgUploadErrorWrap"></div>
 
@@ -777,5 +783,7 @@ function addrSearch(){
         </article>
     </form>
 </section>
+
+
 
 

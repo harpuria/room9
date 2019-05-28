@@ -442,7 +442,7 @@ margin-right:0.5em;
 <!-- 내용시작 -->
 	<div class="container">
         <div class="py-5 text-center">
-            <h2>상세보기</h2>
+            <h2>${record.r_name }</h2>
             <br/>
             <p class="lead">이곳에서 예약과 상세정보를 확인 가능합니다</p>
         </div>

@@ -33,18 +33,15 @@ public class MemberController {
 		//멤버정보를 뿌려주는 곳
 		Room9MemberDTO record = service.userInfoSelect(map);
 		model.addAttribute("memberRecord",record);
-		System.out.println("2");
 		
 		
 		//예약정보를 뿌려주기
 		List<ReservationDataDTO> list = service.ResInfoSelectList(map);
 		model.addAttribute("list", list);
 		
-		
-		
-		
 		return "UserInfo.tiles";
 	}
+	
 	//예약취소하기
 	@RequestMapping("/roomCancle.room9")
 	public String roomCancle(@RequestParam Map map,HttpSession session)throws Exception{
